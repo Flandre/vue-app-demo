@@ -16,7 +16,7 @@
         navData: [
           {
             name: '首页',
-            url: '/',
+            url: '/index',
             disabled: false
           },
           {
