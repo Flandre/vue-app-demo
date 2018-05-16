@@ -6,7 +6,11 @@
 
 <script>
   export default {
-    name: "Index"
+    name: "Index",
+    mounted() {
+      /* 返回顶部 */
+      document.documentElement.scrollTop = 0
+    },
   }
 </script>
 
