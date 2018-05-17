@@ -3,6 +3,7 @@
     <IndexHeader />
     <img src="../../assets/pages/index/banner.png" class="banner">
     <CreditData />
+    <EndorsementsCard/>
     <h3>This is index page</h3>
   </div>
 </template>
@@ -10,11 +11,13 @@
 <script>
   import IndexHeader from '@/components/IndexHeader'
   import CreditData from '@/components/CreditData'
+  import EndorsementsCard from '@/components/EndorsementsCard'
   export default {
     name: "Index",
     components: {
       IndexHeader,
-      CreditData
+      CreditData,
+      EndorsementsCard
     },
     mounted() {
       /* 返回顶部 */

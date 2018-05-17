@@ -1,13 +1,13 @@
 <template>
   <div class="credit-data">
-    <div class="credit-num" v-on:click="tapCreditNum">
+    <div class="credit-num" @click="tapCreditNum">
       <span>{{creditNum}}</span>
     </div>
     <div class="credit-info">
       <span class="info-title">{{creditTitle}}</span>
       <span class="info-desc">{{creditDesc}}</span>
     </div>
-    <img src="../assets/components/CreditData/driver_license.png" class="driver-license" v-on:click="tapLicense">
+    <img src="../assets/components/CreditData/driver_license.png" class="driver-license" @click="tapLicense">
   </div>
 </template>
 
