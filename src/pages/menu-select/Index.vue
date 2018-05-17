@@ -1,6 +1,7 @@
 <template>
   <div>
     <IndexHeader />
+    <img src="../../assets/pages/index/banner.png" class="banner">
     <h3>This is index page</h3>
   </div>
 </template>
@@ -20,5 +21,8 @@
 </script>
 
 <style scoped>
-
+  .banner {
+    width: 100%;
+    height: auto;
+  }
 </style>

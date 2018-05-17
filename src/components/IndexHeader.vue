@@ -47,16 +47,16 @@
 <style scoped>
   .header {
     width: 100%;
-    height: 50px;
+    height: 44px;
     position: fixed;
     top: 0;
   }
   .header .header-bg {
     width: 100%;
-    height: 50px;
+    height: 44px;
     background: #45A4F7;
     color: #fff;
-    line-height: 60px;
+    line-height: 55px;
     text-align: center;
     font-size: 16px;
   }
@@ -66,7 +66,7 @@
     background: #45A4F7;
     color: #fff;
     position: fixed;
-    top: 9px;
+    top: 6px;
     right: 0;
     border-radius: 16px 0 0 16px;
     overflow: hidden;
@@ -77,9 +77,14 @@
     height: 32px;
     line-height: 32px;
   }
-</style>
-<style>
-  #app {
-    margin-top: 50px;
+  .area {
+    position: fixed;
+    left: 15px;
+    top: 14px;
+    height: 16px;
+    line-height: 16px;
+    color: #fff;
+    font-size: 12px;
+    padding-left: 14px;
   }
 </style>

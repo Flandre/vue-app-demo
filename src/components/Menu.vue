@@ -86,31 +86,29 @@
     color: #45A4F7;
   }
   .main-menu .item-box.index {
-    background-image:url('../assets/MenuSelect/index.png')
+    background-image:url('../assets/components/Menu/index.png')
   }
   .main-menu .item-box.study {
-    background-image:url('../assets/MenuSelect/study.png')
+    background-image:url('../assets/components/Menu/study.png')
   }
   .main-menu .item-box.find {
-    background-image:url('../assets/MenuSelect/find.png')
+    background-image:url('../assets/components/Menu/find.png')
   }
   .main-menu .item-box.home {
-    background-image:url('../assets/MenuSelect/home.png')
+    background-image:url('../assets/components/Menu/home.png')
   }
   .main-menu .item-box.active.index {
-    background-image:url('../assets/MenuSelect/index-a.png')
+    background-image:url('../assets/components/Menu/index-a.png')
   }
   .main-menu .item-box.active.study {
-    background-image:url('../assets/MenuSelect/study-a.png')
+    background-image:url('../assets/components/Menu/study-a.png')
   }
   .main-menu .item-box.active.find {
-    background-image:url('../assets/MenuSelect/find-a.png')
+    background-image:url('../assets/components/Menu/find-a.png')
   }
   .main-menu .item-box.active.home {
-    background-image:url('../assets/MenuSelect/home-a.png')
+    background-image:url('../assets/components/Menu/home-a.png')
   }
-
-
 </style>
 
 <style>

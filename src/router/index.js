@@ -19,6 +19,7 @@ export default new Router({
         { path: '/find', name: '发现', component: Find },
         { path: '/home', name: '我的', component: Home }
       ]
-    }
+    },
+    { path: '*', redirect: '/404' }
   ]
 })
