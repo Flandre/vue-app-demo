@@ -58,6 +58,7 @@
     width: 100%;
     height: 44px;
     position: fixed;
+    z-index: 1050;
     top: 0;
   }
   .header .header-bg {
