@@ -9,7 +9,7 @@
     name: "Study",
     mounted() {
       /* 返回顶部 */
-      document.documentElement.scrollTop = 0
+      window.scrollTo(0, 0)
     },
   }
 </script>

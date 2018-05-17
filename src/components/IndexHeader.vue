@@ -12,7 +12,7 @@
         <span>{{templow}}℃-{{temphigh}}℃</span>
       </div>
       <div class="calendar">
-        限行{{calendarNum.split(' ').join('和')}}
+        限行<em>{{calendarNum.split(' ')[0]}}</em>和<em>{{calendarNum.split(' ')[1]}}</em>
       </div>
     </div>
   </div>
@@ -34,9 +34,9 @@
     mounted() {
       const SCROLL_LIMIT = 100
       document.addEventListener('scroll', () => {
-        // console.log(this.headerOpacity)
-        if(document.documentElement.scrollTop < SCROLL_LIMIT)
-          this.headerOpacity = document.documentElement.scrollTop / 100
+        // console.log(window.scrollY)
+        if(window.scrollY < SCROLL_LIMIT)
+          this.headerOpacity = window.scrollY / 100
         else
           this.headerOpacity = 1
       })
@@ -86,5 +86,7 @@
     color: #fff;
     font-size: 12px;
     padding-left: 14px;
+    background: url('../assets/components/IndexHeader/area.png') left center no-repeat;
+    background-size:  8px 12px;
   }
 </style>
