@@ -7,6 +7,7 @@ import Index from '@/pages/menu-select/Index'
 import Study from '@/pages/menu-select/Study'
 import Find from '@/pages/menu-select/Find'
 import Home from '@/pages/menu-select/Home'
+import _404 from '@/pages/404'
 
 Vue.use(Router)
 
@@ -20,6 +21,7 @@ export default new Router({
         { path: '/home', name: '我的', component: Home }
       ]
     },
+    { path: '/404', name: '404页面', component: _404},
     { path: '*', redirect: '/404' }
   ]
 })
