@@ -81,6 +81,7 @@
     border-radius: 16px 0 0 16px;
     overflow: hidden;
     font-size: 12px;
+    text-align: center;
   }
   .header .scroll-cont .weather,
   .header .scroll-cont .calendar {

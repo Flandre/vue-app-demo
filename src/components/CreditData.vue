@@ -65,6 +65,7 @@
     font-size: 32px;
     line-height: 32px;
     margin-top: 18px;
+    text-align: center;
   }
   .credit-data .credit-info {
     overflow: hidden;

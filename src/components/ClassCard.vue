@@ -29,5 +29,11 @@
 </script>
 
 <style scoped>
+  .class-card {
+    height: 164px;
+    background: #fff;
+    margin-top: 15px;
+    padding: 15px;
 
+  }
 </style>
