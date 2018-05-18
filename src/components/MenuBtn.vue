@@ -56,7 +56,7 @@
         this.showAnit = !this.showAnit
         setTimeout(() => {
           this.menuActive = !this.menuActive
-        }, 10)
+        }, 50)
       },
       tapLink(url){
         router.push(url)
