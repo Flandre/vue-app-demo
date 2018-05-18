@@ -1,7 +1,7 @@
 <template>
   <div class="menu-button">
     <div :class="['menu-bg', {active: menuActive}]"></div>
-    <div class="menu-main" @click="testClick">
+    <div class="menu-main" @click="tapMenu">
       <div :class="['menu-icon', {active: menuActive}]"></div>
     </div>
     <div v-if="showAnit" :class="['menu-text', {active: menuActive}]">
@@ -9,7 +9,7 @@
       <p class="desc">从现在起重视和管理驾驶信用，让良好的驾驶行为创造更多价值！</p>
     </div>
     <div v-if="showAnit" :class="['menu-btns', {active: menuActive}]">
-      <div class="btn-item" v-for="btn in btns">
+      <div class="btn-item" v-for="btn in btns" @click="tapLink(btn.url)">
         <div class="icon">
           <img :src="btn.icon">
         </div>
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+  import router from '@/router/index'
   export default {
     name: "menu-btn",
     data() {
@@ -51,11 +52,14 @@
       }
     },
     methods: {
-      testClick() {
+      tapMenu() {
         this.showAnit = !this.showAnit
         setTimeout(() => {
           this.menuActive = !this.menuActive
         }, 10)
+      },
+      tapLink(url){
+        router.push(url)
       }
     }
   }
