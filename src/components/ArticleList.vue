@@ -2,9 +2,7 @@
   <div class="article-list">
     <div class="title">
       <h2>{{title}}</h2>
-      <!--<div class="change-btn">-->
-
-      <!--</div>-->
+      <div :class="['change-btn', {active: changing}]" @click="changeArticle"><div class="icon"></div><span>换一换</span></div>
     </div>
     <div class="list-container">
       <div class="list-item" v-for="list in articleData" :key="list.id" >
@@ -58,8 +56,19 @@
             keywords: ['车辆年检'],
             id: 5
           },
-        ]
-
+        ],
+        changing: false,
+      }
+    },
+    methods: {
+      changeArticle() {
+        if(!this.changing){
+          this.changing = true
+          setTimeout(() => {
+            this.articleData.sort(() => Math.random() < 0.5 ? -1: 1)
+            this.changing = false
+          }, 2000)
+        }
       }
     },
     props: ['title']
@@ -75,12 +84,37 @@
   }
   .article-list .title {
     margin-bottom: 8px;
+    position: relative;
   }
   .article-list .title h2{
     font-size: 15px;
     line-height: 15px;
     color: #4A4A4A;
     font-weight: normal;
+  }
+  .article-list .change-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 11px;
+    line-height: 16px;
+    color: #ABABAB;
+    vertical-align: middle;
+  }
+  .article-list .change-btn .icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    background: url("../assets/components/ArticleList/changeIcon.png") center no-repeat;
+    background-size: 16px 16px;
+    margin-right: 5px;
+  }
+  .article-list .change-btn.active .icon {
+    animation: rotate 700ms linear infinite;
+  }
+  .article-list .change-btn span {
+    display: inline-block;
   }
   .article-list .list-container {
     margin-right: -15px;
@@ -130,6 +164,14 @@
     color: #45A4F7;
     border: 1px solid #45A4F7;
     border-radius: 4px;
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
   }
 
 </style>
