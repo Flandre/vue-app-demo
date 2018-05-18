@@ -1,6 +1,13 @@
 <template>
-  <div class="menu-button" @click="testClick">
-
+  <div class="menu-button">
+    <div :class="['menu-bg', {active: menuActive}]"></div>
+    <div class="menu-main" @click="testClick">
+      <div :class="['menu-icon', {active: menuActive}]"></div>
+    </div>
+    <div v-if="showAnit" :class="['menu-text', {active: menuActive}]">
+      <p class="title">安全出行，驾有所值</p>
+      <p class="desc">从现在起重视和管理驾驶信用，让良好的驾驶行为创造更多价值！</p>
+    </div>
   </div>
 </template>
 
@@ -9,22 +16,94 @@
     name: "menu-btn",
     data() {
       return {
-
+        menuActive: true,
+        showAnit: true,
       }
     },
     methods: {
       testClick() {
-        console.log('111')
+        this.showAnit = !this.showAnit
+        setTimeout(() => {
+          this.menuActive = !this.menuActive
+        }, 10)
       }
     }
   }
 </script>
 
 <style scoped>
+  @font-face {
+    font-family: "HanziPen SC";
+    src: url("../fonts/HanzipenSC-Regular.otf");
+  }
   .menu-button {
     width: 40px;
     height: 36px;
+    position: relative;
+  }
+  .menu-button .menu-bg {
+    width: 0;
+    height: 0;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    background: #45A4F7;
+    transition: 200ms
+  }
+  .menu-button .menu-bg.active {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+  }
+  .menu-button .menu-main {
+    width: 40px;
+    height: 36px;
+    position: absolute;
+    top: 0;
+    left: 0;
     background: #45A4F7;
     border-radius: 4px;
+  }
+  .menu-button .menu-main .menu-icon {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -7.5px;
+    margin-left: -7.5px;
+    background: url("../assets/components/MenuBtn/icon.png") center center no-repeat;
+    background-size: 15px 15px;
+    transition: 200ms
+  }
+  .menu-button .menu-main .menu-icon.active {
+    transform: rotate(45deg);
+  }
+  .menu-button .menu-text {
+    color: #fff;
+    opacity: 0;
+    transition: 200ms;
+    transition-delay: 200ms;
+  }
+  .menu-button .menu-text.active {
+    opacity: 1;
+  }
+  .menu-button .menu-text .title {
+    position: fixed;
+    top: 90px;
+    left: 30px;
+    font-family: "HanziPen SC";
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: bold;
+  }
+  .menu-button .menu-text .desc {
+    position: fixed;
+    top: 132px;
+    left: 30px;
+    max-width: 250px;
+    font-size: 12px;
+    line-height: 17px;
   }
 </style>
