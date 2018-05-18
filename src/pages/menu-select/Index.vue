@@ -5,6 +5,7 @@
     <CreditData />
     <EndorsementsCard/>
     <ClassCard/>
+    <ArticleList :title="articleTitle"/>
     <h3>This is index page</h3>
   </div>
 </template>
@@ -14,13 +15,20 @@
   import CreditData from '@/components/CreditData'
   import EndorsementsCard from '@/components/EndorsementsCard'
   import ClassCard from '@/components/ClassCard'
+  import ArticleList from '@/components/ArticleList'
   export default {
     name: "Index",
     components: {
       IndexHeader,
       CreditData,
       EndorsementsCard,
-      ClassCard
+      ClassCard,
+      ArticleList
+    },
+    data(){
+      return {
+        articleTitle: '推荐阅读'
+      }
     },
     mounted() {
       /* 返回顶部 */
