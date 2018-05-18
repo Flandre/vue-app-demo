@@ -24,6 +24,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
+#app > * {
+  text-align: center;
+  margin: 0 auto;
+}
+#app > img {
+  display: block;
+}
 body {
   background: #EFF3F7
 }

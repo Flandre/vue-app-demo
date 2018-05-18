@@ -17,7 +17,7 @@
             </div>
             <div class="car-img">
               <div class="img-box">
-                <img src="../assets/components/EndorsementsCard/carStyle/default.png"/>
+                <img :src="endorsement.carStyle"/>
               </div>
             </div>
             <img src="../assets/components/EndorsementsCard/restriction.png" class="is-restriction" v-if="endorsement.restriction === true" />
@@ -69,7 +69,7 @@
             lastQueryText: "上次查询：12分钟前",
             endorsementInfo: ["暂无新的违章记录"],
             endorsementInfoType: 'safe',
-            carStyle: '../assets/components/EndorsementsCard/carStyle/default.png',
+            carStyle: require('../assets/components/EndorsementsCard/carStyle/default.png'),
             restriction: true,
             serviceTitle: '保险即将到期',
             serviceDesc: '还剩24天，请及时续保',
@@ -86,7 +86,7 @@
             lastQueryText: "上次查询：20分钟前",
             endorsementInfo: ["违章 4", "罚款 800", "扣分 8"],
             endorsementInfoType: 'warning',
-            carStyle: '../assets/components/EndorsementsCard/carStyle/default.png',
+            carStyle: require('../assets/components/EndorsementsCard/carStyle/default.png'),
             restriction: false,
             serviceTitle: '年检即将到期',
             serviceDesc: '还剩12天，请及时年检',
@@ -103,7 +103,7 @@
             lastQueryText: "上次查询：27分钟前",
             endorsementInfo: ["违章 4", "罚款 800", "扣分 8"],
             endorsementInfoType: 'warning',
-            carStyle: '../assets/components/EndorsementsCard/carStyle/default.png',
+            carStyle: require('../assets/components/EndorsementsCard/carStyle/default.png'),
             restriction: true,
             serviceTitle: '年检即将到期',
             serviceDesc: '还剩12天，请及时年检',
