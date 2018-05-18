@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import Menu from '../components/Menu'
+  import Menu from '@/components/Menu'
   export default {
     name: "MenuSelect",
     components: {

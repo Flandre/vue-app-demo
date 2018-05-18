@@ -7,13 +7,14 @@
         </router-link>
       </template>
       <template v-else>
-        {{i.name}}
+        <MenuBtn/>
       </template>
     </div>
   </div>
 </template>
 
 <script>
+  import MenuBtn from '@/components/MenuBtn'
   export default {
     name: "Menu",
     data() {
@@ -53,6 +54,9 @@
           }
         ]
       }
+    },
+    components: {
+      MenuBtn,
     }
   }
 </script>
