@@ -6,7 +6,7 @@
         <div class="card-item" @click="tapEndorsementPanel(endorsement.id, $event)">
           <div class="endorsement-box">
             <div class="car-info">
-              <p class="car-num">{{endorsement.lsPrefix}}{{endorsement.lsNum}} <span class="edit-car"></span></p>
+              <p class="car-num"><span>{{endorsement.lsPrefix}}{{endorsement.lsNum}}</span><span class="edit-car"></span></p>
               <p class="car-type">{{endorsement.carType}}</p>
             </div>
             <p class="last-query">{{endorsement.lastQueryText}}</p>
@@ -159,6 +159,18 @@
     font-size: 15px;
     font-weight: bold;
     line-height: 20px;
+  }
+  .card-item .endorsement-box .car-info .car-num span {
+    vertical-align: middle;
+  }
+  .card-item .endorsement-box .car-info .car-num .edit-car {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url("../assets/components/EndorsementsCard/edit.png") center no-repeat;
+    background-size: 16px 16px;
+    margin-left: 10px;
+    vertical-align: middle;
   }
   .card-item .endorsement-box .car-info .car-type{
     font-size: 12px;
