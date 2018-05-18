@@ -8,6 +8,14 @@
       <p class="title">安全出行，驾有所值</p>
       <p class="desc">从现在起重视和管理驾驶信用，让良好的驾驶行为创造更多价值！</p>
     </div>
+    <div v-if="showAnit" :class="['menu-btns', {active: menuActive}]">
+      <div class="btn-item" v-for="btn in btns">
+        <div class="icon">
+          <img :src="btn.icon">
+        </div>
+        <span>{{btn.name}}</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,8 +24,30 @@
     name: "menu-btn",
     data() {
       return {
-        menuActive: true,
-        showAnit: true,
+        menuActive: false,
+        showAnit: false,
+        btns: [
+          {
+            name: '驾驶评测',
+            url: '/jspc',
+            icon: require('../assets/components/MenuBtn/jspc.png')
+          },
+          {
+            name: '出示驾照',
+            url: '/csjz',
+            icon: require('../assets/components/MenuBtn/csjz.png')
+          },
+          {
+            name: '发布动态',
+            url: '/fbdt',
+            icon: require('../assets/components/MenuBtn/fbdt.png')
+          },
+          {
+            name: '违法曝光',
+            url: '/wfbg',
+            icon: require('../assets/components/MenuBtn/wfbg.png')
+          },
+        ]
       }
     },
     methods: {
@@ -105,5 +135,55 @@
     max-width: 250px;
     font-size: 12px;
     line-height: 17px;
+  }
+  .menu-button .menu-btns {
+    position: fixed;
+    bottom: 74px;
+    left: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+  }
+  .menu-button .menu-btns .btn-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(160px);
+    transition: 200ms;
+  }
+  .menu-button .menu-btns .btn-item .icon{
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu-button .menu-btns .btn-item .icon img {
+    width: 32px;
+    height: 32px;
+  }
+  .menu-button .menu-btns .btn-item span {
+    color: #fff;
+    font-size: 13px;
+    line-height: 13px;
+    margin-top: 10px;
+  }
+  .menu-button .menu-btns.active .btn-item {
+    transform: translateY(0);
+  }
+  .menu-button .menu-btns.active .btn-item:nth-child(1) {
+    transition-delay: 150ms;
+  }
+  .menu-button .menu-btns.active .btn-item:nth-child(2) {
+    transition-delay: 200ms;
+  }
+  .menu-button .menu-btns.active .btn-item:nth-child(3) {
+    transition-delay: 250ms;
+  }
+  .menu-button .menu-btns.active .btn-item:nth-child(4) {
+    transition-delay: 300ms;
   }
 </style>
