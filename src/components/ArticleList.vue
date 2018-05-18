@@ -67,7 +67,7 @@
           setTimeout(() => {
             this.articleData.sort(() => Math.random() < 0.5 ? -1: 1)
             this.changing = false
-          }, 2000)
+          }, 1000)
         }
       }
     },
