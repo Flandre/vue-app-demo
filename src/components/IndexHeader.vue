@@ -105,6 +105,7 @@
   }
   .header .scroll-cont .weather.move,
   .header .scroll-cont .calendar.move {
+    -webkit-animation: move 500ms 1 linear both;
     animation: move 500ms 1 linear both;
   }
   .header .scroll-cont .weather span{
@@ -137,9 +138,11 @@
   }
   @keyframes move {
     from {
+      -webkit-transform: translateY(0);;
       transform: translateY(0);
     }
     to {
+      -webkit-transform: translateY(-32px);;
       transform: translateY(-32px);
     }
   }
