@@ -68,6 +68,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    z-index: 1060;
   }
   .main-menu .item-box{
     display: block;
