@@ -1,10 +1,22 @@
 <template>
-  <div class="menu-button"></div>
+  <div class="menu-button" @click="testClick">
+
+  </div>
 </template>
 
 <script>
   export default {
-    name: "menu-btn"
+    name: "menu-btn",
+    data() {
+      return {
+
+      }
+    },
+    methods: {
+      testClick() {
+        console.log('111')
+      }
+    }
   }
 </script>
 

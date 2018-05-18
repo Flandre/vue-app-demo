@@ -25,22 +25,22 @@
         classData: [
           {
             title: '你了解你的车吗？',
-            image: require('../assets/components/ClassCard/classBanners/class1.png'),
+            image: require('@/assets/components/ClassCard/classBanners/class1.png'),
             id: 1
           },
           {
             title: '防御性驾驶技巧',
-            image: require('../assets/components/ClassCard/classBanners/class2.png'),
+            image: require('@/assets/components/ClassCard/classBanners/class2.png'),
             id: 2
           },
           {
             title: '海外自驾新手指南',
-            image: require('../assets/components/ClassCard/classBanners/class3.png'),
+            image: require('@/assets/components/ClassCard/classBanners/class3.png'),
             id: 3
           },
           {
             title: '你了解你的车吗？',
-            image: require('../assets/components/ClassCard/classBanners/class1.png'),
+            image: require('@/assets/components/ClassCard/classBanners/class1.png'),
             id: 4
           }
         ]
