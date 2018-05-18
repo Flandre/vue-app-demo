@@ -109,7 +109,7 @@
     margin-left: -7.5px;
     background: url("../assets/components/MenuBtn/icon.png") center center no-repeat;
     background-size: 15px 15px;
-    transition: 200ms
+    transition: 500ms
   }
   .menu-button .menu-main .menu-icon.active {
     transform: rotate(45deg);
@@ -117,8 +117,7 @@
   .menu-button .menu-text {
     color: #fff;
     opacity: 0;
-    transition: 200ms;
-    transition-delay: 200ms;
+    transition: 500ms;
   }
   .menu-button .menu-text.active {
     opacity: 1;
@@ -154,7 +153,7 @@
     flex-direction: column;
     align-items: center;
     transform: translateY(160px);
-    transition: 200ms;
+    transition: 300ms;
   }
   .menu-button .menu-btns .btn-item .icon{
     width: 60px;
@@ -179,15 +178,15 @@
     transform: translateY(0);
   }
   .menu-button .menu-btns.active .btn-item:nth-child(1) {
-    transition-delay: 150ms;
+    transition-delay: 100ms;
   }
   .menu-button .menu-btns.active .btn-item:nth-child(2) {
-    transition-delay: 200ms;
+    transition-delay: 150ms;
   }
   .menu-button .menu-btns.active .btn-item:nth-child(3) {
-    transition-delay: 250ms;
+    transition-delay: 200ms;
   }
   .menu-button .menu-btns.active .btn-item:nth-child(4) {
-    transition-delay: 300ms;
+    transition-delay: 250ms;
   }
 </style>
