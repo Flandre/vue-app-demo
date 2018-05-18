@@ -6,7 +6,6 @@
     <EndorsementsCard/>
     <ClassCard/>
     <ArticleList :title="articleTitle"/>
-    <h3>This is index page</h3>
   </div>
 </template>
 

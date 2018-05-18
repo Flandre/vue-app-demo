@@ -1,7 +1,7 @@
 <template>
   <div class="article-list">
     <div class="title">
-      <h3>{{title}}</h3>
+      <h2>{{title}}</h2>
       <!--<div class="change-btn">-->
 
       <!--</div>-->
@@ -11,9 +11,11 @@
         <div class="thumb">
           <img :src="list.titleImage"/>
         </div>
-        <h3>{{list.title}}</h3>
-        <div class="keywords-container">
-          <span class="keyword-item" v-for="keyword in list.keywords">{{keyword}}</span>
+        <div class="info">
+          <h3>{{list.title}}</h3>
+          <div class="keywords-container">
+            <span class="keyword-item" v-for="keyword in list.keywords">{{keyword}}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -66,6 +68,68 @@
 
 <style scoped>
   .article-list {
-
+    margin-top: 10px;
+    background: #fff;
+    padding: 15px;
+    padding-bottom: 0;
   }
+  .article-list .title {
+    margin-bottom: 8px;
+  }
+  .article-list .title h2{
+    font-size: 15px;
+    line-height: 15px;
+    color: #4A4A4A;
+    font-weight: normal;
+  }
+  .article-list .list-container {
+    margin-right: -15px;
+  }
+  .article-list .list-container .list-item{
+    padding: 10px 15px 10px 0;
+    border-bottom: 1px solid #DBDBDB;
+    min-height: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .article-list .list-container .list-item:last-child{
+    border-bottom: none;
+  }
+  .article-list .list-container .list-item .thumb {
+    width: 80px;
+    height: 60px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+  }
+  .article-list .list-container .list-item .thumb img{
+    width: 100%;
+    height: auto;
+  }
+  .article-list .list-container .list-item .info{
+    float: left;
+    padding-left: 95px;
+    width: 100%;
+  }
+  .article-list .list-container .list-item .info h3{
+    font-size: 13px;
+    line-height: 18px;
+    height: 36px;
+    overflow: hidden;
+    font-weight: normal;
+  }
+  .article-list .list-container .list-item .info .keywords-container{
+    text-align: right;
+  }
+  .article-list .list-container .list-item .info .keywords-container span{
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 10px;
+    line-height: 18px;
+    padding: 0 6px;
+    color: #45A4F7;
+    border: 1px solid #45A4F7;
+    border-radius: 4px;
+  }
+
 </style>
