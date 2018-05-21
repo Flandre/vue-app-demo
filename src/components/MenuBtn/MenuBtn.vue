@@ -31,22 +31,22 @@
           {
             name: '驾驶评测',
             url: '/jspc',
-            icon: require('../assets/components/MenuBtn/jspc.png')
+            icon: require('./images/jspc.png')
           },
           {
             name: '出示驾照',
             url: '/csjz',
-            icon: require('../assets/components/MenuBtn/csjz.png')
+            icon: require('./images/csjz.png')
           },
           {
             name: '发布动态',
             url: '/fbdt',
-            icon: require('../assets/components/MenuBtn/fbdt.png')
+            icon: require('./images/fbdt.png')
           },
           {
             name: '违法曝光',
             url: '/wfbg',
-            icon: require('../assets/components/MenuBtn/wfbg.png')
+            icon: require('./images/wfbg.png')
           },
         ]
       }
@@ -68,7 +68,7 @@
 <style scoped>
   @font-face {
     font-family: "HanziPen SC";
-    src: url("../fonts/HanzipenSC-Regular.otf");
+    src: url("../../fonts/HanzipenSC-Regular.otf");
   }
   .menu-button {
     width: 40px;
@@ -107,7 +107,7 @@
     left: 50%;
     margin-top: -7.5px;
     margin-left: -7.5px;
-    background: url("../assets/components/MenuBtn/icon.png") center center no-repeat;
+    background: url("./images/icon.png") center center no-repeat;
     background-size: 15px 15px;
     transition: 500ms
   }

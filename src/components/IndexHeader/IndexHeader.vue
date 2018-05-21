@@ -118,7 +118,7 @@
     background-position: left center;
   }
   .header .scroll-cont .weather.cloudy span {
-    background-image: url('../assets/components/IndexHeader/cloudy.png');
+    background-image: url('./images/cloudy.png');
   }
   .header .scroll-cont .calendar em {
     font-style: normal;
@@ -133,7 +133,7 @@
     color: #fff;
     font-size: 12px;
     padding-left: 14px;
-    background: url('../assets/components/IndexHeader/area.png') left center no-repeat;
+    background: url('./images/area.png') left center no-repeat;
     background-size:  8px 12px;
   }
   @keyframes move {

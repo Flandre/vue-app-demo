@@ -20,7 +20,7 @@
                 <img :src="endorsement.carStyle"/>
               </div>
             </div>
-            <img src="../assets/components/EndorsementsCard/restriction.png" class="is-restriction" v-if="endorsement.restriction === true" />
+            <img src="images/restriction.png" class="is-restriction" v-if="endorsement.restriction === true" />
           </div>
           <div class="more-service-box">
             <div class="more-service-info">
@@ -34,7 +34,7 @@
       <swiper-slide>
         <div class="card-item">
           <div class="endorsement-box">
-            <img src="../assets/components/EndorsementsCard/add.png" class="add-newcar">
+            <img src="./images/add.png" class="add-newcar">
           </div>
           <div class="more-service-box">
             <div class="more-service-info">
@@ -69,7 +69,7 @@
             lastQueryText: "上次查询：12分钟前",
             endorsementInfo: ["暂无新的违章记录"],
             endorsementInfoType: 'safe',
-            carStyle: require('../assets/components/EndorsementsCard/carStyle/default.png'),
+            carStyle: require('./images/carStyle/default.png'),
             restriction: true,
             serviceTitle: '保险即将到期',
             serviceDesc: '还剩24天，请及时续保',
@@ -86,7 +86,7 @@
             lastQueryText: "上次查询：20分钟前",
             endorsementInfo: ["违章 4", "罚款 800", "扣分 8"],
             endorsementInfoType: 'warning',
-            carStyle: require('../assets/components/EndorsementsCard/carStyle/default.png'),
+            carStyle: require('./images/carStyle/default.png'),
             restriction: false,
             serviceTitle: '年检即将到期',
             serviceDesc: '还剩12天，请及时年检',
@@ -103,7 +103,7 @@
             lastQueryText: "上次查询：27分钟前",
             endorsementInfo: ["违章 4", "罚款 800", "扣分 8"],
             endorsementInfoType: 'warning',
-            carStyle: require('../assets/components/EndorsementsCard/carStyle/default.png'),
+            carStyle: require('./images/carStyle/default.png'),
             restriction: true,
             serviceTitle: '年检即将到期',
             serviceDesc: '还剩12天，请及时年检',
@@ -167,7 +167,7 @@
     display: inline-block;
     width: 16px;
     height: 16px;
-    background: url("../assets/components/EndorsementsCard/edit.png") center no-repeat;
+    background: url("./images/edit.png") center no-repeat;
     background-size: 16px 16px;
     margin-left: 10px;
     vertical-align: middle;
@@ -274,7 +274,7 @@
     position: absolute;
     right: 0;
     top: 8px;
-    background: url("../assets/components/EndorsementsCard/more.png") center 3px  no-repeat;
+    background: url("./images/more.png") center 3px  no-repeat;
     background-size: 20px 21px;
   }
 </style>

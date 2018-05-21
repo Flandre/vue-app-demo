@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import MenuBtn from '@/components/MenuBtn'
+  import MenuBtn from '@/components/MenuBtn/MenuBtn'
   export default {
     name: "Menu",
     data() {
@@ -91,28 +91,28 @@
     color: #45A4F7;
   }
   .main-menu .item-box.index {
-    background-image:url('../assets/components/Menu/index.png')
+    background-image:url('./images/index.png')
   }
   .main-menu .item-box.study {
-    background-image:url('../assets/components/Menu/study.png')
+    background-image:url('./images/study.png')
   }
   .main-menu .item-box.find {
-    background-image:url('../assets/components/Menu/find.png')
+    background-image:url('./images/find.png')
   }
   .main-menu .item-box.home {
-    background-image:url('../assets/components/Menu/home.png')
+    background-image:url('./images/home.png')
   }
   .main-menu .item-box.active.index {
-    background-image:url('../assets/components/Menu/index-a.png')
+    background-image:url('./images/index-a.png')
   }
   .main-menu .item-box.active.study {
-    background-image:url('../assets/components/Menu/study-a.png')
+    background-image:url('./images/study-a.png')
   }
   .main-menu .item-box.active.find {
-    background-image:url('../assets/components/Menu/find-a.png')
+    background-image:url('./images/find-a.png')
   }
   .main-menu .item-box.active.home {
-    background-image:url('../assets/components/Menu/home-a.png')
+    background-image:url('./images/home-a.png')
   }
 </style>
 

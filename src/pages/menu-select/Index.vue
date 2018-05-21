@@ -10,11 +10,11 @@
 </template>
 
 <script>
-  import IndexHeader from '@/components/IndexHeader'
-  import CreditData from '@/components/CreditData'
-  import EndorsementsCard from '@/components/EndorsementsCard'
-  import ClassCard from '@/components/ClassCard'
-  import ArticleList from '@/components/ArticleList'
+  import IndexHeader from '@/components/IndexHeader/IndexHeader'
+  import CreditData from '@/components/CreditData/CreditData'
+  import EndorsementsCard from '@/components/EndorsementsCard/EndorsementsCard'
+  import ClassCard from '@/components/ClassCard/ClassCard'
+  import ArticleList from '@/components/ArticleList/ArticleList'
   export default {
     name: "Index",
     components: {

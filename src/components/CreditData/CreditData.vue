@@ -7,7 +7,7 @@
       <span class="info-title">{{creditTitle}}</span>
       <span class="info-desc">{{creditDesc}}</span>
     </div>
-    <img src="../assets/components/CreditData/driver_license.png" class="driver-license" @click="tapLicense">
+    <img src="./images/driver_license.png" class="driver-license" @click="tapLicense">
   </div>
 </template>
 
@@ -36,11 +36,11 @@
 <style scoped>
   @font-face {
     font-family: "HanziPen SC";
-    src: url("../fonts/HanzipenSC-Regular.otf");
+    src: url("../../fonts/HanzipenSC-Regular.otf");
   }
   @font-face {
     font-family: "DIN Condensed";
-    src: url("../fonts/DINCondensedC.ttf");
+    src: url("../../fonts/DINCondensedC.ttf");
   }
   .credit-data {
     height: 56px;
@@ -52,7 +52,7 @@
   .credit-data .credit-num {
     width: 68px;
     height: 68px;
-    background: url("../assets/components/CreditData/credit-num.png") center no-repeat;
+    background: url("./images/credit-num.png") center no-repeat;
     background-size: 68px 68px;
     position: absolute;
     top: -16px;
