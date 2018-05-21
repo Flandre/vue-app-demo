@@ -5,7 +5,7 @@
       <div class="credit-eval">
         <img src="../assets/pages/creditDetail/eval.png" class="eval">
         <div class="button-box">
-          <span class="btn know">了解分数</span>
+          <span class="btn know" @click="tapKnow">了解分数</span>
           <span class="btn up">提升分数</span>
         </div>
       </div>
@@ -24,9 +24,19 @@
 </template>
 
 <script>
+  import router from '@/router/index'
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
   export default {
     name: "credit-detail",
+    mounted() {
+      /* 返回顶部 */
+      window.scrollTo(0, 0)
+    },
+    methods: {
+      tapKnow() {
+        router.push('/creditKnow')
+      }
+    },
     components: {
       NavigatorBar
     }
