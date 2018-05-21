@@ -16,5 +16,7 @@
 </script>
 
 <style scoped>
-
+  .menu-page {
+    margin-bottom: 50px;
+  }
 </style>

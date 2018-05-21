@@ -20,7 +20,7 @@
                 <img :src="endorsement.carStyle"/>
               </div>
             </div>
-            <img src="images/restriction.png" class="is-restriction" v-if="endorsement.restriction === true" />
+            <img src="./images/restriction.png" class="is-restriction" v-if="endorsement.restriction === true" />
           </div>
           <div class="more-service-box">
             <div class="more-service-info">

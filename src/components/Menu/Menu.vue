@@ -115,9 +115,3 @@
     background-image:url('./images/home-a.png')
   }
 </style>
-
-<style>
-  #app {
-    margin-bottom: 50px;
-  }
-</style>
