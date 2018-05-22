@@ -2,7 +2,7 @@
   <div class="main-menu">
     <div class="menu-item" v-for="i in navData">
       <template v-if="i.type === 'menu'">
-        <router-link :class="['item-box', i.showClass]" active-class="active" :to="i.url">
+        <router-link :class="['item-box', i.showClass]" active-class="active" :to="i.url" replace>
           <span>{{i.name}}</span>
         </router-link>
       </template>

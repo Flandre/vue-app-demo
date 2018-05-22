@@ -17,7 +17,6 @@ import Conduct from '@/pages/credit-type/Conduct'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
-  console.log('back')
   this.isBack = true
   window.history.go(-1)
 }

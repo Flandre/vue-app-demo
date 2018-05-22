@@ -2,7 +2,7 @@
   <div class="credit-know">
     <NavigatorBar title="了解分数" bgColor="#45A4F7"/>
     <div class="menu-item" v-for="i in creditType">
-      <router-link :class="['item-box', i.showClass]" active-class="active" :to="i.url">
+      <router-link :class="['item-box', i.showClass]" active-class="active" :to="i.url" replace>
         <span>{{i.name}}</span>
       </router-link>
     </div>

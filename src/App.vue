@@ -16,9 +16,7 @@ export default {
   },
   mounted() {
     this.$router.beforeEach((to, from, next) => {
-      console.log('1111')
       let isBack = this.$router.isBack
-      console.log(isBack)
       if (isBack) {
         this.transitionName = 'slide-right'
       } else {
