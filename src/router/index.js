@@ -9,6 +9,11 @@ import Find from '@/pages/menu-select/Find'
 import Home from '@/pages/menu-select/Home'
 import CreditDetail from '@/pages/CreditDetail'
 import CreditKnow from '@/pages/CreditKnow'
+import Identity from '@/pages/Identity'
+import LawAbiding from '@/pages/LawAbiding'
+import Appointment from '@/pages/Appointment'
+import Learn from '@/pages/Learn'
+import Conduct from '@/pages/Conduct'
 import _404 from '@/pages/404'
 
 Vue.use(Router)
@@ -23,7 +28,14 @@ export default new Router({
         { path: '/home', name: '我的', component: Home }
       ]
     },
-    { path: '/creditDetail', name: '信用信息', component: CreditDetail},
+    { path: '/creditDetail', name: '信用信息', component: CreditDetail, children: [
+        { path: '/creditKnow/identity', name: '身份信息', component: Identity },
+        { path: '/creditKnow/lawAbiding', name: '守法信息', component: LawAbiding },
+        { path: '/creditKnow/appointment', name: '履约信息', component: Appointment },
+        { path: '/creditKnow/learn', name: '学习信息', component: Learn },
+        { path: '/creditKnow/conduct', name: '行为信息', component: Conduct }
+      ]
+    },
     { path: '/creditKnow', name: '了解分数', component: CreditKnow},
     { path: '/404', name: '404页面', component: _404},
     { path: '*', redirect: '/404' }

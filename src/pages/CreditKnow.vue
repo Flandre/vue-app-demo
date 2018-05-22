@@ -1,6 +1,11 @@
 <template>
   <div class="credit-know">
     <NavigatorBar title="了解分数" bgColor="#45A4F7"/>
+    <div class="menu-item" v-for="i in creditType">
+      <router-link :class="['item-box', i.showClass]" active-class="active" :to="i.url">
+        <span>{{i.name}}</span>
+      </router-link>
+    </div>
     <p>了解分数页面</p>
   </div>
 </template>
@@ -12,7 +17,7 @@
     name: "credit-know",
     data() {
       return {
-        navData: [
+        creditType: [
           {
             name: '身份',
             url: '/creditKnow/identity',
@@ -30,7 +35,7 @@
           },
           {
             name: '学习',
-            url: '/creditKnow/study',
+            url: '/creditKnow/learn',
             showClass: 'study'
           },
           {
