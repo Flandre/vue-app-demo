@@ -4,7 +4,7 @@
     <div class="know-container">
       <div class="know-info-container">
         <img src="../assets/pages/creditKnow/credit-num.png" class="credit-num">
-        <div :class="['radar-main', showType]">
+        <div :class="['radar-main', activeClass]">
           <div class="icon identity"></div>
           <div class="icon lawAbiding"></div>
           <div class="icon appointment"></div>
@@ -13,20 +13,26 @@
         </div>
       </div>
       <img src="../assets/pages/creditKnow/bg-border.png" class="border">
+      <div class="menu-box">
+        <template v-for="i in creditType">
+          <router-link :class="['menu-item', i.showClass]" active-class="active" :to="i.url" replace @click.native="tapClick">
+            <div class="icon"></div>
+            <span>{{i.name}}</span>
+          </router-link>
+        </template>
+        <div class="arrow-container">
+          <div class="arrow-line"></div>
+          <img src="../assets/pages/creditKnow/arrow.png" class="arrow-main" :style="{left : arrowLeft}"/>
+        </div>
+      </div>
     </div>
-    <div class="menu-item" v-for="i in creditType">
-      <router-link :class="['item-box', i.showClass]" active-class="active" :to="i.url" replace>
-        <span>{{i.name}}</span>
-      </router-link>
-    </div>
-    <div >{{type}}</div>
+    <div >{{activeClass}}</div>
     <router-view/>
     <p>了解分数页面</p>
   </div>
 </template>
 
 <script>
-  import router from '@/router/index'
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
   export default {
     name: "credit-know",
@@ -59,12 +65,19 @@
             showClass: 'conduct'
           }
         ],
-        showType: 'show-identity'
+        activeClass: 'show-identity',
+        arrowLeft: '25px'
       }
     },
     mounted() {
       /* 返回顶部 */
       window.scrollTo(0, 0)
+    },
+    methods: {
+      tapClick(e){
+        console.log(e.target.offsetLeft)
+        this.arrowLeft = `${e.target.offsetLeft + 7}px`
+      }
     },
     components: {
       NavigatorBar
@@ -72,7 +85,7 @@
     beforeRouteUpdate (to, from, next) {
       this.creditType.forEach(val => {
         if(to.fullPath == val.url)
-          this.showType =  `show-${val.showClass}`
+          this.activeClass =  `show-${val.showClass}`
       })
       next()
     }
@@ -156,6 +169,114 @@
         display: block;
         width: 100%;
         height: auto;
+      }
+      .menu-box {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        position: relative;
+        bottom: 0;
+        padding-bottom: 17px;
+        .menu-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px #DBDBDB;
+            background-size: 24px 24px;
+            background-repeat: no-repeat;
+            background-position: center center;
+          }
+          &.identity {
+            margin-top: -30px;
+            .icon {
+              background-image: url("../assets/pages/creditKnow/identityIcon.png");
+            }
+          }
+          &.lawAbiding {
+            margin-top: -20px;
+            .icon {
+              background-image: url("../assets/pages/creditKnow/lawAbidingIcon.png");
+            }
+          }
+          &.appointment {
+            margin-top: -15px;
+            .icon {
+              background-image: url("../assets/pages/creditKnow/appointmentIcon.png");
+            }
+          }
+          &.learn {
+            margin-top: -20px;
+            .icon {
+              background-image: url("../assets/pages/creditKnow/learnIcon.png");
+            }
+          }
+          &.conduct {
+            margin-top: -30px;
+            .icon {
+              background-image: url("../assets/pages/creditKnow/conductIcon.png");
+            }
+          }
+          &.active {
+            .icon {
+              background-color: #79CEFF;
+            }
+            &.identity {
+              .icon {
+                background-image: url("../assets/pages/creditKnow/identityIcon-a.png");
+              }
+            }
+            &.lawAbiding {
+              .icon {
+                background-image: url("../assets/pages/creditKnow/lawAbidingIcon-a.png");
+              }
+            }
+            &.appointment {
+              .icon {
+                background-image: url("../assets/pages/creditKnow/appointmentIcon-a.png");
+              }
+            }
+            &.learn {
+              .icon {
+                background-image: url("../assets/pages/creditKnow/learnIcon-a.png");
+              }
+            }
+            &.conduct {
+              .icon {
+                background-image: url("../assets/pages/creditKnow/conductIcon-a.png");
+              }
+            }
+          }
+          span {
+            font-size: 12px;
+            line-height: 17px;
+            color: #4A4A4A;
+            margin-top: 5px;
+          }
+        }
+        .arrow-container {
+          position: absolute;
+          width: 100%;
+          height: 20px;
+          bottom: 0;
+          padding: 0 25px;
+          .arrow-line {
+            width: 100%;
+            height: 13px;
+            border-bottom: 1px solid #79CEFF;
+          }
+          .arrow-main {
+            position: absolute;
+            transition: .5s;
+            top: 1px;
+            width: 27px;
+            height: 13px;
+          }
+        }
       }
     }
   }
