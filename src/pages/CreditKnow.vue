@@ -6,6 +6,8 @@
         <span>{{i.name}}</span>
       </router-link>
     </div>
+    <div >当前状态：？？？</div>
+    <router-view/>
     <p>了解分数页面</p>
   </div>
 </template>
@@ -47,11 +49,20 @@
       }
     },
     mounted() {
+      this.$nextTick(function () {
+        // Code that will run only after the
+        // entire view has been rendered
+      })
       /* 返回顶部 */
       window.scrollTo(0, 0)
     },
     components: {
       NavigatorBar
+    },
+    beforeRouteUpdate (to, from, next) {
+      console.log(to)
+      console.log(from)
+      next()
     }
   }
 </script>

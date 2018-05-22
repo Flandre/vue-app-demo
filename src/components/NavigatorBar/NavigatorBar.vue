@@ -10,7 +10,7 @@
     name: "navigator-bar",
     methods: {
       tapPrev() {
-        history.back()
+        this.$router.goBack()
       }
     },
     props: ['title', 'bgColor']
@@ -37,5 +37,17 @@
     color: #fff;
     font-size: 17px;
     text-align: center;
+  }
+  .slide-left-enter-active > .navigator-bar,
+  .slide-right-leave-active > .navigator-bar,
+  .slide-left-leave-active > .navigator-bar,
+  .slide-right-enter-active > .navigator-bar {
+    top: -44px !important;
+  }
+  .slide-left-enter-active .prev,
+  .slide-right-leave-active .prev,
+  .slide-left-leave-active .prev,
+  .slide-right-enter-active .prev {
+    top: -30px !important;
   }
 </style>

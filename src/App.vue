@@ -1,12 +1,33 @@
 <template>
   <div id="app">
-    <router-view/>
+    <transition :name="transitionName">
+      <router-view class="child-view" />
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      transitionName: 'slide-left'
+    }
+  },
+  mounted() {
+    this.$router.beforeEach((to, from, next) => {
+      console.log('1111')
+      let isBack = this.$router.isBack
+      console.log(isBack)
+      if (isBack) {
+        this.transitionName = 'slide-right'
+      } else {
+        this.transitionName = 'slide-left'
+      }
+      this.$router.isBack = false
+      next()
+    })
+  },
 }
 </script>
 
@@ -27,5 +48,20 @@ body {
   -o-transform: translateZ(0);
   transform: translateZ(0);
   /* Other transform properties here */
+}
+.child-view {
+  position: absolute;
+  width:100%;
+  transition: all .8s cubic-bezier(.55,0,.1,1);
+}
+.slide-left-enter, .slide-right-leave-active {
+  opacity: 0;
+  -webkit-transform: translate(50px, 0);
+  transform: translate(50px, 0);
+}
+.slide-left-leave-active, .slide-right-enter {
+  opacity: 0;
+  -webkit-transform: translate(-50px, 0);
+  transform: translate(-50px, 0);
 }
 </style>
