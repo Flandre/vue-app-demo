@@ -281,6 +281,7 @@
           width: 100%;
           height: 20px;
           bottom: 0;
+          left: 0;
           padding: 0 25px;
           .arrow-line {
             width: 100%;
