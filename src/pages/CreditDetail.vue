@@ -6,7 +6,7 @@
         <img src="../assets/pages/creditDetail/eval.png" class="eval">
         <div class="button-box">
           <span class="btn know" @click="tapKnow">了解分数</span>
-          <span class="btn up">提升分数</span>
+          <span class="btn up" @click="tapUpscore">提升分数</span>
         </div>
       </div>
       <img src="../assets/pages/creditDetail/bg-border.png" style="width: 100%; display: block;">
@@ -35,6 +35,9 @@
     methods: {
       tapKnow() {
         router.push('/creditKnow')
+      },
+      tapUpscore() {
+        router.push('/creditUp')
       }
     },
     components: {

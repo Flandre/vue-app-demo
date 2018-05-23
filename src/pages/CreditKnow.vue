@@ -36,6 +36,9 @@
         <img src="../assets/pages/creditKnow/chart.png">
       </div>
     </div>
+    <div class="credit-up" @click="tapUpscore">
+      <span>提升驾驶信用</span>
+    </div>
   </div>
 </template>
 
@@ -87,6 +90,9 @@
     methods: {
       tapClick(e){
         this.arrowLeft = `${e.target.offsetLeft - 18}px`
+      },
+      tapUpscore() {
+        this.$router.push('/creditUp')
       }
     },
     components: {
@@ -104,6 +110,7 @@
 <style lang="less" scoped>
   .credit-know {
     margin-top: 44px;
+    margin-bottom: 50px;
     .know-container {
       background: #fff;
       margin-bottom: 10px;
@@ -320,6 +327,22 @@
     }
     .credit-type {
       padding: 15px 25px 20px
+    }
+    .credit-up {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 50px;
+      background: #45A4F7;
+      text-align: center;
+      span {
+        line-height: 50px;
+        color: #fff;
+        font-size: 17px;
+        background: url("../assets/pages/creditKnow/upIcon.png") left center no-repeat;
+        background-size: 28px 16px;
+        padding-left: 43px
+      }
     }
   }
 </style>
