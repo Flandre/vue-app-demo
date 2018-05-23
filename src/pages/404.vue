@@ -1,5 +1,5 @@
 <template>
-  <h1>404 NOT FOUND</h1>
+  <h1 style="text-align: center">404 NOT FOUND</h1>
 </template>
 
 <script>
