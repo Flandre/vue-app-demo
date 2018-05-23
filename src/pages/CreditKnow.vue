@@ -21,14 +21,21 @@
           </router-link>
         </template>
         <div class="arrow-container">
-          <div class="arrow-line"></div>
-          <img src="../assets/pages/creditKnow/arrow.png" class="arrow-main" :style="{left : arrowLeft}"/>
+          <div class="arrow-line">
+            <img src="../assets/pages/creditKnow/arrow.png" class="arrow-main" :style="{left : arrowLeft}"/>
+          </div>
         </div>
       </div>
+      <div class="credit-type">
+        <router-view/>
+      </div>
     </div>
-    <div >{{activeClass}}</div>
-    <router-view/>
-    <p>了解分数页面</p>
+    <div class="chart-container">
+      <h3 class="title">近6个月您的驾驶信用</h3>
+      <div class="chart-box">
+        <img src="../assets/pages/creditKnow/chart.png">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -72,11 +79,14 @@
     mounted() {
       /* 返回顶部 */
       window.scrollTo(0, 0)
+      /* 固定箭头位置 */
+      this.$nextTick(function () {
+        this.arrowLeft = `${document.querySelector('a.active').offsetLeft - 18}px`
+      })
     },
     methods: {
       tapClick(e){
-        console.log(e.target.offsetLeft)
-        this.arrowLeft = `${e.target.offsetLeft + 7}px`
+        this.arrowLeft = `${e.target.offsetLeft - 18}px`
       }
     },
     components: {
@@ -96,6 +106,7 @@
     margin-top: 44px;
     .know-container {
       background: #fff;
+      margin-bottom: 10px;
       .know-info-container {
         height: 144px;
         background: #45A4F7;
@@ -267,17 +278,48 @@
           .arrow-line {
             width: 100%;
             height: 13px;
-            border-bottom: 1px solid #79CEFF;
-          }
-          .arrow-main {
-            position: absolute;
-            transition: .5s;
-            top: 1px;
-            width: 27px;
-            height: 13px;
+            position: relative;
+            overflow: hidden;
+            &:before {
+              content: '';
+              display: block;
+              width: 100%;
+              height: 1px;
+              background: #79CEFF;
+              position: absolute;
+              bottom: 0;
+            }
+            .arrow-main {
+              position: absolute;
+              transition: .3s;
+              top: 1px;
+              width: 27px;
+              height: 13px;
+            }
           }
         }
       }
+    }
+    .chart-container {
+      background: #fff;
+      padding: 15px;
+      padding-right: 30px;
+      .title {
+        color: #4A4A4A;
+        font-size: 16px;
+        line-height: 16px;
+        margin-bottom: 30px;
+        font-weight: normal;
+      }
+      .chart-box {
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+    .credit-type {
+      padding: 15px 25px 20px
     }
   }
 </style>

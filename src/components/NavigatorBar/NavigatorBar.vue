@@ -1,6 +1,7 @@
 <template>
-  <div class="navigator-bar" :style="{backgroundColor : bgColor}">
-    <img src="./images/prev.png" class="prev" @click="tapPrev"/>
+  <div :class="['navigator-bar', navType]" :style="{backgroundColor : bgColor}">
+    <img v-if="navType == 'dark'" src="./images/prev.png" class="prev" @click="tapPrev"/>
+    <img src="./images/prev.png" class="prev" @click="tapPrev" v-else/>
     <div class="title">{{title}}</div>
   </div>
 </template>
@@ -13,7 +14,17 @@
         this.$router.goBack()
       }
     },
-    props: ['title', 'bgColor']
+    props: {
+      title: {
+        required: true
+      },
+      bgColor: {
+        required: true
+      },
+      navType: {
+        default: 'dark'
+      }
+    }
   }
 </script>
 
