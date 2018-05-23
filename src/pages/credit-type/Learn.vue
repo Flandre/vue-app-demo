@@ -12,7 +12,7 @@
         <div v-if="!panel.isComplete" class="go-done">
           <span>去完成</span>
         </div>
-        <img src="../../assets/pages/creditKnow/identity/complete.png" class="complete" v-else/>
+        <img src="../../assets/pages/creditKnow/learn/complete.png" class="complete" v-else/>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <div :class="['navigator-bar', navType]" :style="{backgroundColor : bgColor}">
     <img v-if="navType == 'dark'" src="./images/prev.png" class="prev" @click="tapPrev"/>
-    <img src="./images/prev.png" class="prev" @click="tapPrev" v-else/>
+    <img src="./images/prev-light.png" class="prev" @click="tapPrev" v-else-if="navType == 'light'"/>
     <div class="title">{{title}}</div>
   </div>
 </template>
@@ -46,9 +46,17 @@
   .navigator-bar .title{
     line-height: 44px;
     width: 100%;
-    color: #fff;
     font-size: 17px;
     text-align: center;
+  }
+  .navigator-bar.dark .title{
+    color: #fff;
+  }
+  .navigator-bar.light {
+    border-bottom: 1px solid #dbdbdb;
+  }
+  .navigator-bar.light .title{
+    color: #4A4A4A;
   }
   .slide-left-enter-active > .navigator-bar,
   .slide-right-leave-active > .navigator-bar,

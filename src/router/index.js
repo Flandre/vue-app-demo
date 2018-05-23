@@ -8,6 +8,7 @@ import Study from '@/pages/menu-select/Study'
 import Find from '@/pages/menu-select/Find'
 import Home from '@/pages/menu-select/Home'
 import CreditDetail from '@/pages/CreditDetail'
+import CreditUp from '@/pages/CreditUp'
 import CreditKnow from '@/pages/CreditKnow'
 import Identity from '@/pages/credit-type/Identity'
 import LawAbiding from '@/pages/credit-type/LawAbiding'
@@ -40,7 +41,9 @@ export default new Router({
         { path: '/creditKnow/appointment', name: '履约信息', component: Appointment },
         { path: '/creditKnow/learn', name: '学习信息', component: Learn },
         { path: '/creditKnow/conduct', name: '行为信息', component: Conduct }
-      ]},
+      ]
+    },
+    { path: '/creditUp', name: '提升分数', component: CreditUp},
     { path: '/404', name: '404页面', component: _404},
     { path: '*', redirect: '/404' }
   ]
