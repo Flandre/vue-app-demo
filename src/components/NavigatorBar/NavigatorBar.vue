@@ -34,6 +34,7 @@
     width: 100%;
     position: fixed;
     top: 0;
+    z-index: 1050;
   }
   .navigator-bar .prev{
     width: 10px;
