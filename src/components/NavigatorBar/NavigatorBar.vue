@@ -37,7 +37,7 @@
             if(window.scrollY < SCROLL_LIMIT){
               this.navOpacity = window.scrollY / SCROLL_LIMIT
               if(this.navTypeChange == 'change'){
-                if(window.screenY < 50) {
+                if(window.scrollY < 50) {
                   this.navTypeData = saveNavType
                 } else {
                   this.navTypeData = saveNavType == 'dark' ? 'light' : 'dark'
