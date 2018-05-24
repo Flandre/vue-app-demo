@@ -5,7 +5,7 @@
     <CreditData />
     <EndorsementsCard/>
     <ClassCard/>
-    <ArticleList :title="articleTitle"/>
+    <ArticleList :title="articleTitle" showChange="true"/>
   </div>
 </template>
 

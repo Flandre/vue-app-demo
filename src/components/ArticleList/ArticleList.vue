@@ -2,7 +2,7 @@
   <div class="article-list">
     <div class="title">
       <h2>{{title}}</h2>
-      <div :class="['change-btn', {active: changing}]" @click="changeArticle"><div class="icon"></div><span>换一换</span></div>
+      <div v-if="showChange" :class="['change-btn', {active: changing}]" @click="changeArticle"><div class="icon"></div><span>换一换</span></div>
     </div>
     <div class="list-container">
       <div class="list-item" v-for="list in articleData" :key="list.id" >
@@ -23,40 +23,70 @@
 <script>
   export default {
     name: "article-list",
+    mounted(){
+      switch(this.articleGroup){
+        case 'normal':
+          this.articleData = [
+            {
+              titleImage: require('./images/titleImages/image1.png'),
+              title: '虚线变道也可能扣2分罚300，你知道哪些时候不能变道吗？',
+              keywords: ['交通法规', '变道'],
+              id: 1
+            },
+            {
+              titleImage: require('./images/titleImages/image2.png'),
+              title: '春节长途自驾归来，汽车的检查养护很重要！',
+              keywords: ['车辆保护', '自驾'],
+              id: 2
+            },
+            {
+              titleImage: require('./images/titleImages/image3.png'),
+              title: '各种交通标识傻傻分不清，9张图让你秒成老司机！',
+              keywords: ['交通标识'],
+              id: 3
+            },
+            {
+              titleImage: require('./images/titleImages/image4.png'),
+              title: '哪几类算无证？ 交警：无证驾驶无责也会成有责！',
+              keywords: ['交通法规', '无证驾驶'],
+              id: 4
+            },
+            {
+              titleImage: require('./images/titleImages/image5.png'),
+              title: '爱车年检不用愁 要点全在这篇文章里了',
+              keywords: ['车辆年检'],
+              id: 5
+            },
+          ]
+          break;
+        case 'endorsement':
+          this.articleData = [
+            {
+              titleImage: require('./images/titleImages/image6.png'),
+              title: '如何认定故意遮挡、污损机动车号牌行为',
+              keywords: ['遮挡车牌', '污损号牌'],
+              id: 6
+            },
+            {
+              titleImage: require('./images/titleImages/image7.png'),
+              title: '汽车牌照污损怎样换新？',
+              keywords: ['污损号牌', '补办号牌'],
+              id: 7
+            },
+            {
+              titleImage: require('./images/titleImages/image8.png'),
+              title: '“车牌照反光漆”网上热销 交警：属故意污损号牌',
+              keywords: ['污损号牌'],
+              id: 8
+            },
+          ]
+          break;
+      }
+
+    },
     data() {
       return {
-        articleData: [
-          {
-            titleImage: require('./images/titleImages/image1.png'),
-            title: '虚线变道也可能扣2分罚300，你知道哪些时候不能变道吗？',
-            keywords: ['交通法规', '变道'],
-            id: 1
-          },
-          {
-            titleImage: require('./images/titleImages/image2.png'),
-            title: '春节长途自驾归来，汽车的检查养护很重要！',
-            keywords: ['车辆保护', '自驾'],
-            id: 2
-          },
-          {
-            titleImage: require('./images/titleImages/image3.png'),
-            title: '各种交通标识傻傻分不清，9张图让你秒成老司机！',
-            keywords: ['交通标识'],
-            id: 3
-          },
-          {
-            titleImage: require('./images/titleImages/image4.png'),
-            title: '哪几类算无证？ 交警：无证驾驶无责也会成有责！',
-            keywords: ['交通法规', '无证驾驶'],
-            id: 4
-          },
-          {
-            titleImage: require('./images/titleImages/image5.png'),
-            title: '爱车年检不用愁 要点全在这篇文章里了',
-            keywords: ['车辆年检'],
-            id: 5
-          },
-        ],
+        articleData: [],
         changing: false,
       }
     },
@@ -71,7 +101,17 @@
         }
       }
     },
-    props: ['title']
+    props: {
+      title: {
+        required: true
+      },
+      showChange: {
+        default: false
+      },
+      articleGroup: {
+        default: 'normal'
+      }
+    }
   }
 </script>
 
