@@ -33,7 +33,7 @@
       </swiper-slide>
       <swiper-slide>
         <div class="card-item">
-          <div class="endorsement-box">
+          <div class="endorsement-box" @click="tapAdd">
             <img src="./images/add.png" class="add-newcar">
           </div>
           <div class="more-service-box">
@@ -125,6 +125,9 @@
         } else {
           this.$router.push({path: '/endorsement_empty', query: {backlength: 1}})
         }
+      },
+      tapAdd() {
+        this.$router.push('/edit_car')
       }
     },
     components: {
