@@ -25,17 +25,29 @@
       }
     },
     mounted() {
-      console.log(this.scrollType)
+      let saveNavType = this.navType
       switch(this.scrollType){
         case 'fade': {
           const SCROLL_LIMIT = 100
           this.navOpacity = 0
           document.addEventListener('scroll', () => {
             console.log(window.scrollY)
-            if(window.scrollY < SCROLL_LIMIT)
-              this.navOpacity = window.scrollY / 100
-            else
+            if(window.scrollY < SCROLL_LIMIT){
+              this.navOpacity = window.scrollY / SCROLL_LIMIT
+              if(this.navTypeChange == 'change'){
+                if(window.screenY < SCROLL_LIMIT / 2) {
+                  this.navType = saveNavType
+                } else {
+                  this.navType = saveNavType == 'dark' ? 'light' : 'dark'
+                }
+              }
+            }
+            else {
               this.navOpacity = 1
+              if(this.navTypeChange == 'change'){
+                this.navType = saveNavType == 'dark' ? 'light' : 'dark'
+              }
+            }
           })
           break
         }
@@ -53,6 +65,9 @@
       },
       scrollType: {
         default: 'normal'
+      },
+      navTypeChange: {
+        default: 'normal',
       }
     }
   }
