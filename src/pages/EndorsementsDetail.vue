@@ -29,7 +29,7 @@
           <img :src="i.dangerLevel" class="danger-level">
         </div>
         <div class="more" :style="{background: i.moreColor}">
-          <span>更多内容</span>
+          <span @click="tapMore">更多内容</span>
         </div>
       </div>
     </div>
@@ -80,6 +80,11 @@
       /* 返回顶部 */
       window.scrollTo(0, 0)
     },
+    methods: {
+      tapMore() {
+        this.$router.push('/endorsement_more')
+      }
+    }
   }
 </script>
 

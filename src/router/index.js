@@ -17,6 +17,7 @@ import Learn from '@/pages/credit-type/Learn'
 import Conduct from '@/pages/credit-type/Conduct'
 import EndorsementsDetail from '@/pages/EndorsementsDetail'
 import EndorsementsEmpty from '@/pages/EndorsementsEmpty'
+import EndorsementsMore from '@/pages/EndorsementsMore'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -58,6 +59,7 @@ export default new Router({
     { path: '/creditUp', name: '提升分数', component: CreditUp},
     { path: '/endorsement_detail', name: '违章查询结果', component: EndorsementsDetail},
     { path: '/endorsement_empty', name: '违章查询结果(空)', component: EndorsementsEmpty},
+    { path: '/endorsement_more', name: '更多内容', component: EndorsementsMore},
     { path: '/404', name: '404页面', component: _404},
     { path: '*', redirect: '/404' }
   ]

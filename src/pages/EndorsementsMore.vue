@@ -1,6 +1,30 @@
 <template>
   <div class="endorsements-more">
-    <NavigatorBar title="京QY96N0" bgColor="#fff" navType="light"/>
+    <NavigatorBar title="" bgColor="#fff" navType="dark" scrollType="fade" navTypeChange="change"/>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
+    <h1>aa</h1>
 
   </div>
 </template>

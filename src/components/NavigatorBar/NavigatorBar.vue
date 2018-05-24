@@ -1,8 +1,8 @@
 <template>
   <div :class="['navigator-bar', navType]">
     <div class="bg-color" :style="{backgroundColor : bgColor, opacity: navOpacity}"></div>
-    <img v-if="navType == 'dark'" src="./images/prev.png" class="prev" @click="tapPrev"/>
-    <img src="./images/prev-light.png" class="prev" @click="tapPrev" v-else-if="navType == 'light'"/>
+    <img v-if="navTypeData == 'dark'" src="./images/prev.png" class="prev" @click="tapPrev"/>
+    <img src="./images/prev-light.png" class="prev" @click="tapPrev" v-else-if="navTypeData == 'light'"/>
     <div class="title">{{title}}</div>
   </div>
 </template>
@@ -12,7 +12,8 @@
     name: "navigator-bar",
     data() {
       return {
-        navOpacity: 1
+        navOpacity: 1,
+        navTypeData: null
       }
     },
     methods: {
@@ -25,27 +26,28 @@
       }
     },
     mounted() {
+      this.navTypeData = this.navType
       let saveNavType = this.navType
       switch(this.scrollType){
         case 'fade': {
           const SCROLL_LIMIT = 100
           this.navOpacity = 0
           document.addEventListener('scroll', () => {
-            console.log(window.scrollY)
+            // console.log(window.scrollY)
             if(window.scrollY < SCROLL_LIMIT){
               this.navOpacity = window.scrollY / SCROLL_LIMIT
               if(this.navTypeChange == 'change'){
-                if(window.screenY < SCROLL_LIMIT / 2) {
-                  this.navType = saveNavType
+                if(window.screenY < 50) {
+                  this.navTypeData = saveNavType
                 } else {
-                  this.navType = saveNavType == 'dark' ? 'light' : 'dark'
+                  this.navTypeData = saveNavType == 'dark' ? 'light' : 'dark'
                 }
               }
             }
             else {
               this.navOpacity = 1
               if(this.navTypeChange == 'change'){
-                this.navType = saveNavType == 'dark' ? 'light' : 'dark'
+                this.navTypeData = saveNavType == 'dark' ? 'light' : 'dark'
               }
             }
           })
