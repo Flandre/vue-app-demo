@@ -3,8 +3,8 @@
     <swiper :options="swiperOption" ref="endorsementSwiper">
       <!-- slides -->
       <swiper-slide  v-for="endorsement in endorsementsData" :key="endorsement.id">
-        <div class="card-item" @click="tapEndorsementPanel(endorsement.id, $event)">
-          <div class="endorsement-box">
+        <div class="card-item">
+          <div class="endorsement-box" @click="tapEndorsementPanel(endorsement.hasPeccancy, $event)">
             <div class="car-info">
               <p class="car-num"><span>{{endorsement.lsPrefix}}{{endorsement.lsNum}}</span><span class="edit-car"></span></p>
               <p class="car-type">{{endorsement.carType}}</p>
@@ -77,6 +77,7 @@
             totalCount: 0,
             totalPrice: 0,
             totalScore: 0,
+            hasPeccancy: false
           },
           {
             id: 398,
@@ -94,6 +95,7 @@
             totalCount: 4,
             totalPrice: 800,
             totalScore: 8,
+            hasPeccancy: true
           },
           {
             id: 400,
@@ -111,15 +113,18 @@
             totalCount: 4,
             totalPrice: 800,
             totalScore: 8,
+            hasPeccancy: true
           }
         ]
       }
     },
     methods : {
-      tapEndorsementPanel(val, e){
-        console.log('111')
-        console.log(val)
-        console.log(e)
+      tapEndorsementPanel(hasPeccancy, e){
+        if(hasPeccancy){
+          this.$router.push('/endorsement_detail')
+        } else {
+          this.$router.push('/endorsement_empty')
+        }
       }
     },
     components: {
