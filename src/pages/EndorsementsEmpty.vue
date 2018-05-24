@@ -13,7 +13,11 @@
     name: "endorsements-empty",
     components: {
       NavigatorBar
-    }
+    },
+    mounted() {
+      /* 返回顶部 */
+      window.scrollTo(0, 0)
+    },
   }
 </script>
 
