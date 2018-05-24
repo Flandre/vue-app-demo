@@ -1,5 +1,5 @@
 <template>
-  <div :class="['navigator-bar', navType]">
+  <div :class="['navigator-bar', navTypeData]">
     <div class="bg-color" :style="{backgroundColor : bgColor, opacity: navOpacity}"></div>
     <img v-if="navTypeData == 'dark'" src="./images/prev.png" class="prev" @click="tapPrev"/>
     <img src="./images/prev-light.png" class="prev" @click="tapPrev" v-else-if="navTypeData == 'light'"/>
