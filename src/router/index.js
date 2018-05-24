@@ -22,6 +22,16 @@ Router.prototype.goBack = function () {
   window.history.go(-1)
 }
 
+Router.prototype.backTo = function($router, path) {
+  this.isBack = true
+  $router.push(path)
+}
+
+Router.prototype.goBackLength = function(length = 1){
+  this.isBack = true
+  window.history.go(-length)
+}
+
 Vue.use(Router)
 
 export default new Router({
