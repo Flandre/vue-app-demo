@@ -13,7 +13,7 @@
     name: "endorsements-empty",
     components: {
       NavigatorBar
-    },
+    }
   }
 </script>
 

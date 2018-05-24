@@ -1,10 +1,16 @@
 <template>
-  <p>违章查询结果</p>
+  <div>
+    <NavigatorBar title="京QY96N0" bgColor="#FBCB61"/>
+  </div>
 </template>
 
 <script>
+  import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
   export default {
-    name: "endorsements-detail"
+    name: "endorsements-detail",
+    components: {
+      NavigatorBar
+    },
   }
 </script>
 

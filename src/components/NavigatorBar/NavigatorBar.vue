@@ -11,7 +11,11 @@
     name: "navigator-bar",
     methods: {
       tapPrev() {
-        this.$router.goBack()
+        if(this.$route.query.backlength){
+          this.$router.goBackLength(this.$route.query.backlength)
+        } else {
+          this.$router.goBack()
+        }
       }
     },
     props: {
@@ -24,6 +28,9 @@
       navType: {
         default: 'dark'
       }
+    },
+    mounted() {
+      console.log(this.$route)
     }
   }
 </script>

@@ -121,9 +121,9 @@
     methods : {
       tapEndorsementPanel(hasPeccancy, e){
         if(hasPeccancy){
-          this.$router.push('/endorsement_detail')
+          this.$router.push({path: '/endorsement_detail', query: {backlength: 1}})
         } else {
-          this.$router.push('/endorsement_empty')
+          this.$router.push({path: '/endorsement_empty', query: {backlength: 1}})
         }
       }
     },
