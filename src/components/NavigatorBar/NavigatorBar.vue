@@ -1,5 +1,6 @@
 <template>
-  <div :class="['navigator-bar', navType]" :style="{backgroundColor : bgColor}">
+  <div :class="['navigator-bar', navType]">
+    <div class="bg-color" :style="{backgroundColor : bgColor, opacity: navOpacity}"></div>
     <img v-if="navType == 'dark'" src="./images/prev.png" class="prev" @click="tapPrev"/>
     <img src="./images/prev-light.png" class="prev" @click="tapPrev" v-else-if="navType == 'light'"/>
     <div class="title">{{title}}</div>
@@ -9,12 +10,34 @@
 <script>
   export default {
     name: "navigator-bar",
+    data() {
+      return {
+        navOpacity: 1
+      }
+    },
     methods: {
       tapPrev() {
         if(this.$route.query.backlength){
           this.$router.goBackLength(this.$route.query.backlength)
         } else {
           this.$router.goBack()
+        }
+      }
+    },
+    mounted() {
+      console.log(this.scrollType)
+      switch(this.scrollType){
+        case 'fade': {
+          const SCROLL_LIMIT = 100
+          this.navOpacity = 0
+          document.addEventListener('scroll', () => {
+            console.log(window.scrollY)
+            if(window.scrollY < SCROLL_LIMIT)
+              this.navOpacity = window.scrollY / 100
+            else
+              this.navOpacity = 1
+          })
+          break
         }
       }
     },
@@ -27,6 +50,9 @@
       },
       navType: {
         default: 'dark'
+      },
+      scrollType: {
+        default: 'normal'
       }
     }
   }
@@ -39,6 +65,14 @@
     position: fixed;
     top: 0;
     z-index: 1050;
+  }
+  .navigator-bar .bg-color{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   }
   .navigator-bar .prev{
     width: 10px;
