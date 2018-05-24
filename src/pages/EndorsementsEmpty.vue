@@ -23,6 +23,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 44px;
+    height: 100%;
     .bg {
       position: fixed;
       top: 0;

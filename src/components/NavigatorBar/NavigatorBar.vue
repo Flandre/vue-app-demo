@@ -28,9 +28,6 @@
       navType: {
         default: 'dark'
       }
-    },
-    mounted() {
-      console.log(this.$route)
     }
   }
 </script>

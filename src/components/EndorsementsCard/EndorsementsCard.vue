@@ -85,7 +85,7 @@
             lsPrefix: "京",
             carType: "广汽 欧蓝德",
             lastQueryText: "上次查询：20分钟前",
-            endorsementInfo: ["违章 4", "罚款 800", "扣分 8"],
+            endorsementInfo: ["违章 4", "罚款 600", "扣分 6"],
             endorsementInfoType: 'warning',
             carStyle: require('./images/carStyle/default.png'),
             restriction: false,
@@ -93,8 +93,8 @@
             serviceDesc: '还剩12天，请及时年检',
             serviceDescType: 'highlight',
             totalCount: 4,
-            totalPrice: 800,
-            totalScore: 8,
+            totalPrice: 600,
+            totalScore: 6,
             hasPeccancy: true
           },
           {
@@ -103,7 +103,7 @@
             lsPrefix: "京",
             carType: "广汽 欧蓝德",
             lastQueryText: "上次查询：27分钟前",
-            endorsementInfo: ["违章 4", "罚款 800", "扣分 8"],
+            endorsementInfo: ["违章 4", "罚款 600", "扣分 6"],
             endorsementInfoType: 'warning',
             carStyle: require('./images/carStyle/default.png'),
             restriction: true,
@@ -111,8 +111,8 @@
             serviceDesc: '还剩12天，请及时年检',
             serviceDescType: 'highlight',
             totalCount: 4,
-            totalPrice: 800,
-            totalScore: 8,
+            totalPrice: 600,
+            totalScore: 6,
             hasPeccancy: true
           }
         ]
