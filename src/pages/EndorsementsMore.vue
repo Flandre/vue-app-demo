@@ -15,7 +15,7 @@
       <p>故意污损号牌对道路交通安全畅通的危害性非常大。“故意”是一种明知故犯的心理态度，故意污损号牌者违反交通法规，令电子警察、电子雷达测试仪等监控设备形同虚设，从而肆意超速、逆向行驶、闯红灯等而不能及时得到处罚，严重扰乱道路交通安全秩序。</p>
       <img src="../assets/pages/EndorsementsMore/article-img.png">
     </div>
-    <ArticleList title="行动指南" articleGroup="endorsement"/>
+    <ArticleList title="行动指南" articleGroup="endorsement" articleType="endorsement-type"/>
   </div>
 </template>
 

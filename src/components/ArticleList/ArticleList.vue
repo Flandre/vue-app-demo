@@ -1,5 +1,5 @@
 <template>
-  <div class="article-list">
+  <div :class="['article-list', articleType]">
     <div class="title">
       <h2>{{title}}</h2>
       <div v-if="showChange" :class="['change-btn', {active: changing}]" @click="changeArticle"><div class="icon"></div><span>换一换</span></div>
@@ -110,100 +110,134 @@
       },
       articleGroup: {
         default: 'normal'
+      },
+      articleType: {
+        default: 'normal'
       }
     }
   }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
   .article-list {
     margin-top: 10px;
     background: #fff;
     padding: 15px;
     padding-bottom: 0;
-  }
-  .article-list .title {
-    margin-bottom: 8px;
-    position: relative;
-  }
-  .article-list .title h2{
-    font-size: 15px;
-    line-height: 15px;
-    color: #4A4A4A;
-    font-weight: normal;
-  }
-  .article-list .change-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-    font-size: 11px;
-    line-height: 16px;
-    color: #ABABAB;
-    vertical-align: middle;
-  }
-  .article-list .change-btn .icon {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    background: url("./images/changeIcon.png") center no-repeat;
-    background-size: 16px 16px;
-    margin-right: 5px;
-  }
-  .article-list .change-btn.active .icon {
-    animation: rotate 700ms linear infinite;
-  }
-  .article-list .change-btn span {
-    display: inline-block;
-  }
-  .article-list .list-container {
-    margin-right: -15px;
-  }
-  .article-list .list-container .list-item{
-    padding: 10px 15px 10px 0;
-    border-bottom: 1px solid #DBDBDB;
-    min-height: 80px;
-    position: relative;
-    overflow: hidden;
-  }
-  .article-list .list-container .list-item:last-child{
-    border-bottom: none;
-  }
-  .article-list .list-container .list-item .thumb {
-    width: 80px;
-    height: 60px;
-    position: absolute;
-    top: 10px;
-    left: 0;
-  }
-  .article-list .list-container .list-item .thumb img{
-    width: 100%;
-    height: auto;
-  }
-  .article-list .list-container .list-item .info{
-    float: left;
-    padding-left: 95px;
-    width: 100%;
-  }
-  .article-list .list-container .list-item .info h3{
-    font-size: 13px;
-    line-height: 18px;
-    height: 36px;
-    overflow: hidden;
-    font-weight: normal;
-  }
-  .article-list .list-container .list-item .info .keywords-container{
-    text-align: right;
-  }
-  .article-list .list-container .list-item .info .keywords-container span{
-    display: inline-block;
-    margin-left: 10px;
-    font-size: 10px;
-    line-height: 18px;
-    padding: 0 6px;
-    color: #45A4F7;
-    border: 1px solid #45A4F7;
-    border-radius: 4px;
+    .title {
+      margin-bottom: 8px;
+      position: relative;
+      h2{
+        font-size: 15px;
+        line-height: 15px;
+        color: #4A4A4A;
+        font-weight: normal;
+      }
+    }
+    .change-btn {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 11px;
+      line-height: 16px;
+      color: #ABABAB;
+      vertical-align: middle;
+      .icon {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+        background: url("./images/changeIcon.png") center no-repeat;
+        background-size: 16px 16px;
+        margin-right: 5px;
+      }
+      &.active {
+        .icon {
+          animation: rotate 700ms linear infinite;
+        }
+      }
+      span {
+        display: inline-block;
+      }
+    }
+    .list-container {
+      margin-right: -15px;
+      .list-item{
+        padding: 10px 15px 10px 0;
+        border-bottom: 1px solid #DBDBDB;
+        min-height: 80px;
+        position: relative;
+        overflow: hidden;
+        &:last-child{
+          border-bottom: none;
+        }
+        .thumb {
+          width: 80px;
+          height: 60px;
+          position: absolute;
+          top: 10px;
+          left: 0;
+          img{
+            width: 100%;
+            height: auto;
+          }
+        }
+        .info{
+          float: left;
+          padding-left: 95px;
+          width: 100%;
+          h3{
+            font-size: 13px;
+            line-height: 18px;
+            height: 36px;
+            overflow: hidden;
+            font-weight: normal;
+          }
+          .keywords-container{
+            text-align: right;
+            span{
+              display: inline-block;
+              margin-left: 10px;
+              font-size: 10px;
+              line-height: 18px;
+              padding: 0 6px;
+              color: #45A4F7;
+              border: 1px solid #45A4F7;
+              border-radius: 4px;
+            }
+          }
+        }
+      }
+    }
+    &.endorsement-type {
+      .title {
+        margin-left: -15px;
+        margin-right: -15px;
+        h2 {
+          color: #000;
+          font-size: 13px;
+          padding: 0 15px 11px;
+          margin-bottom: 0;
+          border-bottom: 1px solid #dbdbdb
+        }
+      }
+      .list-container {
+        .list-item {
+          .info {
+            .keywords-container {
+              text-align: left;
+              span {
+                color: #A4B2C3;
+                border-color: #A4B2C3;
+                &:first-child {
+                  margin-left: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
   @keyframes rotate {
     from {
