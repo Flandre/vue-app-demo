@@ -1,6 +1,6 @@
 <template>
   <div class="endorsements-detail">
-    <NavigatorBar title="京QY96N0" bgColor="#FBCB61"/>
+    <NavigatorBar :title="lsNum" bgColor="#FBCB61"/>
     <div class="endorsements-panel">
       <div class="panel-item">
         <span class="total">4</span>
@@ -70,7 +70,8 @@
             dangerLevel: require('../assets/pages/EndorsementsDetail/danger-type-2.png'),
             moreColor: '#A4B2C3'
           },
-        ]
+        ],
+        lsNum: '京QY96N0'
       }
     },
     components: {
@@ -79,6 +80,9 @@
     mounted() {
       /* 返回顶部 */
       window.scrollTo(0, 0)
+      if(this.$route.query.lsNum){
+        this.lsNum = `京${this.$route.query.lsNum}`
+      }
     },
     methods: {
       tapMore() {

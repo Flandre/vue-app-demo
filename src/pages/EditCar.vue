@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class="active-bar">
-      <div class="button" @click="tapSubmit">保存</div>
+      <div class="button" @click="tapSubmit(automatic.lsNum, $event)">保存</div>
     </div>
     <p class="prompt">所填信息为当地交管局查询必需信息，我们将严格保密，敬请放心。<br/>点击开始查询，即表示您同意我们将您的个人信息用于违章查询。</p>
   </div>
@@ -106,8 +106,12 @@
       }
     },
     methods: {
-      tapSubmit() {
-        this.$router.push({path: '/endorsement_detail', query: {backlength: 2}})
+      tapSubmit(lsNum, $event) {
+        if(lsNum == 'QY96N0'){
+          this.$router.push({path: '/endorsement_empty', query: {backlength: 2, lsNum: lsNum}})
+        } else {
+          this.$router.push({path: '/endorsement_detail', query: {backlength: 2, lsNum: lsNum}})
+        }
       }
     }
   }

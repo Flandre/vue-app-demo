@@ -4,7 +4,7 @@
       <!-- slides -->
       <swiper-slide  v-for="endorsement in endorsementsData" :key="endorsement.id">
         <div class="card-item">
-          <div class="endorsement-box" @click="tapEndorsementPanel(endorsement.hasPeccancy, $event)">
+          <div class="endorsement-box" @click="tapEndorsementPanel(endorsement.hasPeccancy, endorsement.lsNum, $event)">
             <div class="car-info">
               <p class="car-num">
                 <span>{{endorsement.lsPrefix}}{{endorsement.lsNum}}</span>
@@ -124,11 +124,11 @@
       }
     },
     methods : {
-      tapEndorsementPanel(hasPeccancy, e){
+      tapEndorsementPanel(hasPeccancy, lsNum, $event){
         if(hasPeccancy){
-          this.$router.push({path: '/endorsement_detail', query: {backlength: 1}})
+          this.$router.push({path: '/endorsement_detail', query: {backlength: 1, lsNum: lsNum}})
         } else {
-          this.$router.push({path: '/endorsement_empty', query: {backlength: 1}})
+          this.$router.push({path: '/endorsement_empty', query: {backlength: 1, lsNum: lsNum}})
         }
       },
       tapAdd() {
