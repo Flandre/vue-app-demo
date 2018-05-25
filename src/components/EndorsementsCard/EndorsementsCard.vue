@@ -141,7 +141,9 @@
       },
       tapService(serviceType, lsNum, carType, $event) {
         console.log(serviceType)
-        this.$router.push({path: '/manager', query: { lsNum: lsNum, carType: carType}})
+        this.$router.push({path: '/manager', query: { lsNum: lsNum, carType: carType, serviceType: serviceType}}, () => {
+
+        })
       }
     },
     components: {
