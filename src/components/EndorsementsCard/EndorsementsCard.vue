@@ -24,7 +24,7 @@
             </div>
             <img src="./images/restriction.png" class="is-restriction" v-if="endorsement.restriction === true" />
           </div>
-          <div class="more-service-box" @click="tapService(endorsement.serviceType, $event)">
+          <div class="more-service-box" @click="tapService(endorsement.serviceType, endorsement.lsNum, endorsement.carType, $event)">
             <div class="more-service-info">
               <p class="title">{{endorsement.serviceTitle}}</p>
               <p :class="['desc', endorsement.serviceDescType]">{{endorsement.serviceDesc}}</p>
@@ -139,10 +139,9 @@
         $event.stopPropagation()
         this.$router.push({path: '/edit_car', query: {edit: true, lsNum: lsNum, carType: carType}})
       },
-      tapService(serviceType, $event) {
+      tapService(serviceType, lsNum, carType, $event) {
         console.log(serviceType)
-        console.log($event)
-
+        this.$router.push({path: '/manager', query: { lsNum: lsNum, carType: carType}})
       }
     },
     components: {

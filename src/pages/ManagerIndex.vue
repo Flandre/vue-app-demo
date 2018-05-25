@@ -1,6 +1,6 @@
 <template>
   <div class="manager-index">
-    <NavigatorBar title="车辆管家" bgColor="#FBCB61"/>
+    <NavigatorBar title="车辆管家" bgColor="#45A4F7"/>
 
   </div>
 </template>
@@ -20,5 +20,7 @@
 </script>
 
 <style lang="less" scoped>
-
+  .manager-index {
+    margin-top: 44px;
+  }
 </style>
