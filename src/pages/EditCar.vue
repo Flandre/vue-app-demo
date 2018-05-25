@@ -27,16 +27,16 @@
             <option>渝</option>
             <option>粤</option>
           </select>
-          <input type="text" placeholder="请输入车牌号">
+          <input type="text" placeholder="请输入车牌号" :value="automatic.lsNum">
         </div>
       </div>
       <div class="form-row">
         <span class="label">发动机号</span>
-        <input type="text" class="main" placeholder="请输入全部发动机号"/>
+        <input type="text" class="main" placeholder="请输入全部发动机号" :value="automatic.engineType"/>
       </div>
       <div class="form-row">
         <span class="label">车架号码</span>
-        <input type="text" class="main" placeholder="请输入全部车架号"/>
+        <input type="text" class="main" placeholder="请输入全部车架号" :value="automatic.vin"/>
       </div>
     </div>
     <div class="form-group">
@@ -50,13 +50,13 @@
       </div>
       <div class="form-row">
         <span class="label">注册日期</span>
-        <input type="text" class="main" placeholder="选择注册日期开通年检提醒（选填）"/>
+        <input type="text" class="main" placeholder="选择注册日期开通年检提醒（选填）" :value="automatic.time"/>
       </div>
     </div>
     <div class="form-group">
       <div class="form-row">
         <span class="label">车系</span>
-        <input type="text" class="main" placeholder="请选择车型（选填）"/>
+        <input type="text" class="main" placeholder="请选择车型（选填）" :value="automatic.carType"/>
       </div>
     </div>
     <div class="active-bar">
@@ -72,7 +72,14 @@
     name: "edit-car",
     data() {
       return {
-        showTitle: "添加车辆"
+        showTitle: "添加车辆",
+        automatic: {
+          lsNum: '',
+          engineType: '',
+          vin: '',
+          time: '',
+          carType: '',
+        }
       }
     },
     components: {
@@ -81,6 +88,17 @@
     mounted() {
       /* 返回顶部 */
       window.scrollTo(0, 0)
+      if(this.$route.query.edit){
+        console.log('111111')
+        this.automatic = {
+          lsNum: 'QY96N0',
+          vin: '1G1BL52P7TR115520',
+          engineType: '238763',
+          time: '2013-03-15',
+          carType: '广汽 欧蓝德',
+        }
+        this.showTitle = '编辑车辆'
+      }
     },
     methods: {
       tapSubmit() {
