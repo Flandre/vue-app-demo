@@ -59,6 +59,10 @@
         <input type="text" class="main" placeholder="请选择车型（选填）"/>
       </div>
     </div>
+    <div class="active-bar">
+      <div class="button" @click="tapSubmit">保存</div>
+    </div>
+    <p class="prompt">所填信息为当地交管局查询必需信息，我们将严格保密，敬请放心。<br/>点击开始查询，即表示您同意我们将您的个人信息用于违章查询。</p>
   </div>
 </template>
 
@@ -79,6 +83,9 @@
       window.scrollTo(0, 0)
     },
     methods: {
+      tapSubmit() {
+        this.$router.push({path: '/endorsement_detail', query: {backlength: 2}})
+      }
     }
   }
 </script>
@@ -160,6 +167,24 @@
           margin-left: 5px;
         }
       }
+    }
+    .active-bar {
+      padding: 30px 25px 0;
+      .button {
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        background: #45A4F7;
+        color: #fff;
+        border-radius: 4px;
+      }
+    }
+    .prompt {
+      color: #ABABAB;
+      font-size: 11px;
+      line-height: 16px;
+      text-align: center;
+      margin-top: 15px;
     }
   }
 
