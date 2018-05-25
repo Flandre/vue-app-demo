@@ -6,7 +6,9 @@
         <div class="card-item">
           <div class="endorsement-box" @click="tapEndorsementPanel(endorsement.hasPeccancy, $event)">
             <div class="car-info">
-              <p class="car-num"><span>{{endorsement.lsPrefix}}{{endorsement.lsNum}}</span><span class="edit-car"></span></p>
+              <p class="car-num">
+                <span>{{endorsement.lsPrefix}}{{endorsement.lsNum}}</span>
+                <span class="edit-car" @click="tapEdit"></span></p>
               <p class="car-type">{{endorsement.carType}}</p>
             </div>
             <p class="last-query">{{endorsement.lastQueryText}}</p>
@@ -128,6 +130,11 @@
       },
       tapAdd() {
         this.$router.push('/edit_car')
+      },
+      tapEdit(e) {
+        e.preventDefault()
+        e.stopPropagation()
+        this.$router.push({path: '/edit_car', query: {edit: true}})
       }
     },
     components: {
