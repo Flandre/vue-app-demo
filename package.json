@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "fontmin": "^0.9.7-beta",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "vue": "^2.5.2",
