@@ -24,7 +24,7 @@
             </div>
             <img src="./images/restriction.png" class="is-restriction" v-if="endorsement.restriction === true" />
           </div>
-          <div class="more-service-box">
+          <div class="more-service-box" @click="tapService(endorsement.serviceType, $event)">
             <div class="more-service-info">
               <p class="title">{{endorsement.serviceTitle}}</p>
               <p :class="['desc', endorsement.serviceDescType]">{{endorsement.serviceDesc}}</p>
@@ -38,7 +38,7 @@
           <div class="endorsement-box" @click="tapAdd">
             <img src="./images/add.png" class="add-newcar">
           </div>
-          <div class="more-service-box">
+          <div class="more-service-box" @click="tapAdd">
             <div class="more-service-info">
               <p class="title">车辆管家，更多贴心服务</p>
               <p class="desc">轻松设置，及时提醒</p>
@@ -75,6 +75,7 @@
             restriction: true,
             serviceTitle: '保险即将到期',
             serviceDesc: '还剩24天，请及时续保',
+            serviceType: 1,
             serviceDescType: 'highlight',
             totalCount: 0,
             totalPrice: 0,
@@ -93,6 +94,7 @@
             restriction: false,
             serviceTitle: '年检即将到期',
             serviceDesc: '还剩12天，请及时年检',
+            serviceType: 2,
             serviceDescType: 'highlight',
             totalCount: 4,
             totalPrice: 600,
@@ -111,6 +113,7 @@
             restriction: true,
             serviceTitle: '你有多条提醒即将到期',
             serviceDesc: '车辆年检、车辆保险',
+            serviceType: 3,
             serviceDescType: 'highlight',
             totalCount: 4,
             totalPrice: 600,
@@ -135,6 +138,11 @@
         e.preventDefault()
         e.stopPropagation()
         this.$router.push({path: '/edit_car', query: {edit: true}})
+      },
+      tapService(serviceType, $event) {
+        console.log(serviceType)
+        console.log($event)
+
       }
     },
     components: {
