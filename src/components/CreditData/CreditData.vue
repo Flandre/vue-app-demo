@@ -36,7 +36,7 @@
 <style scoped>
   @font-face {
     font-family: "HanziPen SC";
-    src: url("../../fonts/HanzipenSC-Regular.otf");
+    src: url("../../fonts/HanzipenSC-Regular.ttf");
   }
   @font-face {
     font-family: "DIN Condensed";

@@ -68,7 +68,7 @@
 <style scoped>
   @font-face {
     font-family: "HanziPen SC";
-    src: url("../../fonts/HanzipenSC-Regular.otf");
+    src: url("../../fonts/HanzipenSC-Regular.ttf");
   }
   .menu-button {
     width: 40px;
