@@ -8,7 +8,7 @@
             <div class="car-info">
               <p class="car-num">
                 <span>{{endorsement.lsPrefix}}{{endorsement.lsNum}}</span>
-                <span class="edit-car" @click="tapEdit"></span></p>
+                <span class="edit-car" @click="tapEdit(endorsement.lsNum, endorsement.carType, $event)"></span></p>
               <p class="car-type">{{endorsement.carType}}</p>
             </div>
             <p class="last-query">{{endorsement.lastQueryText}}</p>
@@ -84,9 +84,9 @@
           },
           {
             id: 398,
-            lsNum: "QY96N0",
+            lsNum: "AK3326",
             lsPrefix: "京",
-            carType: "广汽 欧蓝德",
+            carType: "奥迪 奥迪A4L",
             lastQueryText: "上次查询：20分钟前",
             endorsementInfo: ["违章 4", "罚款 600", "扣分 6"],
             endorsementInfoType: 'warning',
@@ -103,7 +103,7 @@
           },
           {
             id: 400,
-            lsNum: "QY96N0",
+            lsNum: "N627M9",
             lsPrefix: "京",
             carType: "广汽 欧蓝德",
             lastQueryText: "上次查询：27分钟前",
@@ -134,10 +134,10 @@
       tapAdd() {
         this.$router.push('/edit_car')
       },
-      tapEdit(e) {
-        e.preventDefault()
-        e.stopPropagation()
-        this.$router.push({path: '/edit_car', query: {edit: true}})
+      tapEdit(lsNum, carType, $event) {
+        $event.preventDefault()
+        $event.stopPropagation()
+        this.$router.push({path: '/edit_car', query: {edit: true, lsNum: lsNum, carType: carType}})
       },
       tapService(serviceType, $event) {
         console.log(serviceType)

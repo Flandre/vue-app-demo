@@ -97,6 +97,12 @@
           carType: '广汽 欧蓝德',
         }
         this.showTitle = '编辑车辆'
+        if(this.$route.query.lsNum){
+          this.automatic.lsNum = this.$route.query.lsNum
+        }
+        if(this.$route.query.carType){
+          this.automatic.carType = this.$route.query.carType
+        }
       }
     },
     methods: {
