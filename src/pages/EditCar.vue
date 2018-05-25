@@ -5,13 +5,58 @@
       <span>请对照《机动车行驶证》认真填写以下信息</span>
     </div>
     <div class="form-group">
+      <div class="automatic">
+          <img src="../assets/pages/EditCar/automatic-left.png" class="automatic-left">
+          <span>自动识别行驶证</span>
+          <img src="../assets/pages/EditCar/automatic-right.png" class="automatic-right">
+      </div>
       <div class="form-row">
         <span class="label">号牌类型</span>
         <select class="main">
-          <option>京</option>
-          <option>京</option>
-          <option>京</option>
+          <option>小型汽车</option>
+          <option>大型汽车</option>
         </select>
+      </div>
+      <div class="form-row">
+        <span class="label">车牌号</span>
+        <div class="main">
+          <select>
+            <option>京</option>
+            <option>津</option>
+            <option>冀</option>
+            <option>渝</option>
+            <option>粤</option>
+          </select>
+          <input type="text" placeholder="请输入车牌号">
+        </div>
+      </div>
+      <div class="form-row">
+        <span class="label">发动机号</span>
+        <input type="text" class="main" placeholder="请输入全部发动机号"/>
+      </div>
+      <div class="form-row">
+        <span class="label">车架号码</span>
+        <input type="text" class="main" placeholder="请输入全部车架号"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-row">
+        <span class="label">车辆类型</span>
+        <select class="main">
+          <option>小型、微型非营运载客汽车</option>
+          <option>营运载客汽车</option>
+          <option>载货汽车和大、中型非营运载客汽车</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <span class="label">注册日期</span>
+        <input type="text" class="main" placeholder="选择注册日期开通年检提醒（选填）"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-row">
+        <span class="label">车系</span>
+        <input type="text" class="main" placeholder="请选择车型（选填）"/>
       </div>
     </div>
   </div>
@@ -55,6 +100,7 @@
     .form-group {
       padding-left: 15px;
       background: #fff;
+      margin-bottom: 10px;
       .form-row {
         height: 50px;
         border-bottom: 1px solid #DBDBDB;
@@ -72,9 +118,46 @@
         }
         .main {
           width: 100%;
+          display: flex;
+          overflow: hidden;
+          select {
+            flex-grow: 0;
+          }
+        }
+        select,
+        input {
+          height: 48px;
+          border: 0;
+          outline: 0;
+          background: #fff;
+          flex-grow: 1;
+          font-size: 13px;
+          padding: 0 10px;
         }
         &:last-child {
           border-bottom: 0;
+        }
+      }
+      .automatic {
+        height: 48px;
+        text-align: center;
+        span {
+          font-size: 13px;
+          line-height: 48px;
+          color: #45A4F7;
+          vertical-align: middle;
+        }
+        .automatic-left {
+          width: 16px;
+          height: 14px;
+          vertical-align: middle;
+          margin-right: 10px;
+        }
+        .automatic-right {
+          width: 7px;
+          height: 12px;
+          vertical-align: middle;
+          margin-left: 5px;
         }
       }
     }
