@@ -89,7 +89,6 @@
       /* 返回顶部 */
       window.scrollTo(0, 0)
       if(this.$route.query.edit){
-        console.log('111111')
         this.automatic = {
           lsNum: 'QY96N0',
           vin: '1G1BL52P7TR115520',
