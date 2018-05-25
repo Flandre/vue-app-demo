@@ -157,6 +157,8 @@
           flex-grow: 1;
           font-size: 13px;
           padding: 0 10px;
+          outline: none;
+          -webkit-appearance: none;
         }
         &:last-child {
           border-bottom: 0;
