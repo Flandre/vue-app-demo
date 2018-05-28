@@ -22,6 +22,7 @@ import EditCar from '@/pages/EditCar'
 import ManagerIndex from '@/pages/ManagerIndex'
 import InspectionInfo from '@/pages/InspectionInfo'
 import InsuranceInfo from '@/pages/InsuranceInfo'
+import InspectionAdd from '@/pages/InspectionAdd'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -68,6 +69,7 @@ export default new Router({
     { path: '/manager', name: '车辆管家首页', component: ManagerIndex},
     { path: '/inspection', name: '年检信息', component: InspectionInfo},
     { path: '/insurance', name: '保险提醒', component: InsuranceInfo},
+    { path: '/addInspection', name: '开通年检提醒', component: InspectionAdd},
     { path: '/404', name: '404页面', component: _404},
     { path: '*', redirect: '/404' }
   ]

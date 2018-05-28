@@ -40,7 +40,7 @@
           <p class="proj">下次领标日期：2019-03-11</p>
         </div>
       </div>
-      <div class="info-main" v-else>
+      <div class="info-main" v-else @click="tapAddInspection">
         <div class="info-item">
           <img src="../assets/pages/ManagerIndex/add.png" class="add">
           <p class="proj">轻松设置，年检及时办</p>
@@ -121,6 +121,22 @@
           query.type = this.$route.query.insurance
         }
         this.$router.push({path: '/insurance', query: query})
+      },
+      tapAddInspection() {
+        let query = {}
+        if(this.$route.query.lsNum){
+          query.lsNum = this.$route.query.lsNum
+        }
+        if(this.$route.query.carType){
+          query.carType = this.$route.query.carType
+        }
+        if(this.$route.query.inspection){
+          query.inspection = this.$route.query.inspection
+        }
+        if(this.$route.query.insurance){
+          query.insurance = this.$route.query.insurance
+        }
+        this.$router.push({path: '/addInspection', query: query})
       }
     }
   }

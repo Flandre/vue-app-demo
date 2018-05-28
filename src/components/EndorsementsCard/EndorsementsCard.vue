@@ -143,7 +143,7 @@
         switch(serviceType){
           case 1:
             this.$router.push({path: '/manager', query: { lsNum: lsNum, carType: carType, inspection: 0, insurance: 2}}, () => {
-
+              this.$router.push({path: '/insurance', query: {type: 2}})
             })
             break;
           case 2:
