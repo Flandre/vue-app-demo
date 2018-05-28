@@ -120,6 +120,18 @@
         if(this.$route.query.insurance > 0){
           query.type = this.$route.query.insurance
         }
+        if(this.$route.query.lsNum){
+          query.lsNum = this.$route.query.lsNum
+        }
+        if(this.$route.query.carType){
+          query.carType = this.$route.query.carType
+        }
+        if(this.$route.query.inspection){
+          query.inspection = this.$route.query.inspection
+        }
+        if(this.$route.query.insurance){
+          query.insurance = this.$route.query.insurance
+        }
         this.$router.push({path: '/insurance', query: query})
       },
       tapAddInspection() {
@@ -139,7 +151,7 @@
         this.$router.push({path: '/addInspection', query: query})
       },
       tapAddInsurance() {
-        let query = {}
+        let query = {firstInput: true}
         if(this.$route.query.lsNum){
           query.lsNum = this.$route.query.lsNum
         }

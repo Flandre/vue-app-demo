@@ -50,19 +50,33 @@
     },
     methods: {
       tapSave() {
-        let query = {insurance : 1, backlength: 3}
-        if(this.$route.query.lsNum){
-          query.lsNum = this.$route.query.lsNum
+        if(this.$route.query.firstInput){
+          let query = {insurance : 1, backlength: 3}
+          if(this.$route.query.lsNum){
+            query.lsNum = this.$route.query.lsNum
+          }
+          if(this.$route.query.carType){
+            query.carType = this.$route.query.carType
+          }
+          if(this.$route.query.inspection){
+            query.inspection = this.$route.query.inspection
+          }
+          this.$router.push({path: '/manager', query: query}, () => {
+            let query = {insurance : 1, type: 1}
+            if(this.$route.query.lsNum){
+              query.lsNum = this.$route.query.lsNum
+            }
+            if(this.$route.query.carType){
+              query.carType = this.$route.query.carType
+            }
+            if(this.$route.query.inspection){
+              query.inspection = this.$route.query.inspection
+            }
+            this.$router.push({path: '/insurance', query: query})
+          })
+        } else {
+          history.go(-1)
         }
-        if(this.$route.query.carType){
-          query.carType = this.$route.query.carType
-        }
-        if(this.$route.query.inspection){
-          query.inspection = this.$route.query.inspection
-        }
-        this.$router.push({path: '/manager', query: query}, () => {
-          this.$router.push({path: '/insurance', query: {type: 1}})
-        })
       }
     }
   }

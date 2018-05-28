@@ -28,7 +28,7 @@
       <div class="list-item">理赔原则 <img src="../assets/pages/InsuranceInfo/Arrow-right.png" class="icon"></div>
     </div>
     <div class="active-bar">
-      <div class="add-button">添加保单</div>
+      <div class="add-button" @click="addInsurance">添加保单</div>
     </div>
   </div>
 </template>
@@ -59,6 +59,9 @@
       tapSwitch() {
         this.switchActive = !this.switchActive
       },
+      addInsurance() {
+        this.$router.push({path: '/addInsurance', query: {lsNum: this.$route.query.lsNum}})
+      }
     }
   }
 </script>
