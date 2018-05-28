@@ -61,7 +61,7 @@
           <p class="proj">商业险到期日：2019-09-01</p>
         </div>
       </div>
-      <div class="info-main" v-else>
+      <div class="info-main" v-else @click="tapAddInsurance">
         <div class="info-item">
           <img src="../assets/pages/ManagerIndex/add.png" class="add">
           <p class="proj">到期提醒，一键报案</p>
@@ -137,6 +137,22 @@
           query.insurance = this.$route.query.insurance
         }
         this.$router.push({path: '/addInspection', query: query})
+      },
+      tapAddInsurance() {
+        let query = {}
+        if(this.$route.query.lsNum){
+          query.lsNum = this.$route.query.lsNum
+        }
+        if(this.$route.query.carType){
+          query.carType = this.$route.query.carType
+        }
+        if(this.$route.query.inspection){
+          query.inspection = this.$route.query.inspection
+        }
+        if(this.$route.query.insurance){
+          query.insurance = this.$route.query.insurance
+        }
+        this.$router.push({path: '/addInsurance', query: query})
       }
     }
   }
