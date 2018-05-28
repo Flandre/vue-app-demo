@@ -1,5 +1,5 @@
 <template>
-  <div :class="['navigator-bar', navTypeData]">
+  <div :class="['navigator-bar', navTypeData, showBorder ? 'showBorder': '']">
     <div class="bg-color" :style="{backgroundColor : bgColor, opacity: navOpacity}"></div>
     <img v-if="navTypeData == 'dark'" src="./images/prev.png" class="prev" @click="tapPrev"/>
     <img src="./images/prev-light.png" class="prev" @click="tapPrev" v-else-if="navTypeData == 'light'"/>
@@ -70,6 +70,9 @@
       },
       navTypeChange: {
         default: 'normal',
+      },
+      showBorder: {
+        default: true
       }
     }
   }
@@ -107,7 +110,7 @@
   .navigator-bar.dark .title{
     color: #fff;
   }
-  .navigator-bar.light {
+  .navigator-bar.light.showBorder {
     border-bottom: 1px solid #dbdbdb;
   }
   .navigator-bar.light .title{

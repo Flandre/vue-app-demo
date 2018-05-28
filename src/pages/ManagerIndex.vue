@@ -33,7 +33,7 @@
     </div>
     <div class="inspection panel-item">
       <p class="title">年检提醒</p>
-      <div class="info-main" v-if="inspection > 0">
+      <div class="info-main" v-if="inspection > 0" @click="tapInspection">
         <div class="info-item">
           <p class="num" v-if="inspection == 1">373<em>天</em></p>
           <p class="num warn" v-else-if="inspection == 2">12<em>天</em></p>
@@ -107,6 +107,15 @@
         this.insurance = this.$route.query.insurance
       }
     },
+    methods: {
+      tapInspection() {
+        let query = {type: 1}
+        if(this.$route.query.inspection > 0){
+          query.type = this.$route.query.inspection
+        }
+        this.$router.push({path: '/inspection', query: query})
+      }
+    }
   }
 </script>
 
