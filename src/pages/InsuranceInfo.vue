@@ -1,6 +1,6 @@
 <template>
   <div class="insurance-info">
-    <NavigatorBar title="保险提醒" bgColor="#fff" navType="light" menuRightText="我的保单" menuRightPath="/"/>
+    <NavigatorBar title="保险提醒" bgColor="#fff" navType="light" menuRightText="我的保单" menuRightPath="/myInsurance"/>
     <div class="insurance-panel" :style="{backgroundColor: panelColor}">
       <div class="insurance-group">
         <div class="insurance-item">
