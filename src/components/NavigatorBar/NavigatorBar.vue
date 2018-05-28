@@ -4,6 +4,7 @@
     <img v-if="navTypeData == 'dark'" src="./images/prev.png" class="prev" @click="tapPrev"/>
     <img src="./images/prev-light.png" class="prev" @click="tapPrev" v-else-if="navTypeData == 'light'"/>
     <div class="title">{{title}}</div>
+    <div class="right-text" v-if="menuRightText != ''" @click="tapRightMenu">{{menuRightText}}</div>
   </div>
 </template>
 
@@ -22,6 +23,11 @@
           this.$router.goBackLength(this.$route.query.backlength)
         } else {
           this.$router.goBack()
+        }
+      },
+      tapRightMenu() {
+        if(this.menuRightPath){
+          this.$router.push(this.menuRightPath)
         }
       }
     },
@@ -113,6 +119,19 @@
     font-size: 17px;
     text-align: center;
   }
+  .navigator-bar .right-text{
+    position: fixed;
+    top: 0px;
+    right: 8px;
+    font-size: 15px;
+    line-height: 44px;
+  }
+  .navigator-bar.light .right-text{
+    color: #45A4F7
+  }
+  .navigator-bar.dark .right-text{
+    color: #fff
+  }
   .navigator-bar.dark .title{
     color: #fff;
   }
@@ -133,5 +152,11 @@
   .slide-left-leave-active .prev,
   .slide-right-enter-active .prev {
     top: -30px !important;
+  }
+  .slide-left-enter-active .right-text,
+  .slide-right-leave-active .right-text,
+  .slide-left-leave-active .right-text,
+  .slide-right-enter-active .right-text {
+    top: -44px !important;
   }
 </style>
