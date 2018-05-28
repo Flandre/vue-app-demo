@@ -73,6 +73,12 @@
       },
       showBorder: {
         default: true
+      },
+      menuRightText: {
+        default: ''
+      },
+      menuRightPath: {
+        default: ''
       }
     }
   }

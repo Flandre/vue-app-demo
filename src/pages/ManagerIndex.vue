@@ -49,7 +49,7 @@
     </div>
     <div class="insurance panel-item">
       <p class="title">保险提醒</p>
-      <div class="info-main" v-if="insurance > 0">
+      <div class="info-main" v-if="insurance > 0" @click="tapInsurance">
         <div class="info-item">
           <p class="num" v-if="insurance == 1">100<em>天</em></p>
           <p class="num warn" v-else-if="insurance == 2">24<em>天</em></p>
@@ -114,6 +114,13 @@
           query.type = this.$route.query.inspection
         }
         this.$router.push({path: '/inspection', query: query})
+      },
+      tapInsurance() {
+        let query = {type: 1}
+        if(this.$route.query.insurance > 0){
+          query.type = this.$route.query.insurance
+        }
+        this.$router.push({path: '/insurance', query: query})
       }
     }
   }
