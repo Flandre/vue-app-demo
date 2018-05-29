@@ -27,6 +27,8 @@ import InsuranceAdd from '@/pages/InsuranceAdd'
 import MyInsurance from '@/pages/MyInsurance'
 import RecommendStudy from '@/pages/menu-select/study-type/RecommendStudy'
 import SafeStudy from '@/pages/menu-select/study-type/SafeStudy'
+import ClassSimple from '@/pages/ClassSimple'
+import ClassGroup from '@/pages/ClassGroup'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -80,6 +82,8 @@ export default new Router({
     { path: '/addInspection', name: '开通年检提醒', component: InspectionAdd},
     { path: '/addInsurance', name: '添加保险提醒', component: InsuranceAdd},
     { path: '/myInsurance', name: '我的保单', component: MyInsurance},
+    { path: '/class_simple', name: '单个课程', component: ClassSimple},
+    { path: '/class_group', name: '课程组', component: ClassGroup},
     { path: '/404', name: '404页面', component: _404},
     { path: '*', redirect: '/404' }
   ]
