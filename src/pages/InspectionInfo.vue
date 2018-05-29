@@ -37,7 +37,13 @@
           <img src="../assets/pages/InspectionInfo/arrow-down.png" class="arrow-down">
         </div>
         <div class="detail">
-          <p>已注册登记的机动车，按照下列期限申请机动车检验合格标志：</p>
+          <p>1. 机动车已达到检验有效期；</p>
+          <p>2. 提供法律、法规、部门规章规定的证明凭证；</p>
+          <p>3. 处理完毕机动车涉及的道路交通安全违法行为和交通事故。</p>
+          <p>存在下列情形的不予核发机动车检验合格标志：</p>
+          <p>1. 机动车号牌号码、行驶证、机动车交通事故责任强制保险凭证、车船税纳税或者免税证明、机动车安全技术检验合格证明上记载内容不一致的；</p>
+          <p>2. 机动车存在未处理完毕的道路交通安全违法行为和交通事故的；</p>
+          <p>3. 机动车非本市登记且没有机动车登记地公安机关委托检验的委托书。</p>
         </div>
       </div>
       <div :class="['collapse-item', showCollapse == 3 ? 'active' : '']">
@@ -46,8 +52,13 @@
           <img src="../assets/pages/InspectionInfo/arrow-down.png" class="arrow-down">
         </div>
         <div class="detail">
-          <p>1. 《机动车牌证申请表》；</p>
-          <p>2. 机动车行驶证；</p>
+          <p>1. 身份证；</p>
+          <p>2. 《机动车牌证申请表》；</p>
+          <p>3. 机动车行驶证；</p>
+          <p>4. 机动车交通事故责任强制保险凭证；</p>
+          <p>5. 机动车安全技术检验机构出具的机动车安全技术检验合格证明（免检车除外）；</p>
+          <p>6. 机动车查验记录表（免检车除外）；</p>
+          <p>7. 车船税纳税或者免税证明。</p>
         </div>
       </div>
       <div :class="['collapse-item', showCollapse == 4 ? 'active' : '']">
@@ -56,7 +67,8 @@
           <img src="../assets/pages/InspectionInfo/arrow-down.png" class="arrow-down">
         </div>
         <div class="detail">
-          <p>已注册登记的机动车，按照下列期限申请机动车检验合格标志：</p>
+          <p>1. 对符合机动车国家安全技术标准的机动车，在检验该机动车的检测场申请办理机动车检验合格标志。</p>
+          <p>2. 注册登记6年以内的非营运轿车和其他小型、微型载客汽车（面包车、7坐及7坐以上车辆除外）按规定期限到登记地车辆管理所申请机动车检验合格标志。</p>
         </div>
       </div>
     </div>
