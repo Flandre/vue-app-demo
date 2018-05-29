@@ -8,9 +8,7 @@
           <div class="slider-bar" :style="{left : sliderLeft}"></div>
         </div>
       </div>
-      <div class="search-bar">
-        搜索
-      </div>
+      <div class="search-bar"></div>
     </div>
     <router-view/>
   </div>
@@ -52,11 +50,13 @@
       position: fixed;
       top: 0;
       display: flex;
+      align-items: center;
       line-height: 40px;
       padding: 0 15px;
       z-index: 1050;
       .nav-links {
         flex-grow: 1;
+        height: 40px;
         white-space: nowrap;
         overflow: hidden;
         position: relative;
@@ -85,7 +85,10 @@
       }
       .search-bar {
         flex-grow: 0;
-        width: 100px;
+        width: 17px;
+        height: 16px;
+        background: url("../../assets/pages/study/searchIcon.png") center no-repeat;
+        background-size: 17px 16px;
       }
     }
 
