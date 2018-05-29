@@ -1,12 +1,13 @@
 <template>
   <div class="recommend-study">
     <StudyRecommend />
-    这是推荐学习
+    <StudyGroup />
   </div>
 </template>
 
 <script>
   import StudyRecommend from '@/components/StudyRecommend/StudyRecommend'
+  import StudyGroup from '@/components/StudyGroup/StudyGroup'
   export default {
     name: "recommend-study",
     data(){
@@ -15,7 +16,8 @@
       }
     },
     components: {
-      StudyRecommend
+      StudyRecommend,
+      StudyGroup
     }
   }
 </script>
