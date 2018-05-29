@@ -43,6 +43,7 @@
 <style lang="less" scoped>
   .study {
     margin-top: 40px;
+    overflow: hidden;
     .study-nav {
       width: 100%;
       height: 40px;
