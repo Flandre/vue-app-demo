@@ -53,19 +53,20 @@
 
       }
     },
-    mounted() {
-      this.$nextTick(() => {
-        /* 初始化数据 */
-        let ds = this.dataSource + ''
-        ds.split('_').forEach((val, gid) => {
-          let gs = val + ''
-          let data = []
-          gs.split('').forEach((d, index) => {
-            data[index] = Object.assign({}, {_id: `${gid}_${index})`}, this.studySource[d])
-          })
-          this.$set(this.studyData, gid, data)
+    beforeMount() {
+      let ds = this.dataSource + '', allData = []
+      ds.split('_').forEach((val, gid) => {
+        let gs = val + ''
+        let data = []
+        gs.split('').forEach((d, index) => {
+          data[index] = Object.assign({}, {_id: `${gid}_${index})`}, this.studySource[d])
         })
+        allData[gid] = data
+        this.studyData = allData
       })
+    },
+    mounted() {
+
     },
     components: {
       swiper,
