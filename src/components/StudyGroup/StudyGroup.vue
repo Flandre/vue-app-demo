@@ -24,7 +24,7 @@
     data() {
       return {
         swiperOption: {
-          slidesPerView :'auto',
+          slidesPerView :'auto'
         },
         studySource: [
           {
@@ -65,7 +65,6 @@
           })
           this.$set(this.studyData, gid, data)
         })
-        console.log(this.studyData)
       })
     },
     components: {
