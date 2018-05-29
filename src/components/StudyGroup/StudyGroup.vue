@@ -3,7 +3,7 @@
     <swiper :options="swiperOption" ref="endorsementSwiper">
       <!-- slides -->
       <swiper-slide class="card-group" v-for="group in studyData" :key="group.index">
-        <div class="card-item" v-for="i in group" :key="i._id">
+        <div class="card-item" v-for="i in group" :key="i._id" @click="tapClick(i.pathType)">
           <img :src="i.img" class="thumb-img"/>
           <div class="info-box">
             <p class="title">{{i.title}}</p>
@@ -50,7 +50,6 @@
           },
         ],
         studyData: []
-
       }
     },
     beforeMount() {
@@ -65,8 +64,14 @@
         this.studyData = allData
       })
     },
-    mounted() {
-
+    methods: {
+      tapClick(type) {
+        if(type == 'simple'){
+          this.$router.push('/class_simple')
+        } else {
+          this.$router.push('/class_group')
+        }
+      }
     },
     components: {
       swiper,
