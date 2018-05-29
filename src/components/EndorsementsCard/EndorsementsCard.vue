@@ -148,7 +148,7 @@
             break;
           case 2:
             this.$router.push({path: '/manager', query: { lsNum: lsNum, carType: carType, inspection: 2, insurance: 0}}, () => {
-
+              this.$router.push({path: '/inspection', query: { lsNum: lsNum, carType: carType, inspection: 2, insurance: 0, type: 2}})
             })
             break;
           case 3:
