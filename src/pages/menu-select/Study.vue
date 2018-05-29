@@ -54,6 +54,7 @@
       display: flex;
       line-height: 40px;
       padding: 0 15px;
+      z-index: 1050;
       .nav-links {
         flex-grow: 1;
         white-space: nowrap;
