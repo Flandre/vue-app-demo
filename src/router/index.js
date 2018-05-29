@@ -25,6 +25,8 @@ import InsuranceInfo from '@/pages/InsuranceInfo'
 import InspectionAdd from '@/pages/InspectionAdd'
 import InsuranceAdd from '@/pages/InsuranceAdd'
 import MyInsurance from '@/pages/MyInsurance'
+import RecommendStudy from '@/pages/menu-select/study-type/RecommendStudy'
+import SafeStudy from '@/pages/menu-select/study-type/SafeStudy'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -49,7 +51,11 @@ export default new Router({
     { path: '/', name: '重定向首页', redirect: '/index' },
     { path: '/menuselect', name: '含Menu的所有页面', component: MenuSelect, children: [
         { path: '/index', name: '首页', component: Index },
-        { path: '/study', name: '学习', component: Study },
+        { path: '/study', name: '学习', redirect: '/study/recommend', component: Study, children: [
+            { path: '/study/recommend', name: '推荐学习', component: RecommendStudy },
+            { path: '/study/safe', name: '安全驾驶', component: SafeStudy }
+          ]
+        },
         { path: '/find', name: '发现', component: Find },
         { path: '/home', name: '我的', component: Home }
       ]
