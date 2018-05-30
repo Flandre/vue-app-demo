@@ -1,17 +1,109 @@
 <template>
   <div class="class-simple">
-    这是单个视频
+    <NavigatorBar title="" bgColor="#fff" navType="dark" scrollType="fade" navTypeChange="change"/>
+    <video src="http://www.w3school.com.cn/i/movie.ogg" controls="controls" class="vedio-box">
+      your browser does not support the video tag
+    </video>
+    <div class="class-control">
+      <div class="class-info">
+        <p class="title">安全带的重要性</p>
+        <p class="text">很多车主认为，安全带就是“拉过来、扣上去”这么简单。虽然它只是一根简单的可以扣起来的带子,但在关键时刻能救你一命。</p>
+      </div>
+      <div class="class-test">
+        <div class="action-bar">
+          <div class="button">
+            <span>开始测评</span>
+          </div>
+        </div>
+        <p class="desc">学完视频并通过测评，可获得<em>200</em>积分！</p>
+      </div>
+    </div>
+    <ClassList title="新手上路宝典" v-if="showList == true"/>
+    <ClassCard />
   </div>
 </template>
 
 <script>
+  import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
+  import ClassList from '../components/ClassList/ClassList'
+  import ClassCard from '@/components/ClassCard/ClassCard'
   export default {
-    name: "class-simple"
+    name: "class-simple",
+    data() {
+      return {
+        showList: false
+      }
+    },
+    components: {
+      NavigatorBar,
+      ClassList,
+      ClassCard
+    },
+    beforeMount() {
+      if(this.$route.query.showList) {
+        this.showList = true
+      }
+    }
   }
 </script>
 
 <style lang="less" scoped>
   .class-simple {
-
+    .vedio-box {
+      display: block;
+      width: 100%;
+      height: 210px;
+      background: #000;
+    }
+    .class-control {
+      padding: 20px 15px;
+      background: #fff;
+      margin-bottom: 10px;
+      .class-info {
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #dbdbdb;
+        .title {
+          font-size: 15px;
+          line-height: 15px;
+          color: #333;
+          margin-bottom: 15px;
+        }
+        .text {
+          font-size: 13px;
+          color: #666666;
+          line-height: 18px;
+        }
+      }
+      .class-test {
+        .action-bar {
+          padding: 15px;
+          .button {
+            width: 100%;
+            height: 44px;
+            background: #45A4F7;
+            text-align: center;
+            color: #fff;
+            border-radius: 4px;
+            span {
+              line-height: 44px;
+            }
+          }
+        }
+        .desc {
+          text-align: center;
+          font-size: 12px;
+          line-height: 12px;
+          em {
+            font-style: normal;
+            color: #FEAB34;
+          }
+        }
+      }
+    }
+    .class-list {
+      margin-bottom: 10px;
+    }
   }
 </style>
