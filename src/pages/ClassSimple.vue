@@ -11,7 +11,7 @@
       </div>
       <div class="class-test">
         <div class="action-bar">
-          <div class="button">
+          <div class="button" @click="tapQuestion">
             <span>开始测评</span>
           </div>
         </div>
@@ -43,6 +43,11 @@
       window.scrollTo(0, 0)
       if(this.$route.query.showList) {
         this.showList = true
+      }
+    },
+    methods: {
+      tapQuestion(){
+        this.$router.push('/class_question')
       }
     }
   }

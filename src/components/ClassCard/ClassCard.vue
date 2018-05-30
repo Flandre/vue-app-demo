@@ -52,7 +52,6 @@
     },
     methods: {
       tapCard(type){
-        console.log('aaa')
         if(type == 'simple'){
           this.$router.push('/class_simple')
         } else {
