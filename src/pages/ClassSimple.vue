@@ -100,6 +100,7 @@
             em {
               color: #45A4F7;
               font-size: 15px;
+              font-style: normal;
             }
           }
           .button {
