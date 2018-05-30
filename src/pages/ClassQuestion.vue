@@ -3,6 +3,7 @@
     <NavigatorBar title="安全带的重要性" navType="light" bgColor="#fff"/>
     <div class="question-container">
       <div class="question-info">
+        <p class="last-score" v-if="lastScore != ''">得分：<em>{{lastScore}}</em></p>
         共{{questionData.length}}题，总计100分
       </div>
       <div class="question-item" v-for="(ques, quesIndex) in questionData">
@@ -12,7 +13,7 @@
         </div>
       </div>
     </div>
-    <div class="submit-bar"></div>
+    <div :class="['submit-bar', enableSubmit? '': 'disabled']" @click="tapButton">{{submitText}}</div>
   </div>
 </template>
 
@@ -95,53 +96,130 @@
             ]
           }
         ],
-        enableSubmit: false
+        enableSubmit: false,
+        submitText: '提交答案',
+        lastScore: '',
+        shoudSelect: true,
       }
     },
     beforeMount() {
       window.scrollTo(0, 0)
     },
     beforeUpdate() {
-      console.log('=== check submit ===')
-      let enable = true
-      this.questionData.forEach(ques => {
-        let count = true
-        ques.answer.forEach(ans => {
-          if(ans.state == 'right'){
-            count = false
+      if(this.submitText == '提交答案') {
+        let enable = true
+        this.questionData.forEach(ques => {
+          let count = true
+          ques.answer.forEach(ans => {
+            if(ans.state == 'right'){
+              count = false
+            }
+          })
+          if(count){
+            enable = false
           }
         })
-        if(count){
-          enable = false
-        }
-      })
-      this.enableSubmit = enable
-      console.log(this.enableSubmit)
+        this.enableSubmit = enable
+      } else {
+        this.enableSubmit = true
+      }
     },
     components: {
       NavigatorBar,
     },
     methods: {
       tapSelect(ques, ans){
-        switch(this.questionData[ques].type){
-          case 'exclusive':
-          case 'judge':
-            this.questionData[ques].answer.forEach((val, index) => {
-              if(index == ans){
-                val.state = 'right'
+        if(this.shoudSelect){
+          switch(this.questionData[ques].type){
+            case 'exclusive':
+            case 'judge':
+              this.questionData[ques].answer.forEach((val, index) => {
+                if(index == ans){
+                  val.state = 'right'
+                } else {
+                  val.state = 'select'
+                }
+              })
+              break
+            case 'multiple':
+              if(this.questionData[ques].answer[ans].state == 'select'){
+                this.questionData[ques].answer[ans].state = 'right'
               } else {
-                val.state = 'select'
+                this.questionData[ques].answer[ans].state = 'select'
               }
-            })
-            break
-          case 'multiple':
-            if(this.questionData[ques].answer[ans].state == 'select'){
-              this.questionData[ques].answer[ans].state = 'right'
-            } else {
-              this.questionData[ques].answer[ans].state = 'select'
-            }
-            break
+              break
 
+          }
+        }
+      },
+      tapButton() {
+        if(this.submitText == '提交答案') {
+          this.submitText = '重测一次'
+          window.scrollTo(0, 0)
+          this.shoudSelect = false
+          let count = 0
+          this.questionData.forEach(ques => {
+            let isRight = true;
+            if(ques.type == 'multiple'){
+              let rightAns = true
+              ques.answer.forEach(ans => {
+                if(ans.state == 'select' && ans.right){
+                  rightAns = false
+                }
+                if(ans.state == 'right' && !ans.right){
+                  rightAns = false
+                }
+              })
+              if(rightAns){
+                ques.answer.forEach(ans => {
+                  if(ans.right){
+                    ans.state = 'right isRight'
+                  }
+                })
+              } else {
+                isRight = false
+                ques.answer.forEach(ans => {
+                  let className = ans.state
+                  if(ans.state == 'right') {
+                    className = 'wrong'
+                  }
+                  if(ans.right){
+                    className += ' isRight'
+                  }
+                  ans.state = className
+                })
+              }
+            } else {
+              ques.answer.forEach(ans => {
+                if(ans.state == 'right' && ans.right){
+                  ans.state = 'right isRight'
+                }
+                if(ans.state == 'select' && ans.right){
+                  ans.state = 'right isRight'
+                  isRight = false
+                }
+                if(ans.state == 'right' && !ans.right){
+                  ans.state = 'wrong'
+                  isRight = false
+                }
+              })
+            }
+            if(!isRight){
+              count ++
+            }
+          })
+          this.lastScore = ((this.questionData.length - count) / this.questionData.length * 100).toFixed(0)
+          sessionStorage.setItem("lastScore", this.lastScore);
+        } else {
+          this.submitText = '提交答案'
+          window.scrollTo(0, 0)
+          this.shoudSelect = true
+          this.lastScore = ''
+          this.questionData.forEach(ques => {
+            ques.answer.forEach(ans => {
+              ans.state = 'select'
+            })
+          })
         }
       }
     }
@@ -154,11 +232,24 @@
     .question-container {
       padding: 0 25px;
       background: #fff;
+      margin-bottom: 50px;
       .question-info {
         padding: 20px 0;
         text-align: center;
         font-size: 15px;
         color: #333;
+        .last-score {
+          font-size: 15px;
+          line-height: 24px;
+          color: #333;
+          margin-bottom: 10px;
+          em {
+            font-size: 22px;
+            line-height: 24px;
+            font-style: normal;
+            color: #45A4F7;
+          }
+        }
       }
       .question-item {
         overflow: hidden;
@@ -188,6 +279,7 @@
             background-size: 22px 22px;
             background-repeat: no-repeat;
             background-position: 12px center;
+            position: relative;
             &.select {
               background-image: url("../assets/pages/ClassQuestion/select.png");
             }
@@ -197,9 +289,38 @@
             &.right {
               background-image: url("../assets/pages/ClassQuestion/right.png");
             }
+            &.isRight {
+              &:after {
+                content: '';
+                display: block;
+                width: 16px;
+                height: 12px;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                margin-top: -6px;
+                background: url("../assets/pages/ClassQuestion/isRight.png") center no-repeat;
+                background-size: 16px 12px;
+              }
+            }
           }
         }
-
+      }
+    }
+    .submit-bar {
+      display: block;
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      color: #fff;
+      font-size: 17px;
+      background: #45A4F7;
+      position: fixed;
+      bottom: 0;
+      z-index: 1060;
+      &.disabled {
+        background: #ABABAB
       }
     }
 
