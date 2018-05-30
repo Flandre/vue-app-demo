@@ -19,7 +19,7 @@
       </div>
     </div>
     <ClassList title="新手上路宝典" v-if="showList == true"/>
-    <ClassCard />
+    <ClassCard title="相关视频" />
   </div>
 </template>
 

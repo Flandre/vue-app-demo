@@ -4,7 +4,7 @@
     <img src="../../assets/pages/index/banner.png" class="banner">
     <CreditData />
     <EndorsementsCard/>
-    <ClassCard/>
+    <ClassCard title="推荐学习"/>
     <ArticleList :title="articleTitle" showChange="true"/>
   </div>
 </template>

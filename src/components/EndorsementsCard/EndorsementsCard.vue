@@ -168,6 +168,7 @@
   .endorsements-card {
     margin-top: 15px;
     height: 210px;
+    margin-bottom: 15px;
   }
   .swiper-slide {
     width: 92%;

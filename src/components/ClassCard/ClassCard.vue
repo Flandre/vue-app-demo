@@ -1,7 +1,7 @@
 <template>
   <div class="class-card">
-    <div class="title">
-      推荐学习
+    <div class="title" v-if="title">
+      {{title}}
     </div>
     <swiper :options="swiperOption" ref="classSwiper">
       <swiper-slide v-for="cls in classData" :key="cls.id">
@@ -49,15 +49,18 @@
     components: {
       swiper,
       swiperSlide
+    },
+    props: {
+      title: {
+        default: ''
+      }
     }
   }
 </script>
 
 <style scoped>
   .class-card {
-    height: 164px;
     background: #fff;
-    margin-top: 15px;
     padding: 15px;
   }
   .class-card .title {
