@@ -11,8 +11,9 @@
       </div>
       <div class="class-test">
         <div class="action-bar">
+          <p class="last-score" v-if="lastScore >= 0">测评得分：<em>{{lastScore}}</em>/100</p>
           <div class="button" @click="tapQuestion">
-            <span>开始测评</span>
+            <span>{{buttonText}}</span>
           </div>
         </div>
         <p class="desc">学完视频并通过测评，可获得<em>200</em>积分！</p>
@@ -31,7 +32,9 @@
     name: "class-simple",
     data() {
       return {
-        showList: false
+        showList: false,
+        buttonText: '开始测评',
+        lastScore: -1
       }
     },
     components: {
@@ -43,6 +46,10 @@
       window.scrollTo(0, 0)
       if(this.$route.query.showList) {
         this.showList = true
+      }
+      if(sessionStorage.getItem('lastScore')){
+        this.lastScore = sessionStorage.getItem('lastScore')
+        this.buttonText = '继续测评'
       }
     },
     methods: {
@@ -85,6 +92,16 @@
       .class-test {
         .action-bar {
           padding: 15px;
+          .last-score {
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+            margin-bottom: 10px;
+            em {
+              color: #45A4F7;
+              font-size: 15px;
+            }
+          }
           .button {
             width: 100%;
             height: 44px;
