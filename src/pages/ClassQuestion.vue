@@ -12,6 +12,7 @@
         </div>
       </div>
     </div>
+    <div class="submit-bar"></div>
   </div>
 </template>
 
@@ -93,12 +94,29 @@
               },
             ]
           }
-        ]
-
+        ],
+        enableSubmit: false
       }
     },
     beforeMount() {
       window.scrollTo(0, 0)
+    },
+    beforeUpdate() {
+      console.log('=== check submit ===')
+      let enable = true
+      this.questionData.forEach(ques => {
+        let count = true
+        ques.answer.forEach(ans => {
+          if(ans.state == 'right'){
+            count = false
+          }
+        })
+        if(count){
+          enable = false
+        }
+      })
+      this.enableSubmit = enable
+      console.log(this.enableSubmit)
     },
     components: {
       NavigatorBar,
