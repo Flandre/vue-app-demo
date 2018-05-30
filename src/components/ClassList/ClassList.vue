@@ -3,7 +3,7 @@
     <div class="group-title" v-if="title">
       {{title}}
     </div>
-    <div class="list-item" v-for="i in listData">
+    <div class="list-item" v-for="i in listData" @click="tapList">
       <img :src="i.thumb" class="thumb">
       <div class="list-info">
         <p class="type">{{i.type}}</p>
@@ -49,6 +49,12 @@
           },
         ]
       }
+    },
+    methods: {
+      tapList() {
+        this.$router.push({path: '/class_simple', query: {showList: true}})
+      }
+
     },
     props: {
       title: {
@@ -109,6 +115,9 @@
             }
           }
         }
+      }
+      &:last-child {
+        border-bottom: 0;
       }
     }
   }
