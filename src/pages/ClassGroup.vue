@@ -6,18 +6,18 @@
       <p class="title">新手上路宝典</p>
       <p class="text">很多车主认为，安全带就是“拉过来、扣上去”这么简单。虽然它只是一根简单的可以扣起来的带子,但在关键时刻能救你一命。</p>
     </div>
-    <div class="group-list">
-
-    </div>
+    <ClassList title="上路宝典"/>
   </div>
 </template>
 
 <script>
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
+  import ClassList from '../components/ClassList/ClassList'
   export default {
     name: "class-group",
     components: {
       NavigatorBar,
+      ClassList
     },
   }
 </script>
