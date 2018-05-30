@@ -40,6 +40,7 @@
       ClassCard
     },
     beforeMount() {
+      window.scrollTo(0, 0)
       if(this.$route.query.showList) {
         this.showList = true
       }
