@@ -84,7 +84,30 @@
         .type {
           color: #666666;
           font-size: 12px;
+          line-height: 12px;
           margin-bottom: 5px;
+        }
+        .title {
+          color: #333333;
+          font-size: 13px;
+          line-height: 13px;
+          margin-bottom: 17px;
+        }
+        .data-source {
+          font-size: 11px;
+          padding-right: 20px;
+          display: flex;
+          justify-content: space-between;
+          span{
+            white-space: nowrap;
+            color: #666666;
+            em {
+              font-style: normal;
+              &.complete {
+                color: #45A4F7;
+              }
+            }
+          }
         }
       }
     }
