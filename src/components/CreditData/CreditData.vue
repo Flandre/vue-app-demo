@@ -27,7 +27,7 @@
         router.push('/creditDetail')
       },
       tapLicense(e) {
-        router.push('/licenseDetail')
+        router.push('/edit_license')
       }
     }
   }
