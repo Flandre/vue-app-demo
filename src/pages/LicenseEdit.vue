@@ -1,14 +1,14 @@
 <template>
-  <div class="edit-license">
+  <div class="license-edit">
     <NavigatorBar title="添加驾驶证" navType="light" bgColor="#fff"/>
     <div class="top-tip">
       <span>请对照《机动车驾驶证》认真填写以下信息</span>
     </div>
     <div class="form-group">
       <div class="automatic">
-        <img src="../assets/pages/EditCar/automatic-left.png" class="automatic-left">
+        <img src="../assets/pages/LicenseEdit/automatic-left.png" class="automatic-left">
         <span>自动识别驾驶证</span>
-        <img src="../assets/pages/EditCar/automatic-right.png" class="automatic-right">
+        <img src="../assets/pages/LicenseEdit/automatic-right.png" class="automatic-right">
       </div>
       <div class="form-row">
         <span class="label">发证城市</span>
@@ -92,9 +92,10 @@
       },
       tapSave() {
         if(this.$route.query.isEdit){
-          this.$rouere.goBack(-1)
+          history.go(-1)
         } else {
-          this.$router.push('license-info')
+          sessionStorage.setItem('license', true)
+          this.$router.push('/license_info')
         }
       }
     }
@@ -102,7 +103,7 @@
 </script>
 
 <style lang="less" scoped>
-  .edit-license {
+  .license-edit {
     margin-top: 44px;
     .top-tip {
       height: 34px;
@@ -266,7 +267,7 @@
       line-height: 16px;
       text-align: center;
       margin-top: 15px;
+      margin-bottom: 15px;
     }
   }
-
 </style>
