@@ -172,6 +172,18 @@
           outline: none;
           -webkit-appearance: none;
         }
+        input::-webkit-input-placeholder{
+          color:#C7C7CD;
+        }
+        input::-moz-placeholder {
+          color:#C7C7CD;
+        }
+        input:-moz-placeholder {
+          color:#C7C7CD;
+        }
+        input:-ms-input-placeholder {
+          color:#C7C7CD;
+        }
         &:last-child {
           border-bottom: 0;
         }

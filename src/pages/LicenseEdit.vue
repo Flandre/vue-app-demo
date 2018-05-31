@@ -64,7 +64,7 @@
       </div>
     </div>
     <div class="active-bar">
-      <div class="button">保存信息</div>
+      <div class="button" @click="tapSave">保存信息</div>
     </div>
     <p class="prompt">所填信息为当地交管局查询必需信息，我们将严格保密，敬请放心。<br/>保存信息即表示您同意我们将您的个人信息用于电子驾照相关业务。</p>
   </div>
@@ -73,7 +73,7 @@
 <script>
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
   export default {
-    name: "edit-license",
+    name: "license-edit",
     data() {
       return {
         switchActive:false
@@ -89,6 +89,13 @@
     methods: {
       tapSwitch() {
         this.switchActive = !this.switchActive
+      },
+      tapSave() {
+        if(this.$route.query.isEdit){
+          this.$rouere.goBack(-1)
+        } else {
+          this.$router.push('license-info')
+        }
       }
     }
   }
@@ -206,13 +213,13 @@
         input::-webkit-input-placeholder{
           color:#C7C7CD;
         }
-        input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+        input::-moz-placeholder {
           color:#C7C7CD;
         }
-        input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+        input:-moz-placeholder {
           color:#C7C7CD;
         }
-        input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+        input:-ms-input-placeholder {
           color:#C7C7CD;
         }
         &:last-child {
