@@ -21,6 +21,8 @@
       tapPrev() {
         if(this.$route.query.backlength){
           this.$router.goBackLength(this.$route.query.backlength)
+        } else if(this.$route.query.backTo){
+          this.$router.backTo(this.$route.query.backTo)
         } else {
           this.$router.goBack()
         }

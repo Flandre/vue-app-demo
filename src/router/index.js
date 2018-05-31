@@ -30,7 +30,7 @@ import SafeStudy from '@/pages/menu-select/study-type/SafeStudy'
 import ClassSimple from '@/pages/ClassSimple'
 import ClassGroup from '@/pages/ClassGroup'
 import ClassQuestion from '@/pages/ClassQuestion'
-import EditLicense from '@/pages/EditLicense'
+import LicenseEdit from '@/pages/LicenseEdit'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -87,7 +87,7 @@ export default new Router({
     { path: '/class_simple', name: '单个课程', component: ClassSimple},
     { path: '/class_group', name: '课程组', component: ClassGroup},
     { path: '/class_question', name: '课程问题', component: ClassQuestion},
-    { path: '/edit_license', name: '编辑驾照', component: EditLicense},
+    { path: '/license_edit', name: '编辑驾照', component: LicenseEdit},
     { path: '/404', name: '404页面', component: _404},
     { path: '*', redirect: '/404' }
   ]

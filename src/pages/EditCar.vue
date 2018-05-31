@@ -85,9 +85,11 @@
     components: {
       NavigatorBar,
     },
-    mounted() {
+    beforeMount(){
       /* 返回顶部 */
       window.scrollTo(0, 0)
+    },
+    mounted() {
       if(this.$route.query.edit){
         this.automatic = {
           lsNum: 'QY96N0',
