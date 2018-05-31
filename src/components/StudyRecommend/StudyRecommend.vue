@@ -21,6 +21,7 @@
         swiperOption: {
           slidesPerView :'auto',
           centeredSlides : true,
+          initialSlide: 1,
         },
         studySource: [
           {
