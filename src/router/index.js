@@ -36,6 +36,7 @@ import LicenseAuth from '@/pages/LicenseAuth'
 import AuthStep1 from '@/pages/auth-steps/AuthStep1'
 import AuthStep2 from '@/pages/auth-steps/AuthStep2'
 import LicenseQrcode from '@/pages/LicenseQrcode'
+import LicenseDetail from '@/pages/LicenseDetail'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -100,6 +101,7 @@ export default new Router({
       ]
     },
     { path: '/license_qrcode', name: '驾照二维码', component: LicenseQrcode},
+    { path: '/license_detail', name: '驾照详情', component: LicenseDetail},
     { path: '/404', name: '404页面', component: _404},
     { path: '*', redirect: '/404' }
   ]

@@ -33,7 +33,7 @@
           </div>
         </div>
         <div class="action-bar">
-          <div class="button" v-if="auth">驾照详情</div>
+          <div class="button" v-if="auth" @click="tapDetail">驾照详情</div>
           <div class="button" v-else @click="tapAuth">申请认证</div>
         </div>
       </div>
@@ -104,6 +104,9 @@
       },
       tapAuth() {
         this.$router.push('/license_auth')
+      },
+      tapDetail() {
+        this.$router.push('/license_detail')
       }
     }
   }
