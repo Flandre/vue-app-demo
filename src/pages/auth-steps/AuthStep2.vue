@@ -51,7 +51,6 @@
       }, 6000)
     },
     beforeDestroy() {
-      console.log('=== destroy ===')
       this.timerArr.forEach(val => {
         clearTimeout(val)
       })
