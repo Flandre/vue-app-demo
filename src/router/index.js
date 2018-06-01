@@ -32,6 +32,9 @@ import ClassGroup from '@/pages/ClassGroup'
 import ClassQuestion from '@/pages/ClassQuestion'
 import LicenseEdit from '@/pages/LicenseEdit'
 import LicenseInfo from '@/pages/LicenseInfo'
+import LicenseAuth from '@/pages/LicenseAuth'
+import AuthStep1 from '@/pages/auth-steps/AuthStep1'
+import AuthStep2 from '@/pages/auth-steps/AuthStep2'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -90,6 +93,11 @@ export default new Router({
     { path: '/class_question', name: '课程问题', component: ClassQuestion},
     { path: '/license_edit', name: '编辑驾照', component: LicenseEdit},
     { path: '/license_info', name: '驾照信息', component: LicenseInfo},
+    { path: '/license_auth', name: '申请认证', redirect: '/license_auth/step1', component: LicenseAuth, children: [
+        {path: '/license_auth/step1', name: '认证身份证', component: AuthStep1},
+        {path: '/license_auth/step2', name: '认证人脸', component: AuthStep2},
+      ]
+    },
     { path: '/404', name: '404页面', component: _404},
     { path: '*', redirect: '/404' }
   ]

@@ -34,7 +34,7 @@
         </div>
         <div class="action-bar">
           <div class="button" v-if="auth">驾照详情</div>
-          <div class="button" v-else>申请认证</div>
+          <div class="button" v-else @click="tapAuth">申请认证</div>
         </div>
       </div>
     </div>
@@ -101,6 +101,9 @@
       },
       tapQr() {
         this.$router.push('/license_qrcode')
+      },
+      tapAuth() {
+        this.$router.push('/license_auth')
       }
     }
   }
