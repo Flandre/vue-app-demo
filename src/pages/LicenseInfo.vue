@@ -9,6 +9,7 @@
             <p v-else>未认证</p>
           </div>
         </div>
+        <img src="../assets/pages/LicenseInfo/qrcode.png" class="qr-link" @click="tapQr" v-if="auth">
       </div>
       <div class="info-container">
         <div class="license-code">******   ******   **3482</div>
@@ -97,6 +98,9 @@
       },
       tapTest() {
         this.auth = !this.auth
+      },
+      tapQr() {
+        this.$router.push('/license_qrcode')
       }
     }
   }
@@ -145,6 +149,13 @@
               color: #fff;
             }
           }
+        }
+        .qr-link {
+          width: 32px;
+          height: 32px;
+          position: absolute;
+          right: 15px;
+          top: 15px;
         }
       }
       .info-container {
