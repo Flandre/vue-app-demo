@@ -45,7 +45,6 @@
         <img src="../assets/pages/LicenseInfo/arrow-right.png" class="arrow">
       </div>
     </div>
-    <button @click="tapTest" style="height: 50px;width: 100%;">{{auth? '已认证': '未认证'}}</button>
   </div>
 </template>
 
@@ -95,9 +94,6 @@
     methods: {
       tapEdit() {
         this.$router.push({path: '/license_edit', query: {isEdit: true}})
-      },
-      tapTest() {
-        this.auth = !this.auth
       },
       tapQr() {
         this.$router.push('/license_qrcode')

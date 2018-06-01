@@ -1,7 +1,7 @@
 <template>
   <div class="auth-step2">
     <div class="view-box">
-      <div class="avatar">
+      <div :class="['avatar', filter]">
         <img src="../../assets/pages/LicenseAuth/avatar.png">
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="240" height="240" viewbox="0 0 240 240">
@@ -18,33 +18,43 @@
     name: "auth-step2",
     data() {
       return {
-        desc: '拿起手机，眨眨眼'
+        desc: '',
+        filter: '',
+        timerArr: []
       }
     },
     mounted() {
-      setTimeout(() => {
+      this.timerArr[0] = setTimeout(() => {
         document.querySelectorAll("circle")[1].setAttribute('stroke-dasharray', 10 + ' 722');
+        this.desc = '请摇一下头'
       }, 1000)
-      setTimeout(() => {
-        document.querySelectorAll("circle")[1].setAttribute('stroke-dasharray', 100 + ' 722');
+      this.timerArr[1] = setTimeout(() => {
+        document.querySelectorAll("circle")[1].setAttribute('stroke-dasharray', 200 + ' 722');
         this.desc = '拿起手机，眨眨眼'
       }, 2000)
-      setTimeout(() => {
-        document.querySelectorAll("circle")[1].setAttribute('stroke-dasharray', 250 + ' 722');
+      this.timerArr[2] = setTimeout(() => {
+        document.querySelectorAll("circle")[1].setAttribute('stroke-dasharray', 350 + ' 722');
         this.desc = '请摇一下头'
       }, 3000)
-      setTimeout(() => {
+      this.timerArr[3] = setTimeout(() => {
         document.querySelectorAll("circle")[1].setAttribute('stroke-dasharray', 500 + ' 722');
+        this.filter = 'blur'
         this.desc = '正在完成'
       }, 4000)
-      setTimeout(() => {
+      this.timerArr[4] = setTimeout(() => {
         document.querySelectorAll("circle")[1].setAttribute('stroke-dasharray', 601 + ' 722');
       }, 5000)
-      setTimeout(() => {
+      this.timerArr[5] = setTimeout(() => {
         /* 跳转逻辑 */
         sessionStorage.setItem('isAuth', true)
         history.go(-2)
       }, 6000)
+    },
+    beforeDestroy() {
+      console.log('=== destroy ===')
+      this.timerArr.forEach(val => {
+        clearTimeout(val)
+      })
     }
   }
 </script>
@@ -79,6 +89,11 @@
         padding: 10px;
         border-radius: 120px;
         overflow: hidden;
+        transition: .5s;
+        &.blur {
+          -webkit-filter: blur(5px);
+          filter: blur(5px);
+        }
         img {
           width: 100%;
           height: auto;
