@@ -59,7 +59,19 @@
         }, 50)
       },
       tapLink(url){
-        router.push(url)
+        if(url == '/csjz'){
+          if(sessionStorage.getItem('isAuth')){
+            this.$router.push('/license_qrcode')
+          } else {
+            if(sessionStorage.getItem('license')){
+              this.$router.push('/license_info')
+            } else {
+              this.$router.push('/license_edit')
+            }
+          }
+        } else {
+          router.push(url)
+        }
       }
     }
   }

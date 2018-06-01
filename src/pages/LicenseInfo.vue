@@ -89,7 +89,7 @@
     },
     beforeMount() {
       if(sessionStorage.getItem('isAuth')){
-
+        this.auth = true
       }
     },
     methods: {

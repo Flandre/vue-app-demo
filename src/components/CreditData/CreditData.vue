@@ -27,7 +27,11 @@
         router.push('/creditDetail')
       },
       tapLicense(e) {
-        router.push('/license_edit')
+        if(sessionStorage.getItem('license')){
+          this.$router.push('/license_info')
+        } else {
+          this.$router.push('/license_edit')
+        }
       }
     }
   }
