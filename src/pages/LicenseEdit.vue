@@ -95,7 +95,7 @@
           history.go(-1)
         } else {
           sessionStorage.setItem('license', true)
-          this.$router.push('/license_info')
+          this.$router.push({path: '/license_info', query: {backlength: 2}})
         }
       }
     }
