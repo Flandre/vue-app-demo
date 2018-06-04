@@ -37,6 +37,11 @@ import AuthStep1 from '@/pages/auth-steps/AuthStep1'
 import AuthStep2 from '@/pages/auth-steps/AuthStep2'
 import LicenseQrcode from '@/pages/LicenseQrcode'
 import LicenseDetail from '@/pages/LicenseDetail'
+import Headline from '@/pages/menu-select/find-type/Headline'
+import Follow from '@/pages/menu-select/find-type/Follow'
+import Community from '@/pages/menu-select/find-type/Community'
+import Activity from '@/pages/menu-select/find-type/Activity'
+import Lighthouse from '@/pages/menu-select/find-type/Lighthouse'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -66,7 +71,14 @@ export default new Router({
             { path: '/study/safe', name: '安全驾驶', component: SafeStudy }
           ]
         },
-        { path: '/find', name: '发现', component: Find },
+        { path: '/find', name: '发现', component: Find, children: [
+            { path: '/find/headline', name: '头条', component: Headline},
+            { path: '/find/follow', name: '关注', component: Follow},
+            { path: '/find/community', name: '圈子', component: Community},
+            { path: '/find/activity', name: '活动', component: Activity},
+            { path: '/find/lighthouse', name: '曝光台', component: Lighthouse},
+          ]
+        },
         { path: '/home', name: '我的', component: Home }
       ]
     },
