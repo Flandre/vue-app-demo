@@ -42,6 +42,8 @@ import Follow from '@/pages/menu-select/find-type/Follow'
 import Community from '@/pages/menu-select/find-type/Community'
 import Activity from '@/pages/menu-select/find-type/Activity'
 import Lighthouse from '@/pages/menu-select/find-type/Lighthouse'
+import HeadlineGroup1 from '@/pages/menu-select/find-type/headline-group/HeadlineGroup1'
+import HeadlineGroup2 from '@/pages/menu-select/find-type/headline-group/HeadlineGroup2'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -72,7 +74,11 @@ export default new Router({
           ]
         },
         { path: '/find', name: '发现', component: Find, redirect: '/find/headline', children: [
-            { path: '/find/headline', name: '头条', component: Headline},
+            { path: '/find/headline', name: '头条', component: Headline, redirect: '/find/headline/group1', children: [
+                { path: '/find/headline/group1', name: '推荐阅读', component: HeadlineGroup1},
+                { path: '/find/headline/group2', name: '驾驶技巧', component: HeadlineGroup2}
+              ]
+            },
             { path: '/find/follow', name: '关注', component: Follow},
             { path: '/find/community', name: '圈子', component: Community},
             { path: '/find/activity', name: '活动', component: Activity},

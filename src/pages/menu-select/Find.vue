@@ -50,6 +50,7 @@
       background: #45A4F7;
       position: fixed;
       top: 0;
+      z-index: 1050;
       .nav-links {
         width: 100%;
         height: 100%;
