@@ -75,6 +75,7 @@
   .class-card {
     background: #fff;
     padding: 15px;
+    margin-bottom: 10px;
   }
   .class-card .title {
     font-size: 15px;

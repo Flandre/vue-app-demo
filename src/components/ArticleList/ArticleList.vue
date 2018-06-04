@@ -1,6 +1,6 @@
 <template>
   <div :class="['article-list', articleType]">
-    <div class="title">
+    <div class="title" v-if="title != ''">
       <h2>{{title}}</h2>
       <div v-if="showChange" :class="['change-btn', {active: changing}]" @click="changeArticle"><div class="icon"></div><span>换一换</span></div>
     </div>
@@ -120,12 +120,12 @@
 
 <style lang="less" scoped>
   .article-list {
-    margin-top: 10px;
     background: #fff;
-    padding: 15px;
-    padding-bottom: 0;
+    padding: 0 15px;
+    overflow: hidden;
     .title {
       margin-bottom: 8px;
+      margin-top: 15px;
       position: relative;
       h2{
         font-size: 15px;
