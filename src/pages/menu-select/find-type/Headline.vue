@@ -21,9 +21,11 @@
         sliderLeft: 0
       }
     },
-    mounted() {
+    beforeMount() {
       /* 返回顶部 */
       window.scrollTo(0, 0)
+    },
+    mounted() {
       /* 固定箭头位置 */
       this.$nextTick(function () {
         this.sliderLeft = `${document.querySelector('.link-item.active').offsetLeft + document.querySelector('.link-item.active').offsetWidth / 2 - 8}px`

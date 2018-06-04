@@ -1,6 +1,6 @@
 <template>
   <div class="study-recommend">
-    <swiper :options="swiperOption" ref="endorsementSwiper">
+    <swiper :options="swiperOption" ref="recommendSwiper">
       <!-- slides -->
       <swiper-slide v-for="i in studyData" :key="i.id">
         <div class="card-item" @click="tapClick(i.pathType)">
