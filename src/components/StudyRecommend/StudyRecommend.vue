@@ -3,7 +3,7 @@
     <swiper :options="swiperOption" ref="endorsementSwiper">
       <!-- slides -->
       <swiper-slide v-for="i in studyData" :key="i.id">
-        <div class="card-item">
+        <div class="card-item" @click="tapClick(i.pathType)">
           <img :src="i.img"/>
         </div>
       </swiper-slide>
@@ -31,7 +31,7 @@
           },
           {
             img: require('./images/theme2.png'),
-            pathType: 'simple',
+            pathType: 'group',
             id: 2
           },
           {
@@ -51,6 +51,15 @@
           this.$set(this.studyData, index, this.studySource[val])
         })
       })
+    },
+    methods: {
+      tapClick(type) {
+        if(type == 'simple'){
+          this.$router.push('/class_simple')
+        } else {
+          this.$router.push('/class_group')
+        }
+      }
     },
     components: {
       swiper,
