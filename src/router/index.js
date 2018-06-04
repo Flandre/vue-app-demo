@@ -71,7 +71,7 @@ export default new Router({
             { path: '/study/safe', name: '安全驾驶', component: SafeStudy }
           ]
         },
-        { path: '/find', name: '发现', component: Find, children: [
+        { path: '/find', name: '发现', component: Find, redirect: '/find/headline', children: [
             { path: '/find/headline', name: '头条', component: Headline},
             { path: '/find/follow', name: '关注', component: Follow},
             { path: '/find/community', name: '圈子', component: Community},
