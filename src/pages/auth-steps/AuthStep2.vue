@@ -51,10 +51,12 @@
       }, 6000)
     },
     beforeDestroy() {
+      /* 返回顶部 */
+      window.scrollTo(0, 0)
       this.timerArr.forEach(val => {
         clearTimeout(val)
       })
-    }
+    },
   }
 </script>
 
@@ -62,7 +64,7 @@
   .auth-step2 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
     &:before {
       content: '';
@@ -88,7 +90,7 @@
         padding: 10px;
         border-radius: 120px;
         overflow: hidden;
-        transition: .5s;
+        transition: .8s;
         &.blur {
           -webkit-filter: blur(5px);
           filter: blur(5px);
@@ -105,7 +107,7 @@
       font-size: 17px;
     }
     circle {
-      transition: stroke-dasharray .5s;
+      transition: stroke-dasharray 1s;
     }
   }
 </style>

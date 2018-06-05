@@ -44,7 +44,11 @@
       tapSave() {
         this.$router.push('/license_auth/step2')
       }
-    }
+    },
+    beforeDestroy() {
+      /* 返回顶部 */
+      window.scrollTo(0, 0)
+    },
   }
 </script>
 

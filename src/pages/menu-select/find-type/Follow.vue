@@ -9,6 +9,9 @@
         </swiper-slide>
       </swiper>
     </div>
+    <div class="info-list">
+
+    </div>
   </div>
 </template>
 
@@ -48,6 +51,14 @@
             avatar: require('./images/avatars/avatar6.png'),
             name: '小新'
           },
+        ],
+        infoData: [
+          {
+            userData: this.userData[0],
+            time: '刚刚',
+            desc: '你觉得汽车上最有用的一个设计是什么？'
+
+          }
         ]
       }
     },

@@ -30,6 +30,11 @@ export default {
 </script>
 
 <style>
+html,
+body,
+#app {
+  height: 100%;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,7 +42,7 @@ export default {
   color: #2c3e50;
 }
 body {
-  background: #EFF3F7
+  background: #EFF3F7;
 }
 .cube {
   -webkit-transform: translateZ(0);
@@ -50,7 +55,8 @@ body {
 .child-view {
   position: absolute;
   width:100%;
-  transition: all .8s cubic-bezier(.55,0,.1,1);
+  height: 100%;
+  transition: all 0.8s cubic-bezier(.55,0,.1,1);
 }
 .slide-left-enter, .slide-right-leave-active {
   opacity: 0;
