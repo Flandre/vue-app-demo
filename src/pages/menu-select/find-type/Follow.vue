@@ -29,8 +29,8 @@
           <div class="source-item">
             <span class="comment">{{i.comment}}</span>
           </div>
-          <div class="source-item">
-            <span class="like">{{i.like}}</span>
+          <div class="source-item" @click="tapLike(index, $event)">
+            <span :class="['like', i.isLike ? 'active' : '']">{{i.like}}</span>
           </div>
         </div>
       </div>
@@ -87,7 +87,8 @@
             thumb: require('./images/infopic/infopic1.png'),
             transmit: 12,
             comment: 200,
-            like: 10
+            like: 10,
+            isLike: false,
           },
           {
             userInfo: {
@@ -100,7 +101,8 @@
             thumb: require('./images/infopic/infopic2.png'),
             transmit: 7,
             comment: 21,
-            like: 3
+            like: 3,
+            isLike: false,
           }
         ]
       }
@@ -112,6 +114,16 @@
     components: {
       swiper,
       swiperSlide
+    },
+    methods: {
+      tapLike(index, $event) {
+        if(!this.cardData[index].isLike){
+          this.cardData[index].like = this.cardData[index].like + 1
+        } else {
+          this.cardData[index].like = this.cardData[index].like - 1
+        }
+        this.cardData[index].isLike = !this.cardData[index].isLike
+      }
     }
   }
 </script>
@@ -219,6 +231,10 @@
               }
               &.like {
                 background-image: url("./images/icons/likeIcon.png");
+                &.active {
+                  background-image: url("./images/icons/likeIcon-active.png");
+                  color: #45A4F7
+                }
               }
             }
           }
