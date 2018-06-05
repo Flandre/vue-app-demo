@@ -105,9 +105,6 @@
         ]
       }
     },
-    mounted() {
-      console.log(this.infoData[0].data)
-    },
     beforeMount() {
       /* 返回顶部 */
       window.scrollTo(0, 0)
