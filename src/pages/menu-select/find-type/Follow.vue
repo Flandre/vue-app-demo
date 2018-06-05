@@ -19,7 +19,7 @@
           </div>
         </div>
         <div class="msg-info">
-          <p class="desc"><em>{{i.group}}</em>{{i.desc}}</p>
+          <p class="desc"><em v-if="i.group !== ''">{{i.group}}</em>{{i.desc}}</p>
           <img :src="i.thumb" class="thumb">
         </div>
         <div class="info-source">
@@ -95,11 +95,11 @@
               name: '小新'
             },
             time: '1小时前',
-            group: '',
+            group: '#违章举报#',
             desc: '京NC1111违法堵塞出入口，素质太差！',
             thumb: require('./images/infopic/infopic2.png'),
             transmit: 7,
-            comment: 125,
+            comment: 21,
             like: 3
           }
         ]
@@ -187,6 +187,11 @@
             font-size: 13px;
             line-height: 18px;
             margin-bottom: 15px;
+            em {
+              font-style: normal;
+              color: #45A4F7;
+              margin-right: 5px;
+            }
           }
           .thumb {
             display: block;
