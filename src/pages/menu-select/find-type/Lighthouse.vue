@@ -85,7 +85,6 @@
 
 <style lang="less" scoped>
   .lighthouse {
-
     .card-list {
       .card-item {
         padding: 15px 0 0 15px;
