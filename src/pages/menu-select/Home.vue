@@ -17,17 +17,17 @@
           <p class="name">汪喵</p>
           <span class="coin">5658积分</span>
         </div>
-        <div class="credit-info">
+        <div class="credit-info" @click="tapCredit">
           <p class="title">信用极好</p>
           <p class="num">732</p>
         </div>
       </div>
     </div>
     <div class="entry-list">
-      <div class="entry-item card">
+      <div class="entry-item card" @click="tapLicense">
         我的驾照
       </div>
-      <div class="entry-item car">
+      <div class="entry-item car" @click="tapCar">
         车辆管家
       </div>
       <div class="entry-item study">
@@ -69,6 +69,21 @@
       /* 返回顶部 */
       window.scrollTo(0, 0)
     },
+    methods: {
+      tapCredit() {
+        this.$router.push('/creditDetail')
+      },
+      tapLicense() {
+        if(sessionStorage.getItem('license')){
+          this.$router.push('/license_info')
+        } else {
+          this.$router.push('/license_edit')
+        }
+      },
+      tapCar() {
+        this.$router.push({path: '/manager', query: {lsNum: 'N627M9', carType: '广汽 欧蓝德', inspection: 2, insurance: 2}})
+      }
+    }
   }
 </script>
 
