@@ -37,7 +37,28 @@
         驾评数据
       </div>
     </div>
-    <h3>This is home page</h3>
+    <div class="func-list">
+      <div class="list-item">
+        <img src="../../assets/pages/home/friendIcon.png">
+        <span>我的好友</span>
+        <img src="../../assets/pages/home/arrow-right.png" class="arrow">
+      </div>
+      <div class="list-item">
+        <img src="../../assets/pages/home/questionIcon.png">
+        <span>常见问题</span>
+        <img src="../../assets/pages/home/arrow-right.png" class="arrow">
+      </div>
+      <div class="list-item">
+        <img src="../../assets/pages/home/repeatIcon.png">
+        <span>推荐给好友</span>
+        <img src="../../assets/pages/home/arrow-right.png" class="arrow">
+      </div>
+      <div class="list-item">
+        <img src="../../assets/pages/home/settingIcon.png">
+        <span>设置</span>
+        <img src="../../assets/pages/home/arrow-right.png" class="arrow">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -133,6 +154,7 @@
       background: #fff;
       display: flex;
       justify-content: space-around;
+      margin-bottom: 10px;
       .entry-item {
         display: block;
         min-width: 32px;
@@ -154,6 +176,35 @@
         }
         &.eval {
           background-image: url("../../assets/pages/home/evalIcon.png");
+        }
+      }
+    }
+    .func-list {
+      padding-left: 15px;
+      background: #fff;
+      .list-item {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        padding-left: 0;
+        border-bottom: 1px solid #dbdbdb;
+        font-size: 13px;
+        color: #4A4A4A;
+        img {
+          width: 20px;
+          height: 20px;
+          margin-right: 15px;
+          &.arrow {
+            width: 7px;
+            height: 12px;
+            margin-right: 0;
+          }
+        }
+        span {
+          flex-grow: 1
+        }
+        &:last-child {
+          border-bottom: 0;
         }
       }
     }
