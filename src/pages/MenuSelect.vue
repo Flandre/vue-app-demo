@@ -17,6 +17,6 @@
 
 <style scoped>
   .menu-page {
-    margin-bottom: 50px;
+    padding-bottom: 50px;
   }
 </style>
