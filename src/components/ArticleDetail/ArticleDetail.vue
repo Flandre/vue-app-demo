@@ -15,7 +15,9 @@
             <h4 v-if="i.type === 'h4'">{{i.node}}</h4>
             <h5 v-if="i.type === 'h5'">{{i.node}}</h5>
             <p v-if="i.type === 'p'">{{i.node}}</p>
+            <p v-if="i.type === 'p.center'" style="text-align: center">{{i.node}}</p>
             <p v-if="i.type === 'b'"><b>{{i.node}}</b></p>
+            <p v-if="i.type === 'b.center'" style="text-align: center"><b>{{i.node}}</b></p>
             <img :src="i.src" v-if="i.type === 'img'"/>
           </template>
         </div>
@@ -84,9 +86,11 @@
       .content {
         img {
           display: block;
-          width: 100%;
+          max-width: 100%;
           height: auto;
           margin-bottom: 18px;
+          margin-left: auto;
+          margin-right: auto;
         }
         h2 {
           font-size: 20px;
