@@ -5,7 +5,7 @@
       <div v-if="showChange" :class="['change-btn', {active: changing}]" @click="changeArticle"><div class="icon"></div><span>换一换</span></div>
     </div>
     <div class="list-container">
-      <div class="list-item" v-for="list in articleData" :key="list.id" >
+      <div class="list-item" v-for="list in articleData.slice(0, articleLimit)" :key="list.id" @click="tapList(list.id)">
         <div class="thumb">
           <img :src="list.titleImage"/>
         </div>
@@ -27,35 +27,65 @@
       switch(this.articleGroup){
         case 'normal':
           this.articleData = [
+            // {
+            //   titleImage: require('./images/titleImages/image1.png'),
+            //   title: '虚线变道也可能扣2分罚300，你知道哪些时候不能变道吗？',
+            //   keywords: ['交通法规', '变道'],
+            //   id: 1
+            // },
+            // {
+            //   titleImage: require('./images/titleImages/image2.png'),
+            //   title: '春节长途自驾归来，汽车的检查养护很重要！',
+            //   keywords: ['车辆保护', '自驾'],
+            //   id: 2
+            // },
+            // {
+            //   titleImage: require('./images/titleImages/image3.png'),
+            //   title: '各种交通标识傻傻分不清，9张图让你秒成老司机！',
+            //   keywords: ['交通标识'],
+            //   id: 3
+            // },
+            // {
+            //   titleImage: require('./images/titleImages/image4.png'),
+            //   title: '哪几类算无证？ 交警：无证驾驶无责也会成有责！',
+            //   keywords: ['交通法规', '无证驾驶'],
+            //   id: 4
+            // },
+            // {
+            //   titleImage: require('./images/titleImages/image5.png'),
+            //   title: '爱车年检不用愁 要点全在这篇文章里了',
+            //   keywords: ['车辆年检'],
+            //   id: 5
+            // },
             {
-              titleImage: require('./images/titleImages/image1.png'),
-              title: '虚线变道也可能扣2分罚300，你知道哪些时候不能变道吗？',
-              keywords: ['交通法规', '变道'],
-              id: 1
+              titleImage: require('./images/titleImages/image9.jpg'),
+              title: '手把手告诉你如何处理交通事故',
+              keywords: ['事故处理', '指示灯', '地点定损'],
+              id: 9
             },
             {
-              titleImage: require('./images/titleImages/image2.png'),
-              title: '春节长途自驾归来，汽车的检查养护很重要！',
-              keywords: ['车辆保护', '自驾'],
-              id: 2
+              titleImage: require('./images/titleImages/image10.jpg'),
+              title: '重磅提醒：北京车辆报废有新规定，如不办理将无法更新号牌指标！',
+              keywords: ['车辆新规', '号牌'],
+              id: 10
             },
             {
-              titleImage: require('./images/titleImages/image3.png'),
-              title: '各种交通标识傻傻分不清，9张图让你秒成老司机！',
-              keywords: ['交通标识'],
-              id: 3
+              titleImage: require('./images/titleImages/image11.jpg'),
+              title: '新政！2018年这七大汽车新政将实施，你都了解吗？',
+              keywords: ['车辆新规'],
+              id: 11
             },
             {
-              titleImage: require('./images/titleImages/image4.png'),
-              title: '哪几类算无证？ 交警：无证驾驶无责也会成有责！',
-              keywords: ['交通法规', '无证驾驶'],
-              id: 4
+              titleImage: require('./images/titleImages/image12.jpg'),
+              title: '防御性驾驶 | 高速出口行驶法则',
+              keywords: ['防御性驾驶', '行车技巧'],
+              id: 12
             },
             {
-              titleImage: require('./images/titleImages/image5.png'),
-              title: '爱车年检不用愁 要点全在这篇文章里了',
-              keywords: ['车辆年检'],
-              id: 5
+              titleImage: require('./images/titleImages/image13.png'),
+              title: '世界各国如何处理酒驾？真是想都想不到！',
+              keywords: ['交通法规', '酒驾'],
+              id: 13
             },
           ]
           break;
@@ -99,6 +129,11 @@
             this.changing = false
           }, 1000)
         }
+      },
+      tapList(id) {
+        if(this.articleGroup == 'normal'){
+          this.$router.push({path: '/article_detail', query: {aid: id}})
+        }
       }
     },
     props: {
@@ -113,6 +148,9 @@
       },
       articleType: {
         default: 'normal'
+      },
+      articleLimit: {
+        default: 5
       }
     }
   }
