@@ -1,13 +1,13 @@
 <template>
-  <div class="headline-group2">
-    <ArticleList title="" articleType="" articleSort="130241201" articleLimit="8"/>
+  <div class="headline-group3">
+    <ArticleList title="" articleGroup="normal" articleType="" articleSort="31240123" articleLimit="8"/>
   </div>
 </template>
 
 <script>
   import ArticleList from '@/components/ArticleList/ArticleList'
   export default {
-    name: "headline-group2",
+    name: "headline-group3",
     components: {
       ArticleList
     },
@@ -19,7 +19,7 @@
 </script>
 
 <style lang="less" scoped>
-  .headline-group2 {
+  .headline-group3 {
 
   }
 </style>

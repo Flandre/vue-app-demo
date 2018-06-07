@@ -5,6 +5,9 @@
         <div class="nav-slide">
           <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/find/headline/group1">推荐阅读</router-link>
           <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/find/headline/group2">驾驶技巧</router-link>
+          <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/find/headline/group3">事故警示</router-link>
+          <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/find/headline/group4">行车趣闻</router-link>
+          <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/find/headline/group5">养车技巧</router-link>
           <div :class="['slider-bar', isTranslate ? 'trans' : '']" :style="{left : sliderLeft}"></div>
         </div>
       </div>
@@ -64,10 +67,11 @@
         overflow: hidden;
         position: relative;
         .nav-slide {
-          position: absolute;
+          /*position: absolute;*/
+          display: flex;
+          justify-content: space-between;
           .link-item {
             font-size: 13px;
-            margin-right: 20px;
             color: #333;
             &:last-child {
               margin-right: 0;

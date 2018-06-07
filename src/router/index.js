@@ -27,6 +27,8 @@ import InsuranceAdd from '@/pages/InsuranceAdd'
 import MyInsurance from '@/pages/MyInsurance'
 import RecommendStudy from '@/pages/menu-select/study-type/RecommendStudy'
 import SafeStudy from '@/pages/menu-select/study-type/SafeStudy'
+import lawStudy from '@/pages/menu-select/study-type/lawStudy'
+import LicenseStudy from '@/pages/menu-select/study-type/LicenseStudy'
 import ClassSimple from '@/pages/ClassSimple'
 import ClassGroup from '@/pages/ClassGroup'
 import ClassQuestion from '@/pages/ClassQuestion'
@@ -44,6 +46,9 @@ import Activity from '@/pages/menu-select/find-type/Activity'
 import Lighthouse from '@/pages/menu-select/find-type/Lighthouse'
 import HeadlineGroup1 from '@/pages/menu-select/find-type/headline-group/HeadlineGroup1'
 import HeadlineGroup2 from '@/pages/menu-select/find-type/headline-group/HeadlineGroup2'
+import HeadlineGroup3 from '@/pages/menu-select/find-type/headline-group/HeadlineGroup3'
+import HeadlineGroup4 from '@/pages/menu-select/find-type/headline-group/HeadlineGroup4'
+import HeadlineGroup5 from '@/pages/menu-select/find-type/headline-group/HeadlineGroup5'
 import ArticleDetail from '@/components/ArticleDetail/ArticleDetail'
 import DrivingEvaluation from '@/pages/DrivingEvaluation'
 import _404 from '@/pages/404'
@@ -72,13 +77,18 @@ export default new Router({
         { path: '/index', name: '首页', component: Index },
         { path: '/study', name: '学习', redirect: '/study/recommend', component: Study, children: [
             { path: '/study/recommend', name: '推荐学习', component: RecommendStudy },
-            { path: '/study/safe', name: '安全驾驶', component: SafeStudy }
+            { path: '/study/safe', name: '安全驾驶', component: SafeStudy },
+            { path: '/study/law', name: '交通法规', component: lawStudy },
+            { path: '/study/license', name: '驾照考证', component: LicenseStudy },
           ]
         },
         { path: '/find', name: '发现', component: Find, redirect: '/find/headline', children: [
             { path: '/find/headline', name: '头条', component: Headline, redirect: '/find/headline/group1', children: [
                 { path: '/find/headline/group1', name: '推荐阅读', component: HeadlineGroup1},
-                { path: '/find/headline/group2', name: '驾驶技巧', component: HeadlineGroup2}
+                { path: '/find/headline/group2', name: '驾驶技巧', component: HeadlineGroup2},
+                { path: '/find/headline/group3', name: '事故警示', component: HeadlineGroup3},
+                { path: '/find/headline/group4', name: '行车趣闻', component: HeadlineGroup4},
+                { path: '/find/headline/group5', name: '养车技巧', component: HeadlineGroup5},
               ]
             },
             { path: '/find/follow', name: '关注', component: Follow},

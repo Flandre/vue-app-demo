@@ -5,6 +5,8 @@
         <div class="nav-slide">
           <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/study/recommend">推荐学习</router-link>
           <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/study/safe">安全驾驶</router-link>
+          <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/study/law">交通法规</router-link>
+          <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/study/license">驾照考证</router-link>
           <div :class="['slider-bar', isTranslate ? 'trans' : '']" :style="{left : sliderLeft}"></div>
         </div>
       </div>
