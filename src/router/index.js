@@ -121,7 +121,7 @@ export default new Router({
     },
     { path: '/license_qrcode', name: '驾照二维码', component: LicenseQrcode},
     { path: '/license_detail', name: '驾照详情', component: LicenseDetail},
-    { path: '/article_detail', name: '文章详情', component: ArticleDetail},
+    { path: '/article_detail/:aid', name: '文章详情', component: ArticleDetail},
     { path: '/404', name: '404页面', component: _404},
     { path: '*', redirect: '/404' }
   ]

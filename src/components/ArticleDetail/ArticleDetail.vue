@@ -49,14 +49,24 @@
       /* 返回顶部 */
       window.scrollTo(0, 0)
       /*抽出文章*/
+      // console.log(this.$route.params.aid)
       allData.forEach(val => {
-        if(val.id === this.$route.query.aid){
+        if(val.id == this.$route.params.aid){
           this.articleData = val
         }
       })
     },
-    mounted() {
-    },
+    watch: {
+      '$route' (to, from) {
+        console.log(this.$route.params.aid)
+        window.scrollTo(0, 0)
+        allData.forEach(val => {
+          if(val.id == this.$route.params.aid){
+            this.articleData = val
+          }
+        })
+      }
+    }
   }
 </script>
 

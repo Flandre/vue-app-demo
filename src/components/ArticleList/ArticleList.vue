@@ -90,7 +90,6 @@
           ], newData = []
           if(this.articleSort){
             `${this.articleSort}`.split('').forEach(val => {
-              console.log(data[val])
               if(data[val]){
                 newData.push(data[val])
               }
@@ -142,7 +141,7 @@
       },
       tapList(id) {
         if(this.articleGroup == 'normal'){
-          this.$router.push({path: '/article_detail', query: {aid: id}})
+          this.$router.push({path: `/article_detail/${id}`})
         }
       }
     },
