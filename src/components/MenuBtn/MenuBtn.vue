@@ -59,18 +59,23 @@
         }, 50)
       },
       tapLink(url){
-        if(url == '/csjz'){
-          if(sessionStorage.getItem('isAuth')){
-            this.$router.push('/license_qrcode')
-          } else {
-            if(sessionStorage.getItem('license')){
-              this.$router.push('/license_info')
+        switch(url){
+          case '/csjz':
+            if(sessionStorage.getItem('isAuth')){
+              this.$router.push('/license_qrcode')
             } else {
-              this.$router.push('/license_edit')
+              if(sessionStorage.getItem('license')){
+                this.$router.push('/license_info')
+              } else {
+                this.$router.push('/license_edit')
+              }
             }
-          }
-        } else {
-          router.push(url)
+            break
+          case '/jspc':
+            this.$router.push('/driving_evaluation')
+            break
+          default:
+            this.$router.push(url)
         }
       }
     }
