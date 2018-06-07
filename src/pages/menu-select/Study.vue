@@ -5,7 +5,7 @@
         <div class="nav-slide">
           <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/study/recommend">推荐学习</router-link>
           <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/study/safe">安全驾驶</router-link>
-          <div class="slider-bar" :style="{left : sliderLeft}"></div>
+          <div :class="['slider-bar', isTranslate ? 'trans' : '']" :style="{left : sliderLeft}"></div>
         </div>
       </div>
       <div class="search-bar"></div>
@@ -19,7 +19,8 @@
     name: "Study",
     data() {
       return {
-        sliderLeft: 0
+        sliderLeft: 0,
+        isTranslate: false
       }
     },
     mounted() {
@@ -34,6 +35,10 @@
       tapClickNav(e) {
         this.sliderLeft = `${e.target.offsetLeft + e.target.offsetWidth / 2 - 8}px`
       }
+    },
+    beforeRouteUpdate(to, from, next) {
+      this.isTranslate = true
+      next()
     }
   }
 </script>
@@ -79,7 +84,9 @@
             background: #45A4F7;
             position: absolute;
             top: 32px;
-            transition: .3s
+            &.trans {
+              transition: .3s
+            }
           }
         }
       }

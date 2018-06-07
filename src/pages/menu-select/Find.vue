@@ -2,7 +2,7 @@
   <div class="find">
     <div class="find-nav">
       <div class="nav-links">
-        <div class="slider-bg" :style="{left : sliderLeft, width: sliderWidth}"></div>
+        <div :class="['slider-bg', isTranslate ? 'trans' : '']" :style="{left : sliderLeft, width: sliderWidth}"></div>
         <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/find/headline">头条</router-link>
         <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/find/follow">关注</router-link>
         <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/find/community">圈子</router-link>
@@ -20,7 +20,8 @@
     data() {
       return {
         sliderLeft: 0,
-        sliderWidth: '0'
+        sliderWidth: '0',
+        isTranslate: false
       }
     },
     beforeMount() {
@@ -31,12 +32,16 @@
       this.sliderWidth = `${document.querySelector('.link-item.active').offsetWidth}px`
       this.sliderLeft = `${document.querySelector('.link-item.active').offsetLeft}px`
     },
+    beforeRouteUpdate(to, from, next) {
+      this.isTranslate = true
+      next()
+    },
     methods: {
       tapClickNav(e) {
         this.sliderWidth = `${e.target.offsetWidth}px`
         this.sliderLeft = `${e.target.offsetLeft}px`
       }
-    }
+    },
   }
 </script>
 
@@ -69,8 +74,10 @@
           position: absolute;
           left: 0;
           top: 0;
-          transition: .3s;
           z-index: -1;
+          &.trans {
+            transition: .3s;
+          }
         }
         .link-item {
           color: #fff;

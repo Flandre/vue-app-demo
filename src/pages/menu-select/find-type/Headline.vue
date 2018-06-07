@@ -5,7 +5,7 @@
         <div class="nav-slide">
           <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/find/headline/group1">推荐阅读</router-link>
           <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/find/headline/group2">驾驶技巧</router-link>
-          <div class="slider-bar" :style="{left : sliderLeft}"></div>
+          <div :class="['slider-bar', isTranslate ? 'trans' : '']" :style="{left : sliderLeft}"></div>
         </div>
       </div>
     </div>
@@ -18,7 +18,8 @@
     name: "headline",
     data() {
       return {
-        sliderLeft: 0
+        sliderLeft: 0,
+        isTranslate: false
       }
     },
     beforeMount() {
@@ -30,6 +31,10 @@
       this.$nextTick(function () {
         this.sliderLeft = `${document.querySelector('.link-item.active').offsetLeft + document.querySelector('.link-item.active').offsetWidth / 2 - 8}px`
       })
+    },
+    beforeRouteUpdate(to, from, next) {
+      this.isTranslate = true
+      next()
     },
     methods: {
       tapClickNav(e) {
@@ -77,7 +82,9 @@
             background: #45A4F7;
             position: absolute;
             top: 32px;
-            transition: .3s
+            &.trans {
+              transition: .3s;
+            }
           }
         }
       }
