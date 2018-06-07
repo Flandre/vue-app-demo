@@ -5,7 +5,7 @@
       <div v-if="showChange" :class="['change-btn', {active: changing}]" @click="changeArticle"><div class="icon"></div><span>换一换</span></div>
     </div>
     <div class="list-container">
-      <div class="list-item" v-for="list in articleData.slice(0, articleLimit)" :key="list.id" @click="tapList(list.id)">
+      <div class="list-item" v-for="(list, index) in articleData.slice(0, articleLimit)" :key="index" @click="tapList(list.id)">
         <div class="thumb">
           <img :src="list.titleImage"/>
         </div>
@@ -23,10 +23,10 @@
 <script>
   export default {
     name: "article-list",
-    mounted(){
+    beforeMount(){
       switch(this.articleGroup){
         case 'normal':
-          this.articleData = [
+          let data = [
             // {
             //   titleImage: require('./images/titleImages/image1.png'),
             //   title: '虚线变道也可能扣2分罚300，你知道哪些时候不能变道吗？',
@@ -87,7 +87,17 @@
               keywords: ['交通法规', '酒驾'],
               id: 13
             },
-          ]
+          ], newData = []
+          if(this.articleSort){
+            `${this.articleSort}`.split('').forEach(val => {
+              console.log(data[val])
+              if(data[val]){
+                newData.push(data[val])
+              }
+            })
+            data = newData
+          }
+          this.articleData = data
           break;
         case 'endorsement':
           this.articleData = [
@@ -151,6 +161,9 @@
       },
       articleLimit: {
         default: 5
+      },
+      articleSort: {
+        default: ''
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="headline-group1">
-    <ArticleList title="" articleGroup="normal" articleType=""/>
+    <ArticleList title="" articleGroup="normal" articleType="" articleSort="01234012" articleLimit="8"/>
   </div>
 </template>
 
