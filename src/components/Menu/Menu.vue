@@ -68,7 +68,7 @@
     background: #fff;
     position: fixed;
     bottom: 0;
-    border-top: 1px solid #B2B2B2;
+    border-top: 1px solid #DBDBDB;
     display: flex;
     justify-content: space-around;
     align-items: center;
