@@ -154,6 +154,7 @@
     },
     methods: {
       tapQuestion() {
+        this.$router.push('/driving_question')
 
       },
       tapActionBar() {
