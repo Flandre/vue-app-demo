@@ -54,6 +54,7 @@ import DrivingEvaluation from '@/pages/DrivingEvaluation'
 import DrivingList from '@/pages/DrivingList'
 import DrivingDetail from '@/pages/DrivingDetail'
 import DrivingQuestion from '@/pages/DrivingQuestion'
+import DrivingMap from '@/pages/DrivingMap'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -140,6 +141,7 @@ export default new Router({
     { path: '/driving_list', name: '我的行程', component: DrivingList},
     { path: '/driving_detail', name: '行程详情', component: DrivingDetail},
     { path: '/driving_question', name: '评分说明', component: DrivingQuestion},
+    { path: '/driving_map', name: '评分说明', component: DrivingMap},
     { path: '/404', name: '404页面', component: _404},
     { path: '*', redirect: '/404' }
   ]

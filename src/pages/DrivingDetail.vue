@@ -155,10 +155,9 @@
     methods: {
       tapQuestion() {
         this.$router.push('/driving_question')
-
       },
       tapActionBar() {
-
+        this.$router.push({path: '/driving_map', query: {id: this.driveingData.id}})
       }
     }
   }
