@@ -51,6 +51,7 @@ import HeadlineGroup4 from '@/pages/menu-select/find-type/headline-group/Headlin
 import HeadlineGroup5 from '@/pages/menu-select/find-type/headline-group/HeadlineGroup5'
 import ArticleDetail from '@/components/ArticleDetail/ArticleDetail'
 import DrivingEvaluation from '@/pages/DrivingEvaluation'
+import DrivingList from '@/pages/DrivingList'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -134,6 +135,7 @@ export default new Router({
     { path: '/license_detail', name: '驾照详情', component: LicenseDetail},
     { path: '/article_detail/:aid', name: '文章详情', component: ArticleDetail},
     { path: '/driving_evaluation', name: '驾驶评测', component: DrivingEvaluation},
+    { path: '/driving_list', name: '我的行程', component: DrivingList},
     { path: '/404', name: '404页面', component: _404},
     { path: '*', redirect: '/404' }
   ]

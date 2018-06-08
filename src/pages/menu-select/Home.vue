@@ -33,7 +33,7 @@
       <div class="entry-item study">
         在线学习
       </div>
-      <div class="entry-item eval">
+      <div class="entry-item eval" @click="tapEval">
         驾评数据
       </div>
     </div>
@@ -82,6 +82,9 @@
       },
       tapCar() {
         this.$router.push({path: '/manager', query: {lsNum: 'N627M9', carType: '广汽 欧蓝德', inspection: 2, insurance: 2}})
+      },
+      tapEval() {
+        this.$router.push('/driving_list')
       }
     }
   }
