@@ -2,6 +2,7 @@
   <div class="driving-detail">
     <NavigatorBar title="行程详情" bgColor="#45A4F7"/>
     <div class="top-panel">
+      <img src="../assets/pages/DrivingDetail/question.png" class="question" @click="tapQuestion">
       <div class="radar">
         <div class="radar-main">
           <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="150" height="150" viewbox="0 0 150 150">
@@ -68,7 +69,7 @@
         </div>
       </div>
     </div>
-    <div class="active-bar">
+    <div class="active-bar" @click="tapActionBar">
       <span>查看行车轨迹</span>
     </div>
   </div>
@@ -150,6 +151,14 @@
         svgD += (75 * (val / 100) * Math.cos(72 * index / 180 * Math.PI) * -1 + 75)
       })
       this.svgData = svgD
+    },
+    methods: {
+      tapQuestion() {
+
+      },
+      tapActionBar() {
+
+      }
     }
   }
 </script>
@@ -169,6 +178,14 @@
       align-items: center;
       background: #45A4F7;
       margin-bottom: 10px;
+      position: relative;
+      .question {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        right: 15px;
+        top: 15px;
+      }
       .radar {
         padding: 45px 32px 21px;
         position: relative;
