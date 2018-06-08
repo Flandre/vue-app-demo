@@ -52,6 +52,7 @@ import HeadlineGroup5 from '@/pages/menu-select/find-type/headline-group/Headlin
 import ArticleDetail from '@/components/ArticleDetail/ArticleDetail'
 import DrivingEvaluation from '@/pages/DrivingEvaluation'
 import DrivingList from '@/pages/DrivingList'
+import DrivingDetail from '@/pages/DrivingDetail'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -136,6 +137,7 @@ export default new Router({
     { path: '/article_detail/:aid', name: '文章详情', component: ArticleDetail},
     { path: '/driving_evaluation', name: '驾驶评测', component: DrivingEvaluation},
     { path: '/driving_list', name: '我的行程', component: DrivingList},
+    { path: '/driving_detail', name: '行程详情', component: DrivingDetail},
     { path: '/404', name: '404页面', component: _404},
     { path: '*', redirect: '/404' }
   ]

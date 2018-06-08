@@ -56,7 +56,7 @@
       <img src="../assets/pages/DrivingList/arrow-bottom.png" class="arrow-bottom">
     </div>
     <div class="trip-list">
-      <div class="trip-item" v-for="i in dataList">
+      <div class="trip-item" v-for="i in dataList" @click="tapItem(i.id, $event)">
         <div class="trip-info">
           <p class="start-time">{{i.time}}</p>
           <p class="location">
@@ -139,6 +139,11 @@
       this.averageScore = scoreCount / source.length
       this.averageSpeed = distanceCount / (allTimeCount / 60)
     },
+    methods: {
+      tapItem(id, $event){
+        this.$router.push({path: '/driving_detail', query: {id: id}})
+      }
+    }
   }
 </script>
 
