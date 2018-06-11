@@ -1,7 +1,7 @@
 <template>
   <div class="xfjl-study">
     <div class="study-list">
-      <div class="list-item" v-for="s in studyData">
+      <div class="list-item" v-for="s in studyData" @click="tapStudy">
         <div class="title-image">
           <img :src="s.titleImage">
         </div>
@@ -31,6 +31,11 @@
             timeCount: 2,
           },
         ]
+      }
+    },
+    methods: {
+      tapStudy() {
+        this.$router.push('/class_simple')
       }
     }
   }
