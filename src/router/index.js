@@ -55,6 +55,9 @@ import DrivingList from '@/pages/DrivingList'
 import DrivingDetail from '@/pages/DrivingDetail'
 import DrivingQuestion from '@/pages/DrivingQuestion'
 import DrivingMap from '@/pages/DrivingMap'
+import LicenseJZCF from '@/pages/LicenseJZCF'
+import JzcfNow from '../pages/jzcf-type/JzcfNow'
+import JzcfHistory from '../pages/jzcf-type/JzcfHistory'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -142,6 +145,11 @@ export default new Router({
     { path: '/driving_detail', name: '行程详情', component: DrivingDetail},
     { path: '/driving_question', name: '评分说明', component: DrivingQuestion},
     { path: '/driving_map', name: '评分说明', component: DrivingMap},
+    { path: '/license_jzcf', name: '驾照查分', component: LicenseJZCF, redirect: '/license_jzcf/now', children: [
+        {path: '/license_jzcf/now', name: '当前记分周期', component: JzcfNow},
+        {path: '/license_jzcf/history', name: '历史违法记录', component: JzcfHistory},
+      ]
+    },
     { path: '/404', name: '404页面', component: _404},
     { path: '*', redirect: '/404' }
   ]

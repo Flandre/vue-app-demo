@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="func-list">
-      <div class="list-item" v-for="func in funcData">
+      <div class="list-item" v-for="func in funcData" @click="tapList(func.path)">
         <img :src="func.icon">
         <span>{{func.name}}</span>
         <img src="../assets/pages/LicenseInfo/arrow-right.png" class="arrow">
@@ -58,26 +58,32 @@
           {
             name: '驾照查分',
             icon: require('@/assets/pages/LicenseInfo/funcIcon1.png'),
+            path: '/jzcf',
           },
-          {
-            name: '违法信息',
-            icon: require('@/assets/pages/LicenseInfo/funcIcon2.png'),
-          },
+          // {
+          //   name: '违法信息',
+          //   icon: require('@/assets/pages/LicenseInfo/funcIcon2.png'),
+          //   path: '/wfxx',
+          // },
           {
             name: '销分进度',
             icon: require('@/assets/pages/LicenseInfo/funcIcon3.png'),
+            path: '/xfjd',
           },
           {
             name: '满分学习',
             icon: require('@/assets/pages/LicenseInfo/funcIcon4.png'),
+            path: '/mfxx',
           },
           {
             name: '审验学习',
             icon: require('@/assets/pages/LicenseInfo/funcIcon5.png'),
+            path: '/syxx',
           },
           {
             name: '业务办理',
             icon: require('@/assets/pages/LicenseInfo/funcIcon6.png'),
+            path: '/ywbl',
           },
         ],
         auth: false,
@@ -103,6 +109,13 @@
       },
       tapDetail() {
         this.$router.push('/license_detail')
+      },
+      tapList(path) {
+        switch(path){
+          case '/jzcf':
+            this.$router.push('/license_jzcf')
+            break
+        }
       }
     }
   }
