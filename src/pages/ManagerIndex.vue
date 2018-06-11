@@ -14,7 +14,7 @@
         <p class="info">暂无新的违章或尚未录入</p>
       </template>
       <template v-else>
-        <div class="info-main">
+        <div class="info-main" @click="tapEndorsement">
           <div class="info-item">
             <p class="num">{{violationArr[0]}}</p>
             <p class="proj">违章</p>
@@ -165,6 +165,9 @@
           query.insurance = this.$route.query.insurance
         }
         this.$router.push({path: '/addInsurance', query: query})
+      },
+      tapEndorsement() {
+        this.$router.push({path: '/endorsement_detail', query: {lsNum: this.$route.query.lsNum}})
       }
     }
   }
