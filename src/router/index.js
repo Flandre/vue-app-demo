@@ -56,9 +56,13 @@ import DrivingDetail from '@/pages/DrivingDetail'
 import DrivingQuestion from '@/pages/DrivingQuestion'
 import DrivingMap from '@/pages/DrivingMap'
 import LicenseJZCF from '@/pages/LicenseJZCF'
-import JzcfNow from '../pages/jzcf-type/JzcfNow'
-import JzcfHistory from '../pages/jzcf-type/JzcfHistory'
+import JzcfNow from '@/pages/jzcf-type/JzcfNow'
+import JzcfHistory from '@/pages/jzcf-type/JzcfHistory'
 import PayForfeit from '@/pages/PayForfeit'
+import LicenseXfjl from '@/pages/LicenseXfjl'
+import XfjlStudy from '../pages/xfjl-type/XfjlStudy'
+import XfjlCheck from '../pages/xfjl-type/XfjlCheck'
+import XfjlComplete from '../pages/xfjl-type/XfjlComplete'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -153,6 +157,12 @@ export default new Router({
     },
     { path: '/404', name: '404页面', component: _404},
     { path: '/pay_forfeit', name: '缴纳罚款', component: PayForfeit},
+    { path: '/license_xfjl', name: '销分记录', component: LicenseXfjl, redirect: '/license_xfjl/study', children: [
+        {path: '/license_xfjl/study', name: '销分记录学习中', component: XfjlStudy},
+        {path: '/license_xfjl/check', name: '销分记录待审核', component: XfjlCheck},
+        {path: '/license_xfjl/complete', name: '销分记录已完成', component: XfjlComplete},
+      ]
+    },
     { path: '*', redirect: '/404' }
   ]
 })

@@ -66,9 +66,9 @@
           //   path: '/wfxx',
           // },
           {
-            name: '销分进度',
+            name: '销分记录',
             icon: require('@/assets/pages/LicenseInfo/funcIcon3.png'),
-            path: '/xfjd',
+            path: '/xfjl',
           },
           {
             name: '满分学习',
@@ -114,6 +114,9 @@
         switch(path){
           case '/jzcf':
             this.$router.push('/license_jzcf')
+            break
+          case '/xfjl':
+            this.$router.push('/license_xfjl')
             break
         }
       }

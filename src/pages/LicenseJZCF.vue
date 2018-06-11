@@ -113,7 +113,6 @@
         border-bottom: 1px solid #dbdbdb;
         .link-item {
           font-size: 13px;
-          margin-right: 20px;
           color: #333;
           &:last-child {
             margin-right: 0;
