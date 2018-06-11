@@ -117,7 +117,7 @@
 
 <style lang="less" scoped>
   .inspection-info {
-    margin-top: 44px;
+    padding-top: 44px;
     .inspection-panel {
       padding: 30px;
       color: #fff;

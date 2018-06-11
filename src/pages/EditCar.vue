@@ -121,7 +121,7 @@
 
 <style lang="less" scoped>
   .edit-car {
-    margin-top: 44px;
+    padding-top: 44px;
     .top-tip {
       height: 34px;
       background: rgba(69, 164, 247, .2);

@@ -72,7 +72,7 @@
 
 <style lang="less" scoped>
   .article-detail {
-    margin-top: 44px;
+    padding-top: 44px;
     font-size: 16px;
     .article-container {
       padding: 25px;

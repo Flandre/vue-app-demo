@@ -109,7 +109,7 @@
 </script>
 <style lang="less" scoped>
   .credit-know {
-    margin-top: 44px;
+    padding-top: 44px;
     margin-bottom: 50px;
     .know-container {
       background: #fff;

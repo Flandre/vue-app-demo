@@ -169,7 +169,7 @@
     src: url("../fonts/DINCondensedC.ttf");
   }
   .driving-detail {
-    margin-top: 44px;
+    padding-top: 44px;
     padding-bottom: 50px;
     .top-panel {
       padding: 20px 0;

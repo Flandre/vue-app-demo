@@ -153,7 +153,7 @@
     src: url("../fonts/DINCondensedC.ttf");
   }
   .driving-list {
-    margin-top: 44px;
+    padding-top: 44px;
     .top-panel {
       padding: 20px 30px 25px;
       background: #45A4F7;

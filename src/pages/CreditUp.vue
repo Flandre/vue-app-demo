@@ -88,7 +88,7 @@
 
 <style lang="less" scoped>
   .credit-up {
-    margin-top: 44px;
+    padding-top: 44px;
     .main-panel {
       height: 182px;
       padding: 0 50px;

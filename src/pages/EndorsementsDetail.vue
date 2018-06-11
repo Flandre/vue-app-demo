@@ -98,7 +98,7 @@
     src: url("../fonts/DINCondensedC.ttf");
   }
   .endorsements-detail {
-    margin-top: 44px;
+    padding-top: 44px;
     .endorsements-panel {
       position: fixed;
       width: 100%;

@@ -61,7 +61,7 @@
 
 <style lang="less" scoped>
   .my-insurance {
-    margin-top: 44px;
+    padding-top: 44px;
     .insurance-list {
       .insurance-item {
         padding: 15px;

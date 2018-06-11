@@ -126,7 +126,7 @@
 
 <style lang="less" scoped>
   .license-info {
-    margin-top: 44px;
+    padding-top: 44px;
     .license-card {
       background: #fff;
       margin-bottom: 10px;

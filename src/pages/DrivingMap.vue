@@ -2,13 +2,13 @@
   <div class="driving-map">
     <NavigatorBar title="行程分析" navType="light" bgColor="#fff"/>
     <div class="map-container">
-
+      <img src="../assets/pages/DrivingMap/map.png" class="map">
     </div>
     <div class="bottom-control">
       <p class="title">行程中共有3次危险驾驶行为</p>
       <div class="danger-container">
         <div class="danger-item">
-          <span class="num">0</span>
+          <span class="num">1</span>
           <span class="desc">急加速</span>
         </div>
         <div class="danger-item">
@@ -16,7 +16,7 @@
           <span class="desc">急减速</span>
         </div>
         <div class="danger-item">
-          <span class="num">0</span>
+          <span class="num">2</span>
           <span class="desc">急转弯</span>
         </div>
         <div class="danger-item">
@@ -48,7 +48,15 @@
     src: url("../fonts/DINCondensedC.ttf");
   }
   .driving-map {
-    margin-top: 44px;
+    padding-top: 44px;
+    .map-container {
+      width: 100%;
+      height: 100%;
+      .map {
+        width: 100%;
+        height: 100%;
+      }
+    }
     .bottom-control {
       width: 100%;
       padding: 15px;

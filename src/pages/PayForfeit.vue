@@ -105,7 +105,7 @@
 
 <style lang="less" scoped>
   .pay-forfeit {
-    margin-top: 44px;
+    padding-top: 44px;
     .panel-item {
       background: #fff;
       margin-bottom: 10px;

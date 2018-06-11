@@ -40,7 +40,7 @@
 
 <style lang="less" scoped>
   .license-auth {
-    margin-top: 44px;
+    padding-top: 44px;
   }
 
 

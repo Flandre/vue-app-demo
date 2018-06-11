@@ -228,7 +228,7 @@
 
 <style lang="less" scoped>
   .class-question {
-    margin-top: 44px;
+    padding-top: 44px;
     .question-container {
       padding: 0 25px;
       background: #fff;

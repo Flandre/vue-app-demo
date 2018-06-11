@@ -104,7 +104,7 @@
 
 <style lang="less" scoped>
   .license-edit {
-    margin-top: 44px;
+    padding-top: 44px;
     .top-tip {
       height: 34px;
       background: rgba(69, 164, 247, .2);

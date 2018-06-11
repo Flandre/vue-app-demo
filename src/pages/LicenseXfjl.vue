@@ -46,7 +46,7 @@
 
 <style lang="less" scoped>
   .license-xfjl {
-    margin-top: 44px;
+    padding-top: 44px;
     .status-nav {
       width: 100%;
       height: 40px;

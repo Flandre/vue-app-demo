@@ -30,7 +30,7 @@
 
 <style lang="less" scoped>
   .driving-question {
-    margin-top: 44px;
+    padding-top: 44px;
     .text {
       padding: 20px;
       background: #fff;

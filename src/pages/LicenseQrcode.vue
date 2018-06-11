@@ -29,7 +29,7 @@
 
 <style lang="less" scoped>
   .license-qrcode {
-    margin-top: 44px;
+    padding-top: 44px;
     &:before {
       content: '';
       min-height: 100%;

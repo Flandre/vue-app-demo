@@ -68,7 +68,7 @@
 
 <style lang="less" scoped>
   .insurance-info {
-    margin-top: 44px;
+    padding-top: 44px;
     .insurance-panel {
       padding: 30px 0;
       color: #fff;

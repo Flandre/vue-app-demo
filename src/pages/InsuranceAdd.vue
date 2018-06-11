@@ -84,7 +84,7 @@
 
 <style lang="less" scoped>
   .insurance-add {
-    margin-top: 44px;
+    padding-top: 44px;
     .car-info {
       padding: 25px 0;
       background: #fff;

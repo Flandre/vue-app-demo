@@ -48,7 +48,7 @@
 
 <style scoped>
   .credit-detail {
-    margin-top: 44px;
+    padding-top: 44px;
   }
   .credit-container {
     background: #fff;

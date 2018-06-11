@@ -175,7 +175,7 @@
 
 <style lang="less" scoped>
   .manager-index {
-    margin-top: 44px;
+    padding-top: 44px;
     .car-panel-bg {
       height: 110px;
       background: #45A4F7;

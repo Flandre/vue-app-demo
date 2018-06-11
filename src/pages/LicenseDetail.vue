@@ -72,7 +72,7 @@
 
 <style lang="less" scoped>
   .license-detail {
-    margin-top: 44px;
+    padding-top: 44px;
     .cell-title{
       color: #6D6D72;
       font-size: 13px;

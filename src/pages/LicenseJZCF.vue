@@ -60,7 +60,7 @@
     src: url("../fonts/DINCondensedC.ttf");
   }
   .license-jzcf {
-    margin-top: 44px;
+    padding-top: 44px;
     .top-panel {
       padding: 15px;
       background: #fff;
