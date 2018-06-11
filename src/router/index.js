@@ -58,6 +58,7 @@ import DrivingMap from '@/pages/DrivingMap'
 import LicenseJZCF from '@/pages/LicenseJZCF'
 import JzcfNow from '../pages/jzcf-type/JzcfNow'
 import JzcfHistory from '../pages/jzcf-type/JzcfHistory'
+import PayForfeit from '@/pages/PayForfeit'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -151,6 +152,7 @@ export default new Router({
       ]
     },
     { path: '/404', name: '404页面', component: _404},
+    { path: '/pay_forfeit', name: '缴纳罚款', component: PayForfeit},
     { path: '*', redirect: '/404' }
   ]
 })

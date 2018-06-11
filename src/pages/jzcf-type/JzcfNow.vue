@@ -59,7 +59,7 @@
     },
     methods: {
       tapPay() {
-
+        this.$router.push({path: '/pay_forfeit'})
       },
       tapMore() {
         this.$router.push('/endorsement_more')
