@@ -190,11 +190,13 @@
         padding: 45px 32px 21px;
         position: relative;
         .radar-main {
-          width: 150px;
-          height: 150px;
+          width: 152px;
+          height: 154px;
           background: url("../assets/pages/DrivingDetail/radar-bg.png") center center no-repeat;
-          background-size: 150px 150px;
+          background-size: 152px 154px;
+          padding-top: 2px;
           svg {
+            padding: 1px;
             opacity: 0.3;
           }
         }
