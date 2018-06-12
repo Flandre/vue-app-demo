@@ -7,23 +7,23 @@
     <div class="bottom-control">
       <p class="title">行程中共有3次危险驾驶行为</p>
       <div class="danger-container">
-        <div class="danger-item">
+        <div :class="['danger-item', selectType == 1 ? 'active' : '']" @click="tapItem(1)">
           <span class="num">1</span>
           <span class="desc">急加速</span>
         </div>
-        <div class="danger-item">
+        <div :class="['danger-item', selectType == 2 ? 'active' : '']" @click="tapItem(2)">
           <span class="num">0</span>
           <span class="desc">急减速</span>
         </div>
-        <div class="danger-item">
+        <div :class="['danger-item', selectType == 3 ? 'active' : '']" @click="tapItem(3)">
           <span class="num">2</span>
           <span class="desc">急转弯</span>
         </div>
-        <div class="danger-item">
+        <div :class="['danger-item', selectType == 4 ? 'active' : '']" @click="tapItem(4)">
           <span class="num">0</span>
           <span class="desc">超速</span>
         </div>
-        <div class="danger-item">
+        <div :class="['danger-item', selectType == 5 ? 'active' : '']" @click="tapItem(5)">
           <span class="num">0</span>
           <span class="desc">玩手机</span>
         </div>
@@ -36,9 +36,19 @@
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
   export default {
     name: "driving-map",
+    data() {
+      return {
+        selectType: 1
+      }
+    },
     components: {
       NavigatorBar,
     },
+    methods: {
+      tapItem(type){
+        this.selectType = type
+      }
+    }
   }
 </script>
 
@@ -94,6 +104,15 @@
             font-size: 12px;
             line-height: 17px;
             color: #666666;
+          }
+          &.active {
+            .num {
+              color: #45A4F7;
+              border-color: #45A4F7;
+            }
+            .desc {
+              color: #45A4F7
+            }
           }
         }
       }
