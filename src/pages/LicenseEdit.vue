@@ -86,8 +86,8 @@
       /* 返回顶部 */
       window.scrollTo(0, 0)
       let self = this
-      if(window.APP_CALL){
-        window.APP_CALL.automaticSuccess = function(){
+      if(window.AppCall){
+        window.AppCall.automaticSuccess = function(){
           self.$router.push({path: '/license_info', query: {backlength: 2}})
         }
       }
@@ -105,7 +105,12 @@
         }
       },
       tapAutomatic(){
-        window.APP_CALL.automatic('driving')
+        alert('tap automatic')
+        try {
+          window.AppCall.automatic("driver")
+        } catch (err) {
+          alert(err)
+        }
       }
     }
   }
