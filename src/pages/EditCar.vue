@@ -88,9 +88,10 @@
     beforeMount(){
       /* 返回顶部 */
       window.scrollTo(0, 0)
+      let self = this
       if(window.APP_CALL){
         window.APP_CALL.automaticSuccess = function(){
-          this.$router.push({path: '/endorsement_detail', query: {backlength: 2, lsNum: 'QY96N0'}})
+          self.$router.push({path: '/endorsement_detail', query: {backlength: 2, lsNum: 'QY96N0'}})
         }
       }
     },
