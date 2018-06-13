@@ -40,7 +40,7 @@
           },
           {
             name: '发布动态',
-            url: '/fbdt',
+            url: '/message_edit',
             icon: require('./images/fbdt.png')
           },
           {

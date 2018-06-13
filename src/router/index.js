@@ -65,6 +65,7 @@ import XfjlCheck from '@/pages/xfjl-type/XfjlCheck'
 import XfjlComplete from '@/pages/xfjl-type/XfjlComplete'
 import ExposureEdit from '@/pages/ExposureEdit'
 import ExposureDetail from '@/pages/ExposureDetail'
+import MessageEdit from '@/pages/MessageEdit'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -167,6 +168,7 @@ export default new Router({
     },
     { path: '/exposure_edit', name: '违法曝光', component: ExposureEdit},
     { path: '/exposure_detail', name: '举报受理页面', component: ExposureDetail},
+    { path: '/message_edit', name: '发布动态', component: MessageEdit},
     { path: '*', redirect: '/404' }
   ]
 })
