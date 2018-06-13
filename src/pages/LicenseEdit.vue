@@ -5,7 +5,7 @@
       <span>请对照《机动车驾驶证》认真填写以下信息</span>
     </div>
     <div class="form-group">
-      <div class="automatic">
+      <div class="automatic" @click="tapAutomatic">
         <img src="../assets/pages/LicenseEdit/automatic-left.png" class="automatic-left">
         <span>自动识别驾驶证</span>
         <img src="../assets/pages/LicenseEdit/automatic-right.png" class="automatic-right">
@@ -85,6 +85,11 @@
     beforeMount(){
       /* 返回顶部 */
       window.scrollTo(0, 0)
+      if(window.APP_CALL){
+        window.APP_CALL.automaticSuccess = function(){
+          this.$router.push({path: '/license_info', query: {backlength: 2}})
+        }
+      }
     },
     methods: {
       tapSwitch() {
@@ -97,6 +102,9 @@
           sessionStorage.setItem('license', true)
           this.$router.push({path: '/license_info', query: {backlength: 2}})
         }
+      },
+      tapAutomatic(){
+        window.APP_CALL.automatic('driving')
       }
     }
   }

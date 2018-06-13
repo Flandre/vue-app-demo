@@ -60,9 +60,10 @@ import JzcfNow from '@/pages/jzcf-type/JzcfNow'
 import JzcfHistory from '@/pages/jzcf-type/JzcfHistory'
 import PayForfeit from '@/pages/PayForfeit'
 import LicenseXfjl from '@/pages/LicenseXfjl'
-import XfjlStudy from '../pages/xfjl-type/XfjlStudy'
-import XfjlCheck from '../pages/xfjl-type/XfjlCheck'
-import XfjlComplete from '../pages/xfjl-type/XfjlComplete'
+import XfjlStudy from '@/pages/xfjl-type/XfjlStudy'
+import XfjlCheck from '@/pages/xfjl-type/XfjlCheck'
+import XfjlComplete from '@/pages/xfjl-type/XfjlComplete'
+import ExposureEdit from '@/pages/ExposureEdit'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -163,6 +164,7 @@ export default new Router({
         {path: '/license_xfjl/complete', name: '销分记录已完成', component: XfjlComplete},
       ]
     },
+    { path: '/exposure_edit', name: '违法曝光', component: ExposureEdit},
     { path: '*', redirect: '/404' }
   ]
 })

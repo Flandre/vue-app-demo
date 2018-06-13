@@ -30,7 +30,7 @@
         btns: [
           {
             name: '驾驶评测',
-            url: '/jspc',
+            url: '/driving_evaluation',
             icon: require('./images/jspc.png')
           },
           {
@@ -45,7 +45,7 @@
           },
           {
             name: '违法曝光',
-            url: '/wfbg',
+            url: '/exposure_edit',
             icon: require('./images/wfbg.png')
           },
         ]
@@ -71,9 +71,7 @@
               }
             }
             break
-          case '/jspc':
-            this.$router.push('/driving_evaluation')
-            break
+
           default:
             this.$router.push(url)
         }

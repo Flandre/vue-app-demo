@@ -5,7 +5,7 @@
       <span>请对照《机动车行驶证》认真填写以下信息</span>
     </div>
     <div class="form-group">
-      <div class="automatic">
+      <div class="automatic" @click="tapAutomatic">
           <img src="../assets/pages/EditCar/automatic-left.png" class="automatic-left">
           <span>自动识别行驶证</span>
           <img src="../assets/pages/EditCar/automatic-right.png" class="automatic-right">
@@ -88,6 +88,11 @@
     beforeMount(){
       /* 返回顶部 */
       window.scrollTo(0, 0)
+      if(window.APP_CALL){
+        window.APP_CALL.automaticSuccess = function(){
+          this.$router.push({path: '/endorsement_detail', query: {backlength: 2, lsNum: 'QY96N0'}})
+        }
+      }
     },
     mounted() {
       if(this.$route.query.edit){
@@ -114,6 +119,9 @@
         } else {
           this.$router.push({path: '/endorsement_detail', query: {backlength: 2, lsNum: lsNum}})
         }
+      },
+      tapAutomatic(){
+        window.APP_CALL.automatic('driving')
       }
     }
   }

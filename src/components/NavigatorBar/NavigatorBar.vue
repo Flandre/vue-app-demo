@@ -4,7 +4,10 @@
     <img v-if="navTypeData == 'dark'" src="./images/prev.png" class="prev" @click="tapPrev"/>
     <img src="./images/prev-light.png" class="prev" @click="tapPrev" v-else-if="navTypeData == 'light'"/>
     <div class="title">{{title}}</div>
-    <div class="right-text" v-if="menuRightText != ''" @click="tapRightMenu">{{menuRightText}}</div>
+    <template v-if="menuRightText != ''">
+      <div class="right-text" :style="{color: menuRightColor}" v-if="menuRightPath == 'goBack'" @click="tapPrev">{{menuRightText}}</div>
+      <div class="right-text" :style="{color: menuRightColor}" v-else @click="tapRightMenu">{{menuRightText}}</div>
+    </template>
   </div>
 </template>
 
@@ -87,6 +90,9 @@
       },
       menuRightPath: {
         default: ''
+      },
+      menuRightColor: {
+        default: '#45A4F7'
       }
     }
   }
