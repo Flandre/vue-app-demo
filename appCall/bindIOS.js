@@ -1,4 +1,4 @@
-window.APP_CALL = {
+window.AppCall = {
   automatic: function(type) {
     if(window.webkit.messageHandlers['automatic']){
       window.webkit.messageHandlers['automatic'].postMessage({"type": type})
