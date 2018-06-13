@@ -28,7 +28,7 @@
         朝阳区奥运村北辰汇欣大厦
       </div>
     </div>
-    <div class="active-bar">
+    <div class="active-bar" @click="tapSubmit">
       <span>发布</span>
     </div>
     <div :class="['slider-bg', sliderShow? 'active' : '']" v-if="showSliderBg" @click="tapClose"></div>
@@ -80,6 +80,9 @@
         setTimeout(() => {
           this.showSliderBg = false
         }, 300)
+      },
+      tapSubmit() {
+        this.$router.push({path: '/exposure_detail', query: {backlength: 2}})
       }
     }
   }
