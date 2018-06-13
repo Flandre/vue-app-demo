@@ -14,6 +14,9 @@ window.APP_CALL = {
   callCamera: function(width, height){
 
   },
+  callAlbum: function(width, height){
+
+  },
   cameraCallback: function(data){
 
   }

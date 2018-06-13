@@ -88,6 +88,7 @@
       let self = this
       if(window.AppCall){
         window.AppCall.automaticSuccess = function(){
+          sessionStorage.setItem('license', true)
           self.$router.push({path: '/license_info', query: {backlength: 2}})
         }
       }
@@ -105,7 +106,6 @@
         }
       },
       tapAutomatic(){
-        alert('tap automatic')
         try {
           window.AppCall.automatic("driver")
         } catch (err) {

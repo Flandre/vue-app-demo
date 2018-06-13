@@ -122,7 +122,6 @@
         }
       },
       tapAutomatic(){
-        alert('tap automatic')
         try{
           window.AppCall.automatic("driving")
         } catch (err){
