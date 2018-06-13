@@ -50,7 +50,7 @@
           <span class="desc icon2">平均驾速</span>
         </div>
         <div class="info-item">
-          <span class="num">{{driveingData.maxSpeed}}<em>km</em></span>
+          <span class="num">{{driveingData.maxSpeed}}<em>km/h</em></span>
           <span class="desc icon3">最高驾速</span>
         </div>
       </div>
