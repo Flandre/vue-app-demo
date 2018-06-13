@@ -8,10 +8,10 @@
       <div class="add-images">
         <div class="img-box" v-for="(img, index) in imgData" v-if="img != ''">
           <img :src="img" class="pic">
-          <img src="../assets/pages/ExposureEdit/deleteBtn.png" class="remove-img" @click="tapRemove(index)">
+          <img src="../assets/pages/MessageEdit/deleteBtn.png" class="remove-img" @click="tapRemove(index)">
         </div>
         <div class="img-box add" @click="tapAdd">
-          <img src="../assets/pages/ExposureEdit/addIcon.png" class="icon">
+          <img src="../assets/pages/MessageEdit/addIcon.png" class="icon">
         </div>
       </div>
       <div class="location-container">
@@ -152,7 +152,7 @@
         padding-left: 35px;
         line-height: 48px;
         font-size: 13px;
-        background: url("../assets/pages/ExposureEdit/locationIcon.png") left center no-repeat;
+        background: url("../assets/pages/MessageEdit/locationIcon.png") left center no-repeat;
         background-size: 16px 21px;
       }
       .group-list {
