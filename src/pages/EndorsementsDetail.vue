@@ -3,15 +3,15 @@
     <NavigatorBar :title="lsNum" bgColor="#FBCB61"/>
     <div class="endorsements-panel">
       <div class="panel-item">
-        <span class="total">4</span>
+        <span class="total">{{count}}</span>
         <span class="info count">未处理违章</span>
       </div>
       <div class="panel-item">
-        <span class="total">6</span>
+        <span class="total">{{score}}</span>
         <span class="info score">扣分</span>
       </div>
       <div class="panel-item">
-        <span class="total">600</span>
+        <span class="total">{{price}}</span>
         <span class="info price">罚款</span>
       </div>
     </div>
@@ -62,11 +62,24 @@
             moreColor: '#617792'
           },
         ],
-        lsNum: '京QY96N0'
+        lsNum: '京QY96N0',
+        score: 0,
+        price: 0,
+        count: 0
       }
     },
     components: {
       NavigatorBar
+    },
+    beforeMount(){
+      let score = 0, price = 0, count = 0
+      this.detailData.forEach(val => {
+        score += val.score
+        price += val.price
+      })
+      this.score = score
+      this.price = price
+      this.count = this.detailData.length
     },
     mounted() {
       /* 返回顶部 */
