@@ -29,7 +29,7 @@
           <img :src="i.dangerLevel" class="danger-level">
         </div>
         <div class="more" :style="{background: i.moreColor}">
-          <span @click="tapMore">更多内容</span>
+          <span @click="tapMore(i.aid)">更多内容</span>
         </div>
       </div>
     </div>
@@ -50,7 +50,8 @@
             score: 6,
             price: 200,
             dangerLevel: require('../assets/pages/EndorsementsDetail/danger-type-4.png'),
-            moreColor: '#FF8D47'
+            moreColor: '#FF8D47',
+            aid: 1,
           },
           {
             time: '2017-02-20 13:07',
@@ -59,7 +60,8 @@
             score: 0,
             price: 200,
             dangerLevel: require('../assets/pages/EndorsementsDetail/danger-type-1.png'),
-            moreColor: '#617792'
+            moreColor: '#617792',
+            aid: 0,
           },
         ],
         lsNum: '京QY96N0',
@@ -89,8 +91,8 @@
       }
     },
     methods: {
-      tapMore() {
-        this.$router.push('/endorsement_more')
+      tapMore(aid) {
+        this.$router.push({path: '/endorsement_more', query: {aid: aid}})
       }
     }
   }
@@ -228,12 +230,5 @@
         }
       }
     }
-  }
-
-  .slide-left-enter-active  .endorsements-panel,
-  .slide-right-leave-active  .endorsements-panel,
-  .slide-left-leave-active  .endorsements-panel,
-  .slide-right-enter-active  .endorsements-panel {
-    top: 0px !important;
   }
 </style>

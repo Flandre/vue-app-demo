@@ -1,19 +1,18 @@
 <template>
   <div class="endorsements-more">
     <NavigatorBar title="" bgColor="#fff" navType="dark" scrollType="fade" navTypeChange="change"/>
-    <img src="../assets/pages/EndorsementsMore/banner.png" class="banner">
+    <img :src="banner" class="banner">
     <div class="endorsements-panel">
-      <p class="title">故意污损机动车号牌的</p>
+      <p class="title">{{title}}</p>
       <div class="info-box">
         <b>危险指数</b>
-        <img src="../assets/pages/EndorsementsMore/danger-type-3.png" class="danger-level">
-        <span class="score">3</span>
-        <span class="price">200</span>
+        <img :src="dangerLevel" class="danger-level">
+        <span class="score">{{score}}</span>
+        <span class="price">{{price}}</span>
       </div>
     </div>
     <div class="endorsements-article">
-      <p>故意污损号牌对道路交通安全畅通的危害性非常大。“故意”是一种明知故犯的心理态度，故意污损号牌者违反交通法规，令电子警察、电子雷达测试仪等监控设备形同虚设，从而肆意超速、逆向行驶、闯红灯等而不能及时得到处罚，严重扰乱道路交通安全秩序。</p>
-      <img src="../assets/pages/EndorsementsMore/article-img.png">
+      <p v-for="p in detail">{{p}}</p>
     </div>
     <ArticleList title="行动指南" articleGroup="endorsement" articleType="endorsement-type"/>
   </div>
@@ -24,9 +23,54 @@
   import ArticleList from '@/components/ArticleList/ArticleList'
   export default {
     name: "endorsements-more",
+    data() {
+      return {
+        dataSource: [
+          {
+            title: '变更车道时影响正常行驶的机动车的',
+            banner: require('../assets/pages/EndorsementsMore/banner1.png'),
+            dangerLevel: require('../assets/pages/EndorsementsMore/danger-type-1.png'),
+            score: 0,
+            price: 200,
+            detail: [
+              '违法变更车道极易引发交通事故，特别是压白色实线或不开启转向灯突然并线，将导致发生事故的几率倍增。违法变更车道把交通从有序变成无序，把接续行驶变成断续行驶，严重的干扰交通流、降低通行效率。数据表明，由违法变更车道造成的交通事故占全天交通事故的40%！',
+              '您应当在变更车道前，提前开启转向灯，确认想要前往的相邻车道后方车辆与您有足够的安全距离时，缓打方向完成并线，动作一气呵成，不要长时间压线行驶。'
+            ]
+          },
+          {
+            title: '驾驶中型以上载客汽车在城市快速路上行驶超过规定时速未达20％的',
+            banner: require('../assets/pages/EndorsementsMore/banner2.png'),
+            dangerLevel: require('../assets/pages/EndorsementsMore/danger-type-4.png'),
+            score: 6,
+            price: 200,
+            detail: [
+              '限速规定是根据道路线型、车流量以及管理要求设计的科学合理的速度限值，超过限速规定允许的速度行驶会带来极大的安全隐患。',
+              '随着车速的增加，您的有效视野会变窄、注视点变远、注意力转移变得困难，不能有效获取和分析足够的交通信息。一般城市道路设计的速度充分考虑了可视距离和交通流，如果超过限速规定的行驶速度，会对前方突然出现的险情难以做出及时、准确、妥善的处置，很可能出现反应滞后、判断失误或处置失当的状况，极易引发交通事故。',
+              '另外，在车流中超过规定的行驶速度必然会导致超车行为的发生几率，无端产生更多的交织点和冲突点。',
+              '如果您是无意间产生的轻微超速，这有可能是速度错觉引起的，所以请您养成经常观察车速表的习惯，控制好您的车速！'
+            ]
+          }
+        ],
+        banner: '',
+        title: '',
+        dangerLevel: '',
+        score: 0,
+        price: 0,
+        detail: []
+      }
+    },
     components: {
       NavigatorBar,
       ArticleList
+    },
+    beforeMount() {
+      let aid = this.$route.query.aid || 0
+      this.banner = this.dataSource[aid].banner
+      this.title = this.dataSource[aid].title
+      this.dangerLevel = this.dataSource[aid].dangerLevel
+      this.score = this.dataSource[aid].score
+      this.price = this.dataSource[aid].price
+      this.detail = this.dataSource[aid].detail.concat([])
     },
     mounted() {
       /* 返回顶部 */
