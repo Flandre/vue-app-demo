@@ -134,7 +134,7 @@
         width: 100%;
         height: 140px;
         background: url("../assets/pages/LicenseInfo/card-bg.png") center no-repeat;
-        background-size: 375px 140px;
+        background-size: 100% 140px;
         position: relative;
         .avatar-box {
           width: 90px;

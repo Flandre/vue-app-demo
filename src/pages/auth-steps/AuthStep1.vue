@@ -50,7 +50,11 @@
       let self = this
       if(window.AppCall){
         window.AppCall.cameraCallback = function(data, dataType){
-          self.cardData[self.cameraType] = `data:image/${dataType};base64,${data}`
+          try{
+            self.cardData[self.cameraType] = `data:image/${dataType};base64,${data}`
+          } catch (err){
+            alert(err)
+          }
         }
       }
     },
