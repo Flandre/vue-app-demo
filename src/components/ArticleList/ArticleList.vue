@@ -29,8 +29,8 @@
           let data = [
             // {
             //   titleImage: require('./images/titleImages/image1.png'),
-            //   title: '虚线变道也可能扣2分罚300，你知道哪些时候不能变道吗？',
-            //   keywords: ['交通法规', '变道'],
+            //   title: '开车并线时如何掌握正确的时机和安全距离',
+            //   keywords: ['并线', '变道'],
             //   id: 1
             // },
             // {
@@ -58,21 +58,21 @@
             //   id: 5
             // },
             {
-              titleImage: require('./images/titleImages/image9.jpg'),
-              title: '手把手告诉你如何处理交通事故',
-              keywords: ['事故处理', '指示灯', '地点定损'],
+              titleImage: require('./images/titleImages/image9.png'),
+              title: '开车并线时如何掌握正确时机和安全距离',
+              keywords: ['变更车道', '并线'],
               id: 9
             },
             {
-              titleImage: require('./images/titleImages/image10.jpg'),
-              title: '重磅提醒：北京车辆报废有新规定，如不办理将无法更新号牌指标！',
-              keywords: ['车辆新规', '号牌'],
+              titleImage: require('./images/titleImages/image10.png'),
+              title: '老司机为什么都说：让速不让道',
+              keywords: ['变更车道'],
               id: 10
             },
             {
-              titleImage: require('./images/titleImages/image11.jpg'),
-              title: '新政！2018年这七大汽车新政将实施，你都了解吗？',
-              keywords: ['车辆新规'],
+              titleImage: require('./images/titleImages/image11.png'),
+              title: '为什么你总是堵在路上？可能是“幽灵堵车”在作怪',
+              keywords: ['拥堵', '变更车道'],
               id: 11
             },
             {
