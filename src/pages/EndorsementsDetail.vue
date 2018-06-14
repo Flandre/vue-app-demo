@@ -46,29 +46,20 @@
           {
             time: '2017-03-10 15:17',
             title: '北京市丰台区南三环辅路右安门南桥东侧地下停车场入口 全方向',
-            desc: '故意污损机动车号牌的',
-            score: 3,
+            desc: '驾驶中型以上载客汽车在城市快速路上行驶超过规定时速未达20％的',
+            score: 6,
             price: 200,
-            dangerLevel: require('../assets/pages/EndorsementsDetail/danger-type-3.png'),
-            moreColor: '#FBCB61'
+            dangerLevel: require('../assets/pages/EndorsementsDetail/danger-type-4.png'),
+            moreColor: '#FF8D47'
           },
           {
             time: '2017-02-20 13:07',
             title: '北京市怀柔区庙城镇其它道路 庙城镇至庙城镇路段',
-            desc: '故意污损机动车号牌的',
-            score: 3,
-            price: 200,
-            dangerLevel: require('../assets/pages/EndorsementsDetail/danger-type-3.png'),
-            moreColor: '#FBCB61'
-          },
-          {
-            time: '2016-07-15 14:41',
-            title: '河北省大广高速承赤段赤峰方向1052公里处',
-            desc: '驾驶中型以上载客载货汽车、危险物品运输车辆以外的机动车超过规定时速10%以下的',
+            desc: '变更车道时影响正常行驶的机动车的',
             score: 0,
             price: 200,
-            dangerLevel: require('../assets/pages/EndorsementsDetail/danger-type-2.png'),
-            moreColor: '#A4B2C3'
+            dangerLevel: require('../assets/pages/EndorsementsDetail/danger-type-1.png'),
+            moreColor: '#617792'
           },
         ],
         lsNum: '京QY96N0'
