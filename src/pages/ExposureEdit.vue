@@ -53,6 +53,12 @@
     components: {
       NavigatorBar
     },
+    beforeMount() {
+      if(sessionStorage.getItem('imgThumb')){
+        this.imgData.push(sessionStorage.getItem('imgThumb'))
+        sessionStorage.removeItem('imgThumb')
+      }
+    },
     methods: {
       tapRemove(index){
         this.$set(this.imgData, index, '')

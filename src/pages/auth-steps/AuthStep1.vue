@@ -9,8 +9,9 @@
           <p class="desc">驾驶证主页</p>
           <p class="case">查看示例</p>
         </div>
-        <div class="id-card-container">
-          <span class="empty">点击上传照片</span>
+        <div class="id-card-container" @click="tapPic(0)">
+          <img :src="cardData[0]" v-if="cardData[0] != ''" class="card-img">
+          <span class="empty" v-else>点击上传照片</span>
         </div>
       </div>
       <div class="form-row card-type">
@@ -18,8 +19,9 @@
           <p class="desc">驾驶证副页</p>
           <p class="case">查看示例</p>
         </div>
-        <div class="id-card-container">
-          <span class="empty">点击上传照片</span>
+        <div class="id-card-container" @click="tapPic(1)">
+          <img :src="cardData[1]" v-if="cardData[1] != ''" class="card-img">
+          <span class="empty" v-else>点击上传照片</span>
         </div>
       </div>
       <div class="form-row">
@@ -36,13 +38,30 @@
 <script>
   export default {
     name: "auth-step1",
+    data(){
+      return {
+        cardData: ['', ''],
+        cameraType: 0,
+      }
+    },
     beforeMount(){
       /* 返回顶部 */
       window.scrollTo(0, 0)
+      let self = this
+      if(window.AppCall){
+        window.AppCall.cameraCallback = function(data, dataType){
+          let imageData = `data:image/${dataType};base64,${data}`
+          self.$set(cardData, self.cameraType, imageData)
+        }
+      }
     },
     methods: {
       tapSave() {
         this.$router.push('/license_auth/step2')
+      },
+      tapPic(type) {
+        this.cameraType = type
+        window.AppCall.callCamera(330, 194)
       }
     },
     beforeDestroy() {
@@ -177,6 +196,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
+            .card-img {
+              width: 100%;
+              height: auto;
+            }
             .empty {
               display: block;
               color: #fff;

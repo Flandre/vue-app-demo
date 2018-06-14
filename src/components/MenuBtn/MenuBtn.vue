@@ -51,6 +51,16 @@
         ]
       }
     },
+    beforeMount() {
+      let self = this
+      if(window.AppCall){
+        window.AppCall.cameraCallback = function(data, dataType){
+          let imageData = `data:image/${dataType};base64,${data}`
+          sessionStorage.setItem('imgThumb', imageData)
+          self.$router.push('/exposure_edit')
+        }
+      }
+    },
     methods: {
       tapMenu() {
         this.showAnit = !this.showAnit
@@ -71,7 +81,9 @@
               }
             }
             break
-
+          case '/exposure_edit':
+            window.AppCall.callCamera(100, 100)
+            break
           default:
             this.$router.push(url)
         }
