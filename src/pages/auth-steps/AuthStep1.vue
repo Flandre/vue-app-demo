@@ -10,7 +10,7 @@
           <p class="case">查看示例</p>
         </div>
         <div class="id-card-container" @click="tapPic(0)">
-          <img :src="cardData[0]" v-if="cardData[0] != ''" class="card-img">
+          <img :src="cardData1" v-if="cardData1 != ''" class="card-img">
           <span class="empty" v-else>点击上传照片</span>
         </div>
       </div>
@@ -20,7 +20,7 @@
           <p class="case">查看示例</p>
         </div>
         <div class="id-card-container" @click="tapPic(1)">
-          <img :src="cardData[1]" v-if="cardData[1] != ''" class="card-img">
+          <img :src="cardData2" v-if="cardData2 != ''" class="card-img">
           <span class="empty" v-else>点击上传照片</span>
         </div>
       </div>
@@ -40,7 +40,8 @@
     name: "auth-step1",
     data(){
       return {
-        cardData: ['', ''],
+        cardData1: '',
+        cardData2: '',
         cameraType: 0,
       }
     },
@@ -51,9 +52,13 @@
       if(window.AppCall){
         window.AppCall.cameraCallback = function(data, dataType){
           try{
-            self.cardData[self.cameraType] = `data:image/${dataType};base64,${data}`
+            if(self.cameraType){
+              self.cardData2 = `data:image/${dataType};base64,${data}`
+            } else {
+              self.cardData1 = `data:image/${dataType};base64,${data}`
+            }
           } catch (err){
-            alert(err)
+
           }
         }
       }
