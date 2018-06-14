@@ -66,6 +66,7 @@
         height: 40px;
         white-space: nowrap;
         overflow: hidden;
+        overflow-x: scroll;
         position: relative;
         .nav-slide {
           position: absolute;
