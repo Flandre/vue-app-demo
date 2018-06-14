@@ -75,16 +75,16 @@
             icon: require('@/assets/pages/LicenseInfo/funcIcon4.png'),
             path: '/mfxx',
           },
-          {
-            name: '审验学习',
-            icon: require('@/assets/pages/LicenseInfo/funcIcon5.png'),
-            path: '/syxx',
-          },
-          {
-            name: '业务办理',
-            icon: require('@/assets/pages/LicenseInfo/funcIcon6.png'),
-            path: '/ywbl',
-          },
+          // {
+          //   name: '审验学习',
+          //   icon: require('@/assets/pages/LicenseInfo/funcIcon5.png'),
+          //   path: '/syxx',
+          // },
+          // {
+          //   name: '业务办理',
+          //   icon: require('@/assets/pages/LicenseInfo/funcIcon6.png'),
+          //   path: '/ywbl',
+          // },
         ],
         auth: false,
       }
