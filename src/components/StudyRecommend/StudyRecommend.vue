@@ -3,7 +3,7 @@
     <swiper :options="swiperOption" ref="recommendSwiper">
       <!-- slides -->
       <swiper-slide v-for="i in studyData" :key="i.id">
-        <div class="card-item" @click="tapClick(i.pathType)">
+        <div :class="['card-item', swiperAnime? 'hasAnime': '']" @click="tapClick(i.pathType)">
           <img :src="i.img"/>
         </div>
       </swiper-slide>
@@ -21,7 +21,7 @@
         swiperOption: {
           slidesPerView :'auto',
           centeredSlides : true,
-          initialSlide: 1,
+          initialSlide: 1
         },
         studySource: [
           {
@@ -40,7 +40,13 @@
             id: 3
           },
         ],
-        studyData: []
+        studyData: [],
+        swiperAnime: false
+      }
+    },
+    computed: {
+      swiper() {
+        return this.$refs.recommendSwiper.swiper
       }
     },
     mounted() {
@@ -51,6 +57,11 @@
           this.$set(this.studyData, index, this.studySource[val])
         })
       })
+      this.swiper.on('progress', () => {
+        if(!this.swiperAnime){
+          this.swiperAnime = true
+        }
+      })
     },
     methods: {
       tapClick(type) {
@@ -59,7 +70,7 @@
         } else {
           this.$router.push('/class_group')
         }
-      }
+      },
     },
     components: {
       swiper,
@@ -83,7 +94,9 @@
         margin: 0 20px;
         .card-item {
           width: 100%;
-          transition: .3s;
+          &.hasAnime {
+            transition: .3s;
+          }
           img {
             display: block;
             width: 100%;
