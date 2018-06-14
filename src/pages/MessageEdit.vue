@@ -51,11 +51,10 @@
     beforeMount(){
       let self = this
       if(window.AppCall){
-        window.AppCall.cameraCallback = function(data){
-          alert(data)
+        window.AppCall.cameraCallback = function(data, dataType){
+          let imageData = `data:image/${dataType};base64,${data}`
+          self.imgData.push(imageData)
         }
-      } else {
-        alert('can not find appcall')
       }
     },
     methods: {
