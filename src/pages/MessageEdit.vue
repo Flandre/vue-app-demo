@@ -72,7 +72,6 @@
         setTimeout(() => {
           this.showSliderBg = false
         }, 300)
-        alert('call camera')
         try{
           window.AppCall.callCamera(100, 100)
         } catch (err){
@@ -84,7 +83,6 @@
         setTimeout(() => {
           this.showSliderBg = false
         }, 300)
-        alert('call album')
         try{
           window.AppCall.callAlbum(100, 100)
         } catch (err){

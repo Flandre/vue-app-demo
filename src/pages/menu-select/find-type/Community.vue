@@ -5,7 +5,6 @@
       <span class="name">{{c.name}}</span>
       <span :class="['btn', c.isFollow ? 'follow' : '']" @click="tapFollow(index, $event)">{{c.isFollow ? '已关注': '+ 关注'}}</span>
     </div>
-
   </div>
 </template>
 

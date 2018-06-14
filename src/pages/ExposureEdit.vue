@@ -58,6 +58,13 @@
         this.imgData.push(sessionStorage.getItem('imgThumb'))
         sessionStorage.removeItem('imgThumb')
       }
+      let self = this
+      if(window.AppCall){
+        window.AppCall.cameraCallback = function(data, dataType){
+          let imageData = `data:image/${dataType};base64,${data}`
+          self.imgData.push(imageData)
+        }
+      }
     },
     methods: {
       tapRemove(index){
@@ -74,12 +81,22 @@
         setTimeout(() => {
           this.showSliderBg = false
         }, 300)
+        try{
+          window.AppCall.callCamera(100, 100)
+        } catch (err){
+          alert(err)
+        }
       },
       tapPic() {
         this.sliderShow = false
         setTimeout(() => {
           this.showSliderBg = false
         }, 300)
+        try{
+          window.AppCall.callAlbum(100, 100)
+        } catch (err){
+          alert(err)
+        }
       },
       tapClose(){
         this.sliderShow = false
