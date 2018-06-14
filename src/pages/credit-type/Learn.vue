@@ -1,18 +1,11 @@
 <template>
   <div class="type-container">
-    <p class="desc">在线学习：通过在线学习，不断提升交通安全意识与素养，有助于提升信用。</p>
-
-    <div class="panel-group">
-      <div class="panel-item" v-for="panel in panelData">
-        <img :src="panel.icon" class="panel-icon"/>
-        <div class="panel-info">
-          <p class="title">{{panel.title}}</p>
-          <p class="desc">{{panel.desc}}</p>
-        </div>
-        <div v-if="!panel.isComplete" class="go-done">
-          <span>去完成</span>
-        </div>
-        <img src="../../assets/pages/creditKnow/learn/complete.png" class="complete" v-else/>
+    <p class="desc">通过在线学习，不断提升交通安全意识与素养，有助于提升信用。</p>
+    <p class="list-title">近期学习积分：<em class="price">800</em><em class="desc">（最低积分要求：2000）</em></p>
+    <div class="list-group">
+      <div class="list-item" v-for="study in studyType">
+        <span class="name">{{study.name}}</span>
+        <span class="count">+{{study.count}}</span>
       </div>
     </div>
   </div>
@@ -23,12 +16,22 @@
     name: "learn",
     data() {
       return {
-        panelData:[
+        studyType: [
           {
-            icon: require('@/assets/pages/creditKnow/learn/studyIcon.png'),
-            title: '完成违章行为对应学习内容',
-            desc: '通过学习降低违章负面信用影响',
-            isComplete: false,
+            name: '学完《超速的危害》',
+            count: 200,
+          },
+          {
+            name: '学完《分心驾驶的危害》',
+            count: 200,
+          },
+          {
+            name: '学完《急加速的危害》',
+            count: 200,
+          },
+          {
+            name: '学完《新手上路指南》',
+            count: 200,
           },
         ]
       }
@@ -44,54 +47,32 @@
       line-height: 18px;
       margin-bottom: 15px;
     }
-    .panel-group {
-      .panel-item {
-        width: 100%;
-        height: 70px;
-        background: rgba(251, 203, 97, .2);
-        margin-bottom: 15px;
-        position: relative;
-        padding-left: 70px;
-        border-radius: 8px;
-        .panel-icon {
-          width: 40px;
-          height: 40px;
-          position: absolute;
-          top: 15px;
-          left: 15px;
+
+    .list-title {
+      color: #333333;
+      font-size: 13px;
+      line-height: 43px;
+      em {
+        font-style: normal;
+        &.price {
+          color: #FEAB34;
         }
-        .panel-info {
-          overflow: hidden;
-          .title {
-            color: #4A4A4A;
-            font-size: 13px;
-            line-height: 13px;
-            margin-top: 20px;
-            margin-bottom: 7px;
+        &.desc {
+          color: #ABABAB;
+        }
+      }
+    }
+    .list-group {
+      .list-item {
+        height: 45px;
+        border-top: 1px solid #DBDBDB;
+        span {
+          line-height: 45px;
+          font-size: 13px;
+          &.count {
+            float: right;
+            color: #FEAB34;
           }
-          .desc {
-            color: #666666;
-            font-size: 11px;
-            line-height: 11px;
-          }
-        }
-        .go-done {
-          font-size: 11px;
-          color: #fff;
-          line-height: 20px;
-          padding: 0 14px;
-          background: #79CEFF;
-          border-radius: 20px;
-          position: absolute;
-          right: 15px;
-          top: 25px;
-        }
-        .complete {
-          width: 24px;
-          height: 25px;
-          position: absolute;
-          right: 15px;
-          top: 23px;
         }
       }
     }
