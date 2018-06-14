@@ -2,30 +2,15 @@
   <div class="driving-map">
     <NavigatorBar title="行程分析" navType="light" bgColor="#fff"/>
     <div class="map-container">
-      <img src="../assets/pages/DrivingMap/map.png" class="map">
+      <img :src="mainMap" class="map">
+      <img :src="typeMap" class="type" v-if="type != ''">
     </div>
     <div class="bottom-control">
-      <p class="title">行程中共有3次危险驾驶行为</p>
+      <p class="title">行程中共有{{numCount}}次危险驾驶行为</p>
       <div class="danger-container">
-        <div :class="['danger-item', selectType == 1 ? 'active' : '']" @click="tapItem(1)">
-          <span class="num">1</span>
-          <span class="desc">急加速</span>
-        </div>
-        <div :class="['danger-item', selectType == 2 ? 'active' : '']" @click="tapItem(2)">
-          <span class="num">0</span>
-          <span class="desc">急减速</span>
-        </div>
-        <div :class="['danger-item', selectType == 3 ? 'active' : '']" @click="tapItem(3)">
-          <span class="num">2</span>
-          <span class="desc">急转弯</span>
-        </div>
-        <div :class="['danger-item', selectType == 4 ? 'active' : '']" @click="tapItem(4)">
-          <span class="num">0</span>
-          <span class="desc">超速</span>
-        </div>
-        <div :class="['danger-item', selectType == 5 ? 'active' : '']" @click="tapItem(5)">
-          <span class="num">0</span>
-          <span class="desc">玩手机</span>
+        <div v-for="(i, $index) in typeNum" :class="['danger-item', selectType == $index ? 'active' : '']" @click="tapItem($index)">
+          <span class="num">{{i}}</span>
+          <span class="desc">{{['急加速', '急减速', '急转弯', '超速', '玩手机'][$index]}}</span>
         </div>
       </div>
     </div>
@@ -38,15 +23,70 @@
     name: "driving-map",
     data() {
       return {
-        selectType: 1
+        dataSource: [
+          {
+            id: 1,
+            mainMap: require('../assets/pages/DrivingMap/driving1/map.jpg'),
+            typePic: [
+              '',
+              require('../assets/pages/DrivingMap/driving1/type2.png'),
+              '',
+              '',
+              require('../assets/pages/DrivingMap/driving1/type5.png')
+            ],
+            typeNum: [0, 1, 0, 0, 1]
+          },
+          {
+            id: 2,
+            mainMap: require('../assets/pages/DrivingMap/driving2/map.jpg'),
+            typePic: [
+              require('../assets/pages/DrivingMap/driving2/type1.png'),
+              '',
+              require('../assets/pages/DrivingMap/driving2/type3.png'),
+              require('../assets/pages/DrivingMap/driving2/type4.png'),
+              ''
+            ],
+            typeNum: [1, 0, 1, 1, 0]
+          },
+          {
+            id: 3,
+            mainMap: require('../assets/pages/DrivingMap/driving3/map.jpg'),
+            typePic: [
+              require('../assets/pages/DrivingMap/driving3/type1.png'),
+              require('../assets/pages/DrivingMap/driving3/type2.png'),
+              require('../assets/pages/DrivingMap/driving3/type3.png'),
+              '',
+              ''
+            ],
+            typeNum: [1, 1, 1, 0, 0]
+          }
+        ],
+        selectType: 0,
+        mainMap: '',
+        typePic: [],
+        typeNum: [],
+        numCount: 0,
+        typeMap: ''
       }
     },
     components: {
       NavigatorBar,
     },
+    beforeMount() {
+      this.dataSource.forEach(val => {
+        if(val.id == this.$route.query.id){
+          this.mainMap = val.mainMap
+          this.typePic = val.typePic.concat([])
+          this.typeNum = val.typeNum.concat([])
+          this.numCount = val.typeNum.reduce((p, c) => p + c)
+        }
+      })
+      this.typeMap = this.typePic[0]
+    },
     methods: {
       tapItem(type){
         this.selectType = type
+        this.typeMap = this.typePic[type]
       }
     }
   }
@@ -62,9 +102,18 @@
     .map-container {
       width: 100%;
       height: 100%;
+      position: relative;
       .map {
         width: 100%;
-        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .type {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
       }
     }
     .bottom-control {
