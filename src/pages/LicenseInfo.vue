@@ -58,7 +58,7 @@
           {
             name: '驾照查分',
             icon: require('@/assets/pages/LicenseInfo/funcIcon1.png'),
-            path: '/jzcf',
+            path: '/license_jzcf',
           },
           // {
           //   name: '违法信息',
@@ -68,12 +68,12 @@
           {
             name: '销分记录',
             icon: require('@/assets/pages/LicenseInfo/funcIcon3.png'),
-            path: '/xfjl',
+            path: '/license_xfjl',
           },
           {
             name: '满分学习',
             icon: require('@/assets/pages/LicenseInfo/funcIcon4.png'),
-            path: '/mfxx',
+            path: '/study_entry',
           },
           // {
           //   name: '审验学习',
@@ -111,14 +111,7 @@
         this.$router.push('/license_detail')
       },
       tapList(path) {
-        switch(path){
-          case '/jzcf':
-            this.$router.push('/license_jzcf')
-            break
-          case '/xfjl':
-            this.$router.push('/license_xfjl')
-            break
-        }
+        this.$router.push(path)
       }
     }
   }
