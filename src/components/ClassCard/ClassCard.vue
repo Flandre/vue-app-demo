@@ -24,29 +24,23 @@
         },
         classData: [
           {
-            title: '你了解你的车吗？',
+            title: '变更车道隐患多，正确方法学起来！',
             image: require('./images/classBanners/class1.png'),
             id: 1,
-            type: 'group'
+            type: 'simple'
           },
           {
-            title: '防御性驾驶技巧',
+            title: '请慢一点，平安是福！',
             image: require('./images/classBanners/class2.png'),
             id: 2,
-            type: 'group'
+            type: 'simple'
           },
           {
-            title: '海外自驾新手指南',
+            title: '防御性驾驶宝典',
             image: require('./images/classBanners/class3.png'),
             id: 3,
-            type: 'simple'
+            type: 'group'
           },
-          {
-            title: '你了解你的车吗？',
-            image: require('./images/classBanners/class1.png'),
-            id: 4,
-            type: 'simple'
-          }
         ]
       }
     },
@@ -104,5 +98,8 @@
     color: #4A4A4A;
     text-align: center;
     margin-top: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 </style>
