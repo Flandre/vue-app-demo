@@ -28,7 +28,6 @@
       NavigatorBar,
     },
     beforeMount() {
-      this.pageNow = 
 
 
     }
