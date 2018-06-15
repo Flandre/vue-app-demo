@@ -71,6 +71,7 @@ import StudyEntry from '@/pages/StudyEntry'
 import StudyFull from '@/pages/StudyFull'
 import StudyList from '@/pages/study-full/StudyList'
 import StudyReport from '@/pages/study-full/StudyReport'
+import StudyTest from '@/pages/StudyTest'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -181,6 +182,7 @@ export default new Router({
         { path: '/study_full/report', name: '成绩单', component: StudyReport}
       ]
     },
+    { path: '/study_test', name: '申请考试成功页面', component: StudyTest},
     { path: '*', redirect: '/404' }
   ]
 })

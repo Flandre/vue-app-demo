@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="apply-test">
-      <div class="active-bar">
+      <div class="active-bar" @click="tapAct">
         申请考试
       </div>
     </div>
@@ -126,7 +126,14 @@
         ]
       }
     },
-
+    beforeMount() {
+      window.scrollTo(0, 0)
+    },
+    methods: {
+      tapAct() {
+        this.$router.push({path: '/study_test', query: {backlength: 2}})
+      }
+    }
   }
 </script>
 
