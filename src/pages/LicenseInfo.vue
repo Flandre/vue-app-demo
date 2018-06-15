@@ -111,7 +111,15 @@
         this.$router.push('/license_detail')
       },
       tapList(path) {
-        this.$router.push(path)
+        if(path == '/study_entry'){
+          if(sessionStorage.getItem('entryStudy')){
+            this.$router.push('/study_full')
+          } else {
+            this.$router.push({path: '/study_entry', query: {buttom: 'show'}})
+          }
+        } else {
+          this.$router.push(path)
+        }
       }
     }
   }
