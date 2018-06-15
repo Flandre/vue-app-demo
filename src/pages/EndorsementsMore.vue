@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <ArticleList title="行动指南" articleLimit="1" articleSort="5" articleType="endorsement-type" v-if="showArticle"/>
+    <ArticleList title="行动指南" :articleLimit="articleLimit" :articleSort="articleSort" articleType="endorsement-type"/>
   </div>
 </template>
 
@@ -73,7 +73,8 @@
         detail: [],
         videoThumb: '',
         videoTitle: '',
-        showArticle: false
+        articleLimit: 3,
+        articleSort: '012'
       }
     },
     components: {
@@ -81,8 +82,9 @@
       ArticleList
     },
     beforeMount() {
-      if(this.$route.query.aid == 0){
-        this.showArticle = true
+      if(this.$route.query.aid == 1){
+        this.articleLimit = 1
+        this.articleSort = '4'
       }
       let aid = this.$route.query.aid || 0
       this.banner = this.dataSource[aid].banner
