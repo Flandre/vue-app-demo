@@ -29,6 +29,8 @@ import RecommendStudy from '@/pages/menu-select/study-type/RecommendStudy'
 import SafeStudy from '@/pages/menu-select/study-type/SafeStudy'
 import lawStudy from '@/pages/menu-select/study-type/lawStudy'
 import LicenseStudy from '@/pages/menu-select/study-type/LicenseStudy'
+import ExitStudy from '@/pages/menu-select/study-type/ExitStudy'
+import ChildStudy from '@/pages/menu-select/study-type/ChildStudy'
 import ClassSimple from '@/pages/ClassSimple'
 import ClassGroup from '@/pages/ClassGroup'
 import ClassQuestion from '@/pages/ClassQuestion'
@@ -102,6 +104,8 @@ export default new Router({
             { path: '/study/safe', name: '安全驾驶', component: SafeStudy },
             { path: '/study/law', name: '交通法规', component: lawStudy },
             { path: '/study/license', name: '驾照考证', component: LicenseStudy },
+            { path: '/study/exit', name: '出境自驾', component: ExitStudy },
+            { path: '/study/child', name: '儿童教育', component: ChildStudy },
           ]
         },
         { path: '/find', name: '发现', component: Find, redirect: '/find/headline', children: [
