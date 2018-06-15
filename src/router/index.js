@@ -69,6 +69,8 @@ import MessageEdit from '@/pages/MessageEdit'
 import CommunityDetail from '@/pages/CommunityDetail'
 import StudyEntry from '@/pages/StudyEntry'
 import StudyFull from '@/pages/StudyFull'
+import StudyList from '@/pages/study-full/StudyList'
+import StudyReport from '@/pages/study-full/StudyReport'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -174,7 +176,11 @@ export default new Router({
     { path: '/message_edit', name: '发布动态', component: MessageEdit},
     { path: '/community_detail', name: '关注详情', component: CommunityDetail},
     { path: '/study_entry', name: '学习入口', component: StudyEntry},
-    { path: '/study_full', name: '满分学习', component: StudyFull},
+    { path: '/study_full', name: '满分学习', component: StudyFull, redirect: '/study_full/list', children: [
+        { path: '/study_full/list', name: '课程列表', component: StudyList},
+        { path: '/study_full/report', name: '成绩单', component: StudyReport}
+      ]
+    },
     { path: '*', redirect: '/404' }
   ]
 })
