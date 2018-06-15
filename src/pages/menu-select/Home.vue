@@ -30,9 +30,9 @@
       <div class="entry-item car" @click="tapCar">
         车辆管家
       </div>
-      <div class="entry-item study">
-        在线学习
-      </div>
+      <!--<div class="entry-item study">-->
+        <!--在线学习-->
+      <!--</div>-->
       <div class="entry-item eval" @click="tapEval">
         驾评数据
       </div>
