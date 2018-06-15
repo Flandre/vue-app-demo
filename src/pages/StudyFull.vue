@@ -1,6 +1,6 @@
 <template>
   <div class="study-full">
-    <NavigatorBar title="满12分学习" navType="light" bgColor="#fff"/>
+    <NavigatorBar title="满12分学习" navType="light" bgColor="#fff"  menuRightText="学习安排" menuRightPath="/study_entry"/>
     <div class="top-nav">
       <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/study_full/list">课程列表</router-link>
       <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/study_full/report">成绩单</router-link>
