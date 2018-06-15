@@ -2,7 +2,7 @@
   <div class="type-container">
     <p class="desc">丰富、真实的个人身份及实名信息，是驾驶信用的评估因素之一。</p>
     <div class="panel-group">
-      <div class="panel-item" v-for="panel in panelData">
+      <div class="panel-item" v-for="panel in panelData" @click="tapLicense">
         <img :src="panel.icon" class="panel-icon"/>
         <div class="panel-info">
           <p class="title">{{panel.title}}</p>
@@ -42,6 +42,18 @@
             isComplete: true,
           },
         ]
+      }
+    },
+    beforeMount(){
+      if(sessionStorage.getItem('license')){
+        this.panelData[1].isComplete = true
+      }
+    },
+    methods: {
+      tapLicense() {
+        if(!sessionStorage.getItem('license')){
+          this.$router.push('/license_edit')
+        }
       }
     }
   }
