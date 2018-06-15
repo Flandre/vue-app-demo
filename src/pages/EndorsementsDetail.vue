@@ -25,7 +25,7 @@
         </div>
         <p class="desc">{{i.desc}}</p>
         <div class="danger-box">
-          <b>危险指数</b>
+          <b>危险指数：</b>
           <img :src="i.dangerLevel" class="danger-level">
         </div>
         <div class="more" :style="{background: i.moreColor}">

@@ -13,7 +13,7 @@
         <p class="title">{{i.title}}</p>
         <div class="info-box">
           <div class="danger-box">
-            <b>危险指数</b>
+            <b>危险指数：</b>
             <img :src="i.dangerLevel" class="danger-level">
           </div>
           <span class="score">{{i.score}}</span>
@@ -38,37 +38,26 @@
       return {
         detailData: [
           {
-            time: '2017-03-10 15:17',
-            title: '北京市丰台区南三环辅路右安门南桥东侧地下停车场入口 全方向',
-            desc: '故意污损机动车号牌的',
-            score: 3,
-            price: 200,
-            dangerLevel: require('./images/danger-type-3.png'),
-            moreColor: '#FBCB61',
-            lsNum: 'AK3326',
-            code: 1105041817264890,
-          },
-          {
             time: '2017-02-20 13:07',
             title: '北京市怀柔区庙城镇其它道路 庙城镇至庙城镇路段',
-            desc: '故意污损机动车号牌的',
-            score: 3,
-            price: 200,
-            dangerLevel: require('./images/danger-type-3.png'),
-            moreColor: '#FBCB61',
-            lsNum: 'AK3326',
-            code: 1105041817264890,
-          },
-          {
-            time: '2016-07-15 14:41',
-            title: '河北省大广高速承赤段赤峰方向1052公里处',
-            desc: '驾驶中型以上载客载货汽车、危险物品运输车辆以外的机动车超过规定时速10%以下的',
+            desc: '变更车道时影响正常行驶的机动车的',
             score: 0,
             price: 200,
-            dangerLevel: require('./images/danger-type-2.png'),
-            moreColor: '#A4B2C3',
-            lsNum: 'AK3326',
-            code: 1105041817264890,
+            dangerLevel: require('./images/danger-type-1.png'),
+            moreColor: '#617792',
+            lsNum: '京N627M9',
+            code: 1105034982759182,
+          },
+          {
+            time: '2017-03-10 15:17',
+            title: '北京市丰台区南三环辅路右安门南桥东侧地下停车场入口 全方向',
+            desc: '驾驶中型以上载客汽车在城市快速路上行驶超过规定时速未达20％的',
+            score: 6,
+            price: 200,
+            dangerLevel: require('./images/danger-type-4.png'),
+            moreColor: '#FF8D47',
+            lsNum: '京N627M9',
+            code: 1105041834353446,
           },
         ]
       }

@@ -5,7 +5,7 @@
     <div class="endorsements-panel">
       <p class="title">{{title}}</p>
       <div class="info-box">
-        <b>危险指数</b>
+        <b>危险指数：</b>
         <img :src="dangerLevel" class="danger-level">
         <span class="score">{{score}}</span>
         <span class="price">{{price}}</span>

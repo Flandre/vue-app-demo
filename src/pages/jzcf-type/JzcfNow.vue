@@ -13,7 +13,7 @@
         <p class="title">{{i.title}}</p>
         <div class="info-box">
           <div class="danger-box">
-            <b>危险指数</b>
+            <b>危险指数：</b>
             <img :src="i.dangerLevel" class="danger-level">
           </div>
           <span class="score">{{i.score}}</span>
