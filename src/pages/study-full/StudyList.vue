@@ -134,6 +134,9 @@
         ]
       }
     },
+    beforeMount() {
+      window.scrollTo(0, 0)
+    },
     methods: {
       tapVideo(vid) {
         this.$router.push({path: '/class_simple', query: {vid: vid}})
