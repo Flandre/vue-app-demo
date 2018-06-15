@@ -27,17 +27,56 @@
           {
             img: require('./images/theme1.png'),
             pathType: 'simple',
-            id: 1
+            id: 1,
+            linkVideo: 0
           },
           {
             img: require('./images/theme2.png'),
-            pathType: 'group',
-            id: 2
+            pathType: 'simple',
+            id: 2,
+            linkVideo: 1
           },
           {
             img: require('./images/theme3.png'),
+            pathType: 'group',
+            id: 3,
+            linkVideo: 1
+          },
+          {
+            img: require('./images/theme4.png'),
             pathType: 'simple',
-            id: 3
+            id: 3,
+            linkVideo: 1
+          },
+          {
+            img: require('./images/theme5.png'),
+            pathType: 'simple',
+            id: 3,
+            linkVideo: 1
+          },
+          {
+            img: require('./images/theme6.png'),
+            pathType: 'group',
+            id: 3,
+            linkVideo: 0
+          },
+          {
+            img: require('./images/theme7.png'),
+            pathType: 'simple',
+            id: 3,
+            linkVideo: 0
+          },
+          {
+            img: require('./images/theme8.png'),
+            pathType: 'simple',
+            id: 3,
+            linkVideo: 1
+          },
+          {
+            img: require('./images/theme9.png'),
+            pathType: 'group',
+            id: 3,
+            linkVideo: 1
           },
         ],
         studyData: [],

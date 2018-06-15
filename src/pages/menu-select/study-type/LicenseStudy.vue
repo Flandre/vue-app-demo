@@ -1,7 +1,7 @@
 <template>
   <div class="license-study">
     <StudyRecommend dataSource="201"/>
-    <StudyGroup dataSource="12021_1012_0021_120"/>
+    <StudyGroup dataSource="12067_348"/>
   </div>
 </template>
 

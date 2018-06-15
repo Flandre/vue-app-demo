@@ -1,7 +1,7 @@
 <template>
   <div class="safe-study">
-    <StudyRecommend dataSource="210"/>
-    <StudyGroup dataSource="11111_222_00_120"/>
+    <StudyRecommend dataSource="012"/>
+    <StudyGroup dataSource="46721_3580"/>
   </div>
 </template>
 
