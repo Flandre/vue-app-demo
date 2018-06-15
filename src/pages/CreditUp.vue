@@ -12,15 +12,16 @@
       <span class="info-desc">你已完成3项，继续加油啊！</span>
     </div>
     <div class="panel-group">
-      <div class="panel-item" v-for="panel in panelData">
+      <div class="panel-item" v-for="panel in panelData" @click="tapGo(panel.goWhere)">
         <img :src="panel.icon" class="panel-icon"/>
         <div class="panel-info">
           <p class="title">{{panel.title}}</p>
           <p class="desc">{{panel.desc}}</p>
         </div>
-        <div class="go-done">
+        <div class="go-done" v-if="!panel.isComplete">
           <span>{{panel.goText}}</span>
         </div>
+        <img src="../assets/pages/creditUp/complete.png" class="complete" v-else/>
       </div>
     </div>
 
@@ -41,31 +42,41 @@
             icon: require('../assets/pages/creditUp/studyIcon.png'),
             title: '学习《防御性驾驶宝典》',
             desc: '全面提升驾驶技巧与安全意识',
-            goText: '去学习'
+            goText: '去学习',
+            isComplete: false,
+            goWhere: 'classGroup',
           },
           {
             icon: require('../assets/pages/creditUp/studyIcon.png'),
             title: '学习《请慢一点，平安是福！》',
             desc: '全面提升驾驶技巧与安全意识',
-            goText: '去学习'
+            goText: '去学习',
+            isComplete: false,
+            goWhere: 'video1',
           },
           {
             icon: require('../assets/pages/creditUp/repairIcon.png'),
             title: '完善车辆保养档案',
             desc: '及时保养爱车，行车更加安心！',
-            goText: '去完成'
+            goText: '去完成',
+            isComplete: false,
+            goWhere: 'carManager',
           },
           {
             icon: require('../assets/pages/creditUp/userIcon.png'),
             title: '实名认证',
             desc: '认证您的个人真实身份信息',
-            goText: '去完成'
+            goText: '去完成',
+            isComplete: true,
+            goWhere: false,
           },
           {
             icon: require('../assets/pages/creditUp/carIcon.png'),
             title: '补全车辆信息',
             desc: '添加并认证您的车辆信息',
-            goText: '去完成'
+            goText: '去完成',
+            isComplete: true,
+            goWhere: false,
           },
         ]
       }
@@ -79,6 +90,20 @@
           this.progress = 80
         }, 500)
       })
+    },
+    methods: {
+      tapGo(where){
+        switch(where){
+          case 'carManager':
+            this.$router.push({path: '/manager', query: {lsNum: 'N627M9', carType: '广汽 欧蓝德', inspection: 2, insurance: 2}})
+            break
+          case 'video1':
+            this.$router.push({path: '/class_simple', query: {vid: 1}})
+            break
+          case 'classGroup':
+            this.$router.push('/class_group')
+        }
+      }
     },
     components: {
       NavigatorBar

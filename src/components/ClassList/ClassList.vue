@@ -3,7 +3,7 @@
     <div class="group-title" v-if="title">
       {{title}}
     </div>
-    <div class="list-item" v-for="i in listData" @click="tapList">
+    <div class="list-item" v-for="i in listData" @click="tapList(i.linkVideo)">
       <img :src="i.thumb" class="thumb">
       <div class="list-info">
         <p class="type">{{i.type}}</p>
@@ -29,7 +29,8 @@
             title: "变更车道隐患多，正确方法学起来",
             time: '05:31/05:31',
             score: '100/100',
-            isComplete: true
+            isComplete: true,
+            linkVideo: 0
           },
           {
             thumb: require('./images/class2.png'),
@@ -37,14 +38,15 @@
             title: "请慢一点，平安是福！",
             time: '00:00/04:30',
             score: '0/100',
-            isComplete: false
+            isComplete: false,
+            linkVideo: 1
           },
         ]
       }
     },
     methods: {
-      tapList() {
-        this.$router.push({path: '/class_simple', query: {showList: true}})
+      tapList(vid) {
+        this.$router.push({path: '/class_simple', query: {showList: true, vid: vid}})
       }
 
     },
