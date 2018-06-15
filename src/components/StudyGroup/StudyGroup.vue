@@ -29,24 +29,73 @@
         studySource: [
           {
             img: require('./images/theme1.png'),
-            pathType: 'group',
-            title: '道路标识标线的识别',
+            pathType: 'simple',
+            title: '你了解你的车吗？',
             info: '1008人在学',
-            desc: '学完+200积分'
+            desc: '学完+200积分',
+            linkVideo: 0
           },
           {
             img: require('./images/theme2.png'),
-            pathType: 'simple',
-            title: '道路标识标线的识别',
-            info: '1008人在学',
-            desc: '学完+200积分'
+            pathType: 'group',
+            title: '防御性安全驾驶宝典',
+            info: '981人在学',
+            desc: '学完+400积分'
           },
           {
             img: require('./images/theme3.png'),
-            pathType: 'simple',
-            title: '道路标识标线的识别',
-            info: '1008人在学',
+            pathType: 'group',
+            title: '海外自驾安全指南',
+            info: '305人在学',
             desc: '学完+200积分'
+          },
+          {
+            img: require('./images/theme4.png'),
+            pathType: 'simple',
+            title: '儿童安全座椅选购指南',
+            info: '574人在学',
+            desc: '学完+200积分',
+            linkVideo: 1
+          },
+          {
+            img: require('./images/theme5.png'),
+            pathType: 'group',
+            title: '交通安全大讲堂',
+            info: '1376人在学',
+            desc: '学完+400积分',
+            linkVideo: 0
+          },
+          {
+            img: require('./images/theme6.png'),
+            pathType: 'simple',
+            title: '雨季行车安全指南',
+            info: '972人在学',
+            desc: '学完+200积分',
+            linkVideo: 0
+          },
+          {
+            img: require('./images/theme7.png'),
+            pathType: 'simple',
+            title: '疲劳驾驶的危害',
+            info: '302人在学',
+            desc: '学完+200积分',
+            linkVideo: 1
+          },
+          {
+            img: require('./images/theme8.png'),
+            pathType: 'simple',
+            title: '随意变更车道',
+            info: '86人在学',
+            desc: '学完+200积分',
+            linkVideo: 0
+          },
+          {
+            img: require('./images/theme9.png'),
+            pathType: 'simple',
+            title: '超速的影响及危害',
+            info: '2338人在学',
+            desc: '学完+200积分',
+            linkVideo: 1
           },
         ],
         studyData: []
