@@ -131,7 +131,6 @@
 <style lang="less" scoped>
   .study-list {
     padding: 0 20px;
-    padding-top: 40px;
     .list-group {
       .group-title {
         margin-top: 20px;
