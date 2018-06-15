@@ -1,6 +1,6 @@
 <template>
   <div class="safe-study">
-    <StudyRecommend dataSource="012"/>
+    <StudyRecommend dataSource="021"/>
     <StudyGroup dataSource="46721_3580"/>
   </div>
 </template>

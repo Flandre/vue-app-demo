@@ -1,7 +1,7 @@
 <template>
   <div class="child-study">
-    <StudyRecommend dataSource="120"/>
-    <StudyGroup dataSource="202101_2120_0021_120"/>
+    <StudyRecommend dataSource="201"/>
+    <StudyGroup dataSource="75402_138"/>
   </div>
 </template>
 
