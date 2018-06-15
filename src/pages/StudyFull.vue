@@ -56,8 +56,8 @@
       justify-content: space-around;
       line-height: 40px;
       padding: 0 60px;
-      z-index: 1050;
-      position: relative;
+      z-index: 1040;
+      position: fixed;
       border-bottom: 1px solid #dbdbdb;
       .link-item {
         font-size: 13px;
