@@ -38,7 +38,7 @@
         </div>
       </div>
     </div>
-    <div class="func-list">
+    <div class="func-list" v-if="auth">
       <div class="list-item" v-for="func in funcData" @click="tapList(func.path)">
         <img :src="func.icon">
         <span>{{func.name}}</span>

@@ -3,7 +3,7 @@
     <swiper :options="swiperOption" ref="endorsementSwiper">
       <!-- slides -->
       <swiper-slide class="card-group" v-for="group in studyData" :key="group.index">
-        <div class="card-item" v-for="i in group" :key="i._id" @click="tapClick(i.pathType)">
+        <div class="card-item" v-for="i in group" :key="i._id" @click="tapClick(i.pathType, i.linkVideo)">
           <img :src="i.img" class="thumb-img"/>
           <div class="info-box">
             <p class="title">{{i.title}}</p>
@@ -114,9 +114,9 @@
       })
     },
     methods: {
-      tapClick(type) {
+      tapClick(type, vid) {
         if(type == 'simple'){
-          this.$router.push('/class_simple')
+          this.$router.push({path: '/class_simple', query: {vid: vid}})
         } else {
           this.$router.push('/class_group')
         }

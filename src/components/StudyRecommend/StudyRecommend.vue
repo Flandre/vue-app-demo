@@ -3,7 +3,7 @@
     <swiper :options="swiperOption" ref="recommendSwiper">
       <!-- slides -->
       <swiper-slide v-for="i in studyData" :key="i.id">
-        <div :class="['card-item', swiperAnime? 'hasAnime': '']" @click="tapClick(i.pathType)">
+        <div :class="['card-item', swiperAnime? 'hasAnime': '']" @click="tapClick(i.pathType, i.linkVideo)">
           <img :src="i.img"/>
         </div>
       </swiper-slide>
@@ -103,9 +103,9 @@
       })
     },
     methods: {
-      tapClick(type) {
+      tapClick(type, vid) {
         if(type == 'simple'){
-          this.$router.push('/class_simple')
+          this.$router.push({path: '/class_simple', query: {vid: vid}})
         } else {
           this.$router.push('/class_group')
         }
