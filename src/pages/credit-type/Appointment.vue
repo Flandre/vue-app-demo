@@ -1,6 +1,6 @@
 <template>
   <div class="type-container">
-    <p class="desc">履约情况：主要根据年审、年检、违法处理、保险、车贷等对你的履约情况进行综合评估。</p>
+    <p class="desc">主要根据年审、年检、违法处理、保险、车贷等对你的履约情况进行综合评估。</p>
     <div class="list-group">
       <div class="list-item" v-for="ap in appointmentInfo">
         <span class="name">{{ap.name}}</span>
