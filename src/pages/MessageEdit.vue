@@ -31,6 +31,11 @@
       <div class="slider-item" @click="tapCamera">拍摄</div>
       <div class="slider-item" @click="tapPic">从相册选择</div>
     </div>
+    <div :class="['tooltip-container', showTooltip? 'show': '', tooltipActive? 'active': '']">
+      <div class="tooltip-main">
+        发布成功
+      </div>
+    </div>
   </div>
 </template>
 
@@ -42,7 +47,10 @@
       return {
         showSliderBg: false,
         sliderShow: false,
-        imgData: []
+        imgData: [],
+        showTooltip: false,
+        tooltipActive: false,
+        timerArr: []
       }
     },
     components: {
@@ -96,12 +104,29 @@
         }, 300)
       },
       tapSubmit() {
-        this.$router.push({path: '/exposure_detail', query: {backlength: 2}})
+        /* show tooltip */
+        this.showTooltip = true
+        this.timerArr[0] = setTimeout(() => {
+          this.tooltipActive = true
+        }, 10)
+        this.timerArr[1] = setTimeout(() => {
+          this.tooltipActive = false
+        }, 2000)
+        this.timerArr[2] = setTimeout(() => {
+          this.$router.goBack()
+        }, 2300)
       },
       tapGroup(info) {
         document.querySelector('#textAreaBox').value += info
       }
-    }
+    },
+    beforeDestroy() {
+      /* 返回顶部 */
+      window.scrollTo(0, 0)
+      this.timerArr.forEach(val => {
+        clearTimeout(val)
+      })
+    },
   }
 </script>
 
@@ -233,6 +258,28 @@
       z-index: 1070;
       &.active {
         opacity: 0.5;
+      }
+    }
+    .tooltip-container {
+      display: none;
+      width: 100%;
+      position: fixed;
+      bottom: 100px;
+      text-align: center;
+      opacity: 0;
+      transition: 300ms;
+      &.show{
+        display: block;
+      }
+      &.active {
+        opacity: 1;
+      }
+      .tooltip-main {
+        padding: 10px 20px;
+        background: rgba(0, 0, 0, 0.5);
+        display: inline-block;
+        color: #fff;
+        border-radius: 8px;
       }
     }
   }
