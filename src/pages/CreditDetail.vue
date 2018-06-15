@@ -17,7 +17,42 @@
       <div class="title">
         <h3>好司机特权</h3>
       </div>
-      <img src="../assets/pages/creditDetail/privilege-list.png" class="privilege-list">
+      <div class="link-groups">
+        <div class="row top-row">
+          <div class="link-item" @click="tapView(1)">
+            <img src="../assets/pages/creditDetail/icon1.png" class="icon">
+            <p class="name">维修折扣</p>
+            <p class="desc">享受8.5折优惠</p>
+          </div>
+          <div class="link-item" @click="tapView(2)">
+            <img src="../assets/pages/creditDetail/icon2.png" class="icon">
+            <p class="name">免费洗车</p>
+            <p class="desc">每月1次免费洗车</p>
+          </div>
+          <div class="link-item" @click="tapView(3)">
+            <img src="../assets/pages/creditDetail/icon3.png" class="icon">
+            <p class="name">道路救援</p>
+            <p class="desc">专享VIP救援通道</p>
+          </div>
+        </div>
+        <div class="row bottom-row">
+          <div class="link-item" @click="tapView(4)">
+            <img src="../assets/pages/creditDetail/icon4.png" class="icon">
+            <p class="name">车品商城钜惠</p>
+            <p class="desc">精选车品9折优惠</p>
+          </div>
+          <div class="link-item" @click="tapView(5)">
+            <img src="../assets/pages/creditDetail/icon5.png" class="icon">
+            <p class="name">闪电车贷</p>
+            <p class="desc">专享极速服务</p>
+          </div>
+          <div class="link-item" @click="tapView(6)">
+            <img src="../assets/pages/creditDetail/icon6.png" class="icon">
+            <p class="name">免费国际驾照</p>
+            <p class="desc">一键免费领取</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -37,6 +72,9 @@
       },
       tapUpscore() {
         router.push('/creditUp')
+      },
+      tapView(id) {
+        this.$router.push({path: '/web_view', query: {pid: id}})
       }
     },
     components: {
@@ -45,7 +83,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
   .credit-detail {
     padding-top: 44px;
   }
@@ -105,32 +143,72 @@
     overflow: hidden;
     margin-bottom: 10px;
     padding: 0 16px;
-  }
-  .privilege-container .title {
-    height: 46px;
-    line-height: 46px;
-    position: relative;
-  }
-  .privilege-container .title h3{
-    color: #4A4A4A;
-    font-size: 15px;
-    font-weight: normal;
-  }
-  .privilege-container .title .more{
-    display: inline-block;
-    color: #666666;
-    font-size: 11px;
-    line-height: 16px;
-    background: url("../assets/pages/creditDetail/moreIcon.png") right center no-repeat;
-    background-size: 7px 12px;
-    padding-right: 12px;
-    position: absolute;
-    right: 0;
-    top: 15px;
-  }
-  .privilege-container .privilege-list{
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+    .title {
+      height: 46px;
+      line-height: 46px;
+      position: relative;
+      h3{
+        color: #4A4A4A;
+        font-size: 15px;
+        font-weight: normal;
+      }
+      .more{
+        display: inline-block;
+        color: #666666;
+        font-size: 11px;
+        line-height: 16px;
+        background: url("../assets/pages/creditDetail/moreIcon.png") right center no-repeat;
+        background-size: 7px 12px;
+        padding-right: 12px;
+        position: absolute;
+        right: 0;
+        top: 15px;
+      }
+    }
+    .link-groups {
+      padding-bottom: 35px;
+      .row {
+        display: flex;
+        &.top-row {
+          border-bottom: 1px solid #dbdbdb;
+          .link-item {
+            padding-bottom: 20px;
+          }
+        }
+        &.bottom-row {
+          .link-item {
+            padding-top: 17px;
+          }
+        }
+        .link-item {
+          flex-shrink: unset;
+          width: 33.33%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border-right: 1px solid #dbdbdb;
+          &:last-child {
+            border-right: 0;
+          }
+          .icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 5px;
+          }
+          .name {
+            font-size: 13px;
+            line-height: 13px;
+            margin-bottom: 5px;
+          }
+          .desc {
+            color: #666666;
+            font-size: 12px;
+            line-height: 12px;
+          }
+        }
+
+      }
+
+    }
   }
 </style>
