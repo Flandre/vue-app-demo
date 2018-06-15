@@ -3,8 +3,8 @@
     <NavigatorBar title="" bgColor="#fff" navType="dark" scrollType="fade" navTypeChange="change"/>
     <img src="../assets/pages/ClassGroup/banner.png" class="banner">
     <div class="group-info">
-      <p class="title">新手上路宝典</p>
-      <p class="text">很多车主认为，安全带就是“拉过来、扣上去”这么简单。虽然它只是一根简单的可以扣起来的带子,但在关键时刻能救你一命。</p>
+      <p class="title">防御性驾驶宝典</p>
+      <p class="text">防御性驾驶能够帮助驾驶员更清楚地了解人类的“生理缺陷”、更全面地观察并了解驾驶环境、更准确地预测不确定的潜在的危险因素、更及时地采取预防措施避免交通事故。</p>
     </div>
     <ClassList />
   </div>
