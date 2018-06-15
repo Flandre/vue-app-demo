@@ -9,7 +9,7 @@
       </div>
       <div class="item-container">
         <div class="list-item" v-for="i in g.items">
-          <div class="item-box">
+          <div class="item-box" @click="tapVideo(i.linkVideo)">
             <img :src="i.titleImage" class="title-image">
             <img src="./images/successIcon.png" class="success" v-if="i.isComplete">
             <div class="info-msg">
@@ -48,6 +48,7 @@
                 isComplete: false,
                 print: 1,
                 type: '必学',
+                linkVideo: 0,
               },
               {
                 name: '疲劳驾驶',
@@ -56,6 +57,7 @@
                 isComplete: false,
                 print: 1,
                 type: '必学',
+                linkVideo: 0,
               },
               {
                 name: '超速',
@@ -64,6 +66,7 @@
                 isComplete: true,
                 print: 2,
                 type: '必学',
+                linkVideo: 0,
               },
               {
                 name: '闯红灯',
@@ -72,6 +75,7 @@
                 isComplete: false,
                 print: 2,
                 type: '必学',
+                linkVideo: 0,
               },
               {
                 name: '酒驾',
@@ -80,6 +84,7 @@
                 isComplete: false,
                 print: 2,
                 type: '必学',
+                linkVideo: 0,
               },
             ]
           },
@@ -95,6 +100,7 @@
                 isComplete: false,
                 print: 1,
                 type: '选修',
+                linkVideo: 0,
               },
               {
                 name: '道路通行权',
@@ -103,6 +109,7 @@
                 isComplete: false,
                 print: 1,
                 type: '选修',
+                linkVideo: 0,
               },
               {
                 name: '应急处置',
@@ -111,6 +118,7 @@
                 isComplete: true,
                 print: 1,
                 type: '选修',
+                linkVideo: 0,
               },
               {
                 name: '安全文明驾驶',
@@ -119,10 +127,16 @@
                 isComplete: false,
                 print: 1,
                 type: '选修',
+                linkVideo: 0,
               }
             ]
           },
         ]
+      }
+    },
+    methods: {
+      tapVideo(vid) {
+        this.$router.push({path: '/class_simple', query: {vid: vid}})
       }
     }
   }
