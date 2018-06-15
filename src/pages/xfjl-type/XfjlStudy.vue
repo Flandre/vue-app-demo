@@ -26,7 +26,7 @@
         studyData: [
           {
             titleImage: require('./images/titleImage1.png'),
-            title: '故意污损机动车号牌的',
+            title: '变更车道时影响正常行驶的机动车的',
             progress: 60,
             timeCount: 2,
           },

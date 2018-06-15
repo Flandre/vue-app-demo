@@ -24,8 +24,8 @@
       return {
         studyData: [
           {
-            titleImage: require('./images/titleImage1.png'),
-            title: '故意污损机动车号牌的',
+            titleImage: require('./images/titleImage2.png'),
+            title: '驾驶中型以上载客汽车在城市快速路上行驶超过规定时速未达20％的',
             checkTime: '2017-11-10 10:31',
             status: '交管局受理申请'
           },
