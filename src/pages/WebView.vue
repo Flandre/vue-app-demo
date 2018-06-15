@@ -28,8 +28,7 @@
       NavigatorBar,
     },
     beforeMount() {
-
-
+      this.pageNow = this.pageData[this.$route.query.pid]
     }
 
   }
@@ -37,6 +36,10 @@
 
 <style lang="less" scoped>
   .web-view {
-
+    padding-top: 44px;
+    .page {
+      width: 100%;
+      height: auto;
+    }
   }
 </style>

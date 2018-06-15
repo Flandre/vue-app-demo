@@ -166,7 +166,7 @@
       }
     }
     .link-groups {
-      padding-bottom: 35px;
+      padding-bottom: 25px;
       .row {
         display: flex;
         &.top-row {
@@ -178,6 +178,7 @@
         &.bottom-row {
           .link-item {
             padding-top: 17px;
+            padding-bottom: 10px;
           }
         }
         .link-item {
