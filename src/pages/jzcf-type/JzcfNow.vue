@@ -43,12 +43,12 @@
           {
             time: '2017-03-10 15:17',
             title: '北京市丰台区南三环辅路右安门南桥东侧地下停车场入口 全方向',
-            desc: '故意污损机动车号牌的',
-            score: 3,
+            desc: '驾驶中型以上载客汽车在城市快速路上行驶超过规定时速未达20％的',
+            score: 6,
             price: 200,
-            dangerLevel: require('./images/danger-type-3.png'),
-            moreColor: '#FBCB61',
-            lsNum: 'AK3326',
+            dangerLevel: require('./images/danger-type-4.png'),
+            moreColor: '#FF8D47',
+            lsNum: '京N627M9',
             code: 1105041817264890,
           },
         ]
