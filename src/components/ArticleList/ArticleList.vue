@@ -76,15 +76,15 @@
               id: 11
             },
             {
-              titleImage: require('./images/titleImages/image12.jpg'),
-              title: '防御性驾驶 | 高速出口行驶法则',
-              keywords: ['防御性驾驶', '行车技巧'],
+              titleImage: require('./images/titleImages/image12.png'),
+              title: '高温来袭！牢记行车不可忽视的8个细节',
+              keywords: ['夏季行车'],
               id: 12
             },
             {
               titleImage: require('./images/titleImages/image13.png'),
-              title: '世界各国如何处理酒驾？真是想都想不到！',
-              keywords: ['交通法规', '酒驾'],
+              title: '跟车过近易追尾 如何保持安全距离？',
+              keywords: ['安全车距', '超速'],
               id: 13
             },
           ], newData = []
