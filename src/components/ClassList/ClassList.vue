@@ -24,27 +24,19 @@
       return {
         listData : [
           {
-            thumb: require('./images/thumb1.png'),
-            type: "车辆知识",
-            title: "车辆结构与行驶原理",
+            thumb: require('./images/class1.png'),
+            type: "交通法规",
+            title: "变更车道隐患多，正确方法学起来",
             time: '05:31/05:31',
             score: '100/100',
             isComplete: true
           },
           {
-            thumb: require('./images/thumb1.png'),
-            type: "车辆知识",
-            title: "车辆结构与行驶原理",
+            thumb: require('./images/class2.png'),
+            type: "交通法规",
+            title: "请慢一点，平安是福！",
             time: '00:00/04:30',
-            score: '80/100',
-            isComplete: false
-          },
-          {
-            thumb: require('./images/thumb1.png'),
-            type: "车辆知识",
-            title: "车辆结构与行驶原理",
-            time: '01:00/06:30',
-            score: '70/100',
+            score: '0/100',
             isComplete: false
           },
         ]
