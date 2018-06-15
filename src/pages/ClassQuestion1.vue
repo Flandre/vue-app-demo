@@ -20,14 +20,14 @@
 <script>
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
   export default {
-    name: "class-question",
+    name: "class-question-1",
     data() {
       return {
         questionData: [
           {
             type: 'judge',
             typeShow: '判断',
-            question: '驾驶机动车可以跨越白色实线变更车道。',
+            question: '不管天气状况如何，只要不超过限速标志标明的最高时速就可以了。',
             answer: [
               {
                 text: '正确',
@@ -44,7 +44,24 @@
           {
             type: 'judge',
             typeShow: '判断',
-            question: '行车中变更车道不需要提前开启转向灯。',
+            question: '高速行驶会使驾驶人反应距离延长，并且由于惯性作用，制动距离也会延长。',
+            answer: [
+              {
+                text: '正确',
+                right: true,
+                state: 'select'
+              },
+              {
+                text: '错误',
+                right: false,
+                state: 'select'
+              },
+            ]
+          },
+          {
+            type: 'judge',
+            typeShow: '判断',
+            question: '高速行驶不会减弱驾驶人对空间的感知能力和对速度的判断能力。',
             answer: [
               {
                 text: '正确',
@@ -61,64 +78,20 @@
           {
             type: 'multiple',
             typeShow: '多选',
-            question: '违法变更车道的行为主要体现在以下哪些方面？',
+            question: '高速对驾驶产生的影响及安全隐患有哪些？',
             answer: [
               {
-                text: '跨越实线变更车道',
+                text: '反应距离延长、制动距离延长',
                 right: true,
                 state: 'select'
               },
               {
-                text: '未保证安全距离变更车道',
+                text: '视野变窄、注视点变远、注意力转移困难',
                 right: true,
                 state: 'select'
               },
               {
-                text: '未开启转向灯变更车道',
-                right: true,
-                state: 'select'
-              },
-            ]
-          },
-          {
-            type: 'exclusive',
-            typeShow: '单选',
-            question: '驾驶机动车在道路上向左变更车道时如何使用灯光？',
-            answer: [
-              {
-                text: '不用开启转向灯',
-                right: false,
-                state: 'select',
-              },
-              {
-                text: '提前开启右转向灯',
-                right: false,
-                state: 'select',
-              },
-              {
-                text: '提前开启左转向灯',
-                right: true,
-                state: 'select',
-              },
-            ]
-          },
-          {
-            type: 'multiple',
-            typeShow: '多选',
-            question: '在允许变更车道的道路上，变更车道的正确操作是什么？',
-            answer: [
-              {
-                text: '先确认前方存在变更车道空间，通过车内后视镜观察后方情况，提前3s开启转向灯',
-                right: true,
-                state: 'select'
-              },
-              {
-                text: '通过车外后视镜观察想要并入车道内的车辆情况，并回头确认盲区内没有车辆',
-                right: true,
-                state: 'select'
-              },
-              {
-                text: '再次确认安全后缓打方向盘，完整进入到要变更的车道内，关闭转向灯',
+                text: '车辆行驶的稳定性降低',
                 right: true,
                 state: 'select'
               },
@@ -238,7 +211,7 @@
             }
           })
           this.lastScore = ((this.questionData.length - count) / this.questionData.length * 100).toFixed(0)
-          sessionStorage.setItem("lastScore_0", this.lastScore);
+          sessionStorage.setItem("lastScore_1", this.lastScore);
         } else {
           this.submitText = '提交答案'
           window.scrollTo(0, 0)

@@ -67,14 +67,18 @@
       if(this.$route.query.showList) {
         this.showList = true
       }
-      if(sessionStorage.getItem('lastScore')){
-        this.lastScore = sessionStorage.getItem('lastScore')
+      if(sessionStorage.getItem(`lastScore_${vid}`)){
+        this.lastScore = sessionStorage.getItem(`lastScore_${vid}`)
         this.buttonText = '继续测评'
       }
     },
     methods: {
       tapQuestion(){
-        this.$router.push('/class_question')
+        if(this.$route.query.vid == 1){
+          this.$router.push('/class_question_1')
+        } else {
+          this.$router.push('/class_question')
+        }
       }
     }
   }
