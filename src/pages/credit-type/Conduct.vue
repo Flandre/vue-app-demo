@@ -19,19 +19,19 @@
         dangerType: [
           {
             name: '超速',
-            count: 2,
+            count: 0,
           },
           {
             name: '分心驾驶',
-            count: 3,
+            count: 0,
           },
           {
             name: '急加速',
-            count: 5,
+            count: 0,
           },
           {
             name: '急转弯',
-            count: 2,
+            count: 1,
           },
         ]
       }

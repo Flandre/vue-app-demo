@@ -9,7 +9,7 @@
       <div class="progress-bar">
         <div class="progress-info" :style="{width: progress + '%'}"></div>
       </div>
-      <span class="info-desc">你已完成2项，继续加油啊！</span>
+      <span class="info-desc">你已完成3项，继续加油啊！</span>
     </div>
     <div class="panel-group">
       <div class="panel-item" v-for="panel in panelData">
@@ -39,7 +39,13 @@
         panelData:[
           {
             icon: require('../assets/pages/creditUp/studyIcon.png'),
-            title: '《防御性驾驶高端课程》',
+            title: '学习《防御性驾驶宝典》',
+            desc: '全面提升驾驶技巧与安全意识',
+            goText: '去学习'
+          },
+          {
+            icon: require('../assets/pages/creditUp/studyIcon.png'),
+            title: '学习《请慢一点，平安是福！》',
             desc: '全面提升驾驶技巧与安全意识',
             goText: '去学习'
           },
@@ -60,12 +66,6 @@
             title: '补全车辆信息',
             desc: '添加并认证您的车辆信息',
             goText: '去完成'
-          },
-          {
-            icon: require('../assets/pages/creditUp/conductIcon.png'),
-            title: '保持良好的安全驾驶行为',
-            desc: '驾驶达人教你如何安全驾驶',
-            goText: '去看看'
           },
         ]
       }
