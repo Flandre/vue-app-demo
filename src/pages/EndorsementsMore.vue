@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <ArticleList title="行动指南" articleLimit="3" articleType="endorsement-type"/>
+    <ArticleList title="行动指南" articleLimit="1" articleSort="5" articleType="endorsement-type" v-if="showArticle"/>
   </div>
 </template>
 
@@ -62,7 +62,7 @@
               '如果您是无意间产生的轻微超速，这有可能是速度错觉引起的，所以请您养成经常观察车速表的习惯，控制好您的车速！'
             ],
             videoThumb: require('../assets/pages/EndorsementsMore/video1.png'),
-            videoTitle: '疲劳驾驶'
+            videoTitle: '超速'
           }
         ],
         banner: '',
@@ -72,7 +72,8 @@
         price: 0,
         detail: [],
         videoThumb: '',
-        videoTitle: ''
+        videoTitle: '',
+        showArticle: false
       }
     },
     components: {
@@ -80,6 +81,9 @@
       ArticleList
     },
     beforeMount() {
+      if(this.$route.query.aid == 0){
+        this.showArticle = true
+      }
       let aid = this.$route.query.aid || 0
       this.banner = this.dataSource[aid].banner
       this.title = this.dataSource[aid].title
