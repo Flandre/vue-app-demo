@@ -1,7 +1,7 @@
 <template>
   <div class="class-simple">
     <NavigatorBar title="" bgColor="#fff" navType="dark" scrollType="fade" navTypeChange="change"/>
-    <video src="http://www.w3school.com.cn/i/movie.ogg" controls="controls" class="vedio-box">
+    <video :src="videoSrc" controls="controls" class="vedio-box">
       your browser does not support the video tag
     </video>
     <div class="class-control">
@@ -34,12 +34,12 @@
       return {
         videoData: [
           {
-            videoSrc: 'http://www.w3school.com.cn/i/movie.ogg',
+            videoSrc: require('../assets/pages/ClassSimple/0.mp4'),
             title: '变更车道隐患多，正确方法学起来',
             desc: '变更车道是日常驾驶中一个再平常不过的操作，但是您知道变更车道的正确方法吗？'
           },
           {
-            videoSrc: 'http://www.w3school.com.cn/i/movie.ogg',
+            videoSrc: require('../assets/pages/ClassSimple/1.mp4'),
             title: '请慢一点，平安是福！',
             desc: '人们常说“十次事故九次快”，有研究结果表明，车辆平均速度越高，事故发生率越高，其造成的伤害也就越大'
           }
