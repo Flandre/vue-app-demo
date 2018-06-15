@@ -58,7 +58,6 @@
     },
     watch: {
       '$route' (to, from) {
-        console.log(this.$route.params.aid)
         window.scrollTo(0, 0)
         allData.forEach(val => {
           if(val.id == this.$route.params.aid){

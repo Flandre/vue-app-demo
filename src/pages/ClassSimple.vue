@@ -50,6 +50,7 @@
         videoSrc: '',
         title: '',
         desc: '',
+        vid: '1'
       }
     },
     components: {
@@ -60,6 +61,7 @@
     beforeMount() {
       window.scrollTo(0, 0)
       let vid = this.$route.query.vid || 0
+      this.vid = vid
       this.videoSrc = this.videoData[vid].videoSrc
       this.title = this.videoData[vid].title
       this.desc = this.videoData[vid].desc
@@ -78,6 +80,19 @@
           this.$router.push('/class_question_1')
         } else {
           this.$router.push('/class_question')
+        }
+      }
+    },
+    watch: {
+      '$route' (to, from) {
+        window.scrollTo(0, 0)
+        if(to.query.vid != from.query.vid){
+          console.log(1)
+          let vid = this.$route.query.vid || 0
+          this.vid = vid
+          this.videoSrc = this.videoData[vid].videoSrc
+          this.title = this.videoData[vid].title
+          this.desc = this.videoData[vid].desc
         }
       }
     }
