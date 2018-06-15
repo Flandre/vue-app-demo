@@ -16,7 +16,6 @@
     <div class="privilege-container">
       <div class="title">
         <h3>好司机特权</h3>
-        <span class="more">更多特权</span>
       </div>
       <img src="../assets/pages/creditDetail/privilege-list.png" class="privilege-list">
     </div>
