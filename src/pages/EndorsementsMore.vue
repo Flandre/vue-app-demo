@@ -16,7 +16,7 @@
     </div>
     <div class="recommend-study">
       <div class="title">推荐学习</div>
-      <div class="video-info">
+      <div class="video-info" @click="tapVideo(videoId)">
         <img :src="videoThumb" class="thumb">
         <div class="info-box">
           <p class="video-title">{{videoTitle}}</p>
@@ -47,7 +47,8 @@
               '您应当在变更车道前，提前开启转向灯，确认想要前往的相邻车道后方车辆与您有足够的安全距离时，缓打方向完成并线，动作一气呵成，不要长时间压线行驶。'
             ],
             videoThumb: require('../assets/pages/EndorsementsMore/video2.png'),
-            videoTitle: '变更车道'
+            videoTitle: '变更车道',
+            videoId: 0,
           },
           {
             title: '驾驶中型以上载客汽车在城市快速路上行驶超过规定时速未达20％的',
@@ -62,7 +63,8 @@
               '如果您是无意间产生的轻微超速，这有可能是速度错觉引起的，所以请您养成经常观察车速表的习惯，控制好您的车速！'
             ],
             videoThumb: require('../assets/pages/EndorsementsMore/video1.png'),
-            videoTitle: '超速'
+            videoTitle: '超速',
+            videoId: 1,
           }
         ],
         banner: '',
@@ -95,11 +97,17 @@
       this.detail = this.dataSource[aid].detail.concat([])
       this.videoThumb = this.dataSource[aid].videoThumb
       this.videoTitle = this.dataSource[aid].videoTitle
+      this.videoId = this.dataSource[aid].videoId
     },
     mounted() {
       /* 返回顶部 */
       window.scrollTo(0, 0)
     },
+    methods: {
+      tapVideo(vid){
+        this.$router.push({path: '/class_simple', query: {vid: vid}})
+      }
+    }
   }
 </script>
 
