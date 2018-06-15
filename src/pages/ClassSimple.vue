@@ -6,8 +6,8 @@
     </video>
     <div class="class-control">
       <div class="class-info">
-        <p class="title">安全带的重要性</p>
-        <p class="text">很多车主认为，安全带就是“拉过来、扣上去”这么简单。虽然它只是一根简单的可以扣起来的带子,但在关键时刻能救你一命。</p>
+        <p class="title">{{title}}</p>
+        <p class="text">{{desc}}</p>
       </div>
       <div class="class-test">
         <div class="action-bar">
@@ -32,9 +32,24 @@
     name: "class-simple",
     data() {
       return {
+        videoData: [
+          {
+            videoSrc: 'http://www.w3school.com.cn/i/movie.ogg',
+            title: '变更车道隐患多，正确方法学起来',
+            desc: '变更车道是日常驾驶中一个再平常不过的操作，但是您知道变更车道的正确方法吗？'
+          },
+          {
+            videoSrc: 'http://www.w3school.com.cn/i/movie.ogg',
+            title: '请慢一点，平安是福！',
+            desc: '人们常说“十次事故九次快”，有研究结果表明，车辆平均速度越高，事故发生率越高，其造成的伤害也就越大'
+          }
+        ],
         showList: false,
         buttonText: '开始测评',
-        lastScore: -1
+        lastScore: -1,
+        videoSrc: '',
+        title: '',
+        desc: '',
       }
     },
     components: {
@@ -44,6 +59,11 @@
     },
     beforeMount() {
       window.scrollTo(0, 0)
+      let vid = this.$route.query.vid || 0
+      this.videoSrc = this.videoData[vid].videoSrc
+      this.title = this.videoData[vid].title
+      this.desc = this.videoData[vid].desc
+
       if(this.$route.query.showList) {
         this.showList = true
       }

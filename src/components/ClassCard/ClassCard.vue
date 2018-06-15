@@ -4,7 +4,7 @@
       {{title}}
     </div>
     <swiper :options="swiperOption" ref="classSwiper">
-      <swiper-slide v-for="cls in classData" :key="cls.id" @click.native="tapCard(cls.type)">
+      <swiper-slide v-for="cls in classData" :key="cls.id" @click.native="tapCard(cls.type, cls.linkVideo)">
         <img :src="cls.image" class="class-thumb">
         <p class="class-title">{{cls.title}}</p>
       </swiper-slide>
@@ -27,27 +27,30 @@
             title: '变更车道隐患多，正确方法学起来！',
             image: require('./images/classBanners/class1.png'),
             id: 1,
-            type: 'simple'
+            type: 'simple',
+            linkVideo: 0,
           },
           {
             title: '请慢一点，平安是福！',
             image: require('./images/classBanners/class2.png'),
             id: 2,
-            type: 'simple'
+            type: 'simple',
+            linkVideo: 1,
           },
           {
             title: '防御性驾驶宝典',
             image: require('./images/classBanners/class3.png'),
             id: 3,
-            type: 'group'
+            type: 'group',
+            linkVideo: 0,
           },
         ]
       }
     },
     methods: {
-      tapCard(type){
+      tapCard(type, video){
         if(type == 'simple'){
-          this.$router.push('/class_simple')
+          this.$router.push({path: '/class_simple', query: {vid: video}})
         } else {
           this.$router.push('/class_group')
         }
