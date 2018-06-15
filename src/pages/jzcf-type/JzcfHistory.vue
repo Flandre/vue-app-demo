@@ -22,7 +22,7 @@
         <p class="desc">{{i.desc}}</p>
         <p class="code">决定书编号: {{i.code}}</p>
         <div class="active-bar">
-          <div class="active-item" @click="tapMore">
+          <div class="active-item" @click="tapMore(i.linkID)">
             <span class="more">更多内容</span>
           </div>
         </div>
@@ -47,6 +47,7 @@
             moreColor: '#617792',
             lsNum: '京N627M9',
             code: 1105034982759182,
+            linkID: 0,
           },
           {
             time: '2017-03-10 15:17',
@@ -58,6 +59,7 @@
             moreColor: '#FF8D47',
             lsNum: '京N627M9',
             code: 1105041834353446,
+            linkID: 1,
           },
         ]
       }
@@ -66,8 +68,8 @@
       window.scrollTo(0, 0)
     },
     methods: {
-      tapMore() {
-        this.$router.push('/endorsement_more')
+      tapMore(id) {
+        this.$router.push({path: '/endorsement_more', query: {aid: id}})
       }
     }
   }

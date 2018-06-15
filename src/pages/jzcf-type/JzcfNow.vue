@@ -62,7 +62,7 @@
         this.$router.push({path: '/pay_forfeit'})
       },
       tapMore() {
-        this.$router.push('/endorsement_more')
+        this.$router.push({path: '/endorsement_more', query:{aid: 1}})
       }
     }
   }
