@@ -2,9 +2,9 @@
   <div class="study-test">
     <NavigatorBar title="申请考试成功" bgColor="#fff" navType="light"/>
     <img src="../assets/pages/StudyTest/submitSuccessIcon.png" class="icon">
-    <span class="status">提交成功</span>
-    <span class="info">等待交管部门审核，审核通过后您将获得<em>200</em>积分奖励。</span>
-    <span class="tip">感谢您为维持良好交通秩序、共建交通安全文明作出的贡献！</span>
+    <span class="status">申请成功</span>
+    <span class="info">考试安排将通过app通知给您，您也可在学习界面中查看。</span>
+    <span class="tip"></span>
 
   </div>
 </template>
