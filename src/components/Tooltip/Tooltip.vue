@@ -26,9 +26,6 @@
         this.timerArr[1] = setTimeout(() => {
           this.tooltipActive = false
         }, 2000)
-        this.timerArr[2] = setTimeout(() => {
-          this.$router.goBack()
-        }, 2300)
       }
     }
   }

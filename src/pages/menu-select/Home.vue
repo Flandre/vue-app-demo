@@ -2,10 +2,10 @@
   <div class="home">
     <div class="top-panel">
       <div class="top-control">
-        <div class="add-friends">
+        <div class="add-friends" @click="bindTooltip">
           <img src="../../assets/pages/home/addFriendsIcon.png">
         </div>
-        <div class="message">
+        <div class="message" @click="bindTooltip">
           <img src="../../assets/pages/home/messageIcon.png">
         </div>
       </div>
@@ -38,28 +38,28 @@
       </div>
     </div>
     <div class="func-list">
-      <div class="list-item" ref="ToolTip" @click="bindTooltip">
+      <div class="list-item" @click="bindTooltip">
         <img src="../../assets/pages/home/friendIcon.png">
         <span>我的好友</span>
         <img src="../../assets/pages/home/arrow-right.png" class="arrow">
       </div>
-      <div class="list-item">
+      <div class="list-item" @click="bindTooltip">
         <img src="../../assets/pages/home/questionIcon.png">
         <span>常见问题</span>
         <img src="../../assets/pages/home/arrow-right.png" class="arrow">
       </div>
-      <div class="list-item">
+      <div class="list-item" @click="bindTooltip">
         <img src="../../assets/pages/home/repeatIcon.png">
         <span>推荐给好友</span>
         <img src="../../assets/pages/home/arrow-right.png" class="arrow">
       </div>
-      <div class="list-item">
+      <div class="list-item" @click="bindTooltip">
         <img src="../../assets/pages/home/settingIcon.png">
         <span>设置</span>
         <img src="../../assets/pages/home/arrow-right.png" class="arrow">
       </div>
     </div>
-    <ToolTip/>
+    <ToolTip ref="ToolTip"/>
   </div>
 </template>
 
@@ -92,8 +92,7 @@
         this.$router.push('/driving_list')
       },
       bindTooltip() {
-        console.log(this.$refs.ToolTip)
-        // this.$refs.ToolTip.showToolTip()
+        this.$refs.ToolTip.showToolTip()
       }
     }
   }
