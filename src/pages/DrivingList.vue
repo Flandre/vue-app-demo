@@ -50,7 +50,7 @@
         </div>
         <div class="avatar-item">
           <span>第8名</span>
-          <img src="../assets/pages/DrivingList/avatar4.png">
+          <img src="../assets/pages/DrivingList/avatar.png">
         </div>
       </div>
       <img src="../assets/pages/DrivingList/arrow-bottom.png" class="arrow-bottom">

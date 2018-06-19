@@ -16,6 +16,11 @@
         timerArr: []
       }
     },
+    beforeDestroy() {
+      this.timerArr.forEach(t => {
+        clearTimeout(t)
+      })
+    },
     methods: {
       showToolTip() {
         this.ToolTip = false

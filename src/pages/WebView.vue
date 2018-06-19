@@ -32,6 +32,7 @@
       NavigatorBar,
     },
     beforeMount() {
+      window.scrollTo(0, 0)
       if(this.$route.query.title){
         this.wTitle = this.$route.query.title
       }
