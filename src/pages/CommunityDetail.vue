@@ -15,10 +15,10 @@
           <img :src="i.thumb" class="thumb">
         </div>
         <div class="info-source">
-          <div class="source-item">
+          <div class="source-item" @click="bindTooltip">
             <span class="transmit">{{i.transmit}}</span>
           </div>
-          <div class="source-item">
+          <div class="source-item" @click="bindTooltip">
             <span class="comment">{{i.comment}}</span>
           </div>
           <div class="source-item" @click="tapLike(index, $event)">
@@ -27,15 +27,18 @@
         </div>
       </div>
     </div>
+    <ToolTip ref="ToolTip"/>
   </div>
 </template>
 
 <script>
+  import ToolTip from '@/components/Tooltip/Tooltip'
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
   export default {
     name: "community-detail",
     components: {
-      NavigatorBar
+      NavigatorBar,
+      ToolTip
     },
     data() {
       return {
@@ -83,6 +86,9 @@
           this.cardData[index].like = this.cardData[index].like - 1
         }
         this.cardData[index].isLike = !this.cardData[index].isLike
+      },
+      bindTooltip() {
+        this.$refs.ToolTip.showToolTip()
       }
     }
   }
