@@ -12,7 +12,7 @@
           <p class="num">{{remainingDay}}<em>天</em></p>
         </div>
       </div>
-      <span class="tel">一键报险</span>
+      <span class="tel" @click="bindTooltip">一键报险</span>
     </div>
     <div class="reminding-switch" @click="tapSwitch">
       <div class="info">

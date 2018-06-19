@@ -7,7 +7,7 @@
       <div class="form-row card-type">
         <div class="title">
           <p class="desc">驾驶证主页</p>
-          <p class="case">查看示例</p>
+          <p class="case" @click="bindTooltip">查看示例</p>
         </div>
         <div class="id-card-container" @click="tapPic(0)">
           <img :src="cardData1" v-if="cardData1 != ''" class="card-img">
@@ -17,7 +17,7 @@
       <div class="form-row card-type">
         <div class="title">
           <p class="desc">驾驶证副页</p>
-          <p class="case">查看示例</p>
+          <p class="case" @click="bindTooltip">查看示例</p>
         </div>
         <div class="id-card-container" @click="tapPic(1)">
           <img :src="cardData2" v-if="cardData2 != ''" class="card-img">
@@ -32,12 +32,17 @@
     <div class="active-bar">
       <div class="button" @click="tapSave">下一步</div>
     </div>
+    <ToolTip ref="ToolTip"/>
   </div>
 </template>
 
 <script>
+  import ToolTip from '@/components/Tooltip/Tooltip'
   export default {
     name: "auth-step1",
+    components: {
+      ToolTip,
+    },
     data(){
       return {
         cardData1: '',
@@ -70,6 +75,9 @@
       tapPic(type) {
         this.cameraType = type
         window.AppCall.callCamera(330, 194)
+      },
+      bindTooltip() {
+        this.$refs.ToolTip.showToolTip()
       }
     },
     beforeDestroy() {

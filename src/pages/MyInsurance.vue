@@ -6,18 +6,23 @@
         <p :class="['name', i.type]">{{i.name}}</p>
         <p class="code">保险单号：{{i.code}}</p>
         <p class="end-time">到期时间：{{i.endTime}}</p>
-        <span v-if="!i.overTime" class="button">一键报险</span>
+        <span v-if="!i.overTime" class="button" @click="bindTooltip">一键报险</span>
         <span class="over-time" v-else>已到期</span>
       </div>
     </div>
-
+    <ToolTip ref="ToolTip"/>
   </div>
 </template>
 
 <script>
+  import ToolTip from '@/components/Tooltip/Tooltip'
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
   export default {
     name: "my-insurance",
+    components: {
+      NavigatorBar,
+      ToolTip
+    },
     data() {
       return {
         insuranceData: [
@@ -45,9 +50,6 @@
         ]
       }
     },
-    components: {
-      NavigatorBar
-    },
     mounted() {
       /* 返回顶部 */
       window.scrollTo(0, 0)
@@ -56,6 +58,11 @@
         this.remainingDay = 24
       }
     },
+    methods: {
+      bindTooltip() {
+        this.$refs.ToolTip.showToolTip()
+      }
+    }
   }
 </script>
 
