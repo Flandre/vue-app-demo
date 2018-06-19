@@ -74,6 +74,16 @@
     },
     beforeMount(){
       this.group = ['#道路正能量#', '#车主互助#', '#路况分享#', '#自驾游#', '#维修保养#', '#新能源车#'][this.$route.query.tid || 0]
+    },
+    methods: {
+      tapLike(index, $event) {
+        if(!this.cardData[index].isLike){
+          this.cardData[index].like = this.cardData[index].like + 1
+        } else {
+          this.cardData[index].like = this.cardData[index].like - 1
+        }
+        this.cardData[index].isLike = !this.cardData[index].isLike
+      }
     }
   }
 </script>
