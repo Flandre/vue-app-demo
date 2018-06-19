@@ -1,7 +1,7 @@
 <template>
   <div class="class-question">
     <NavigatorBar title="安全带的重要性" navType="light" bgColor="#fff"/>
-    <div class="question-container">
+    <div :class="['question-container', showSubmit? '': 'hiddenSubmit']">
       <div class="question-info">
         <p class="last-score" v-if="lastScore != ''">得分：<em>{{lastScore}}</em></p>
         共{{questionData.length}}题，总计100分
@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <div :class="['submit-bar', enableSubmit? '': 'disabled']" @click="tapButton">{{submitText}}</div>
+    <div :class="['submit-bar', enableSubmit? '': 'disabled']" @click="tapButton" v-if="showSubmit">{{submitText}}</div>
   </div>
 </template>
 
@@ -129,6 +129,7 @@
         submitText: '提交答案',
         lastScore: '',
         shoudSelect: true,
+        showSubmit: true,
       }
     },
     beforeMount() {
@@ -182,73 +183,76 @@
         }
       },
       tapButton() {
-        if(this.submitText == '提交答案') {
-          this.submitText = '重测一次'
-          window.scrollTo(0, 0)
-          this.shoudSelect = false
-          let count = 0
-          this.questionData.forEach(ques => {
-            let isRight = true;
-            if(ques.type == 'multiple'){
-              let rightAns = true
-              ques.answer.forEach(ans => {
-                if(ans.state == 'select' && ans.right){
-                  rightAns = false
-                }
-                if(ans.state == 'right' && !ans.right){
-                  rightAns = false
-                }
-              })
-              if(rightAns){
+        if(this.enableSubmit){
+          if(this.submitText == '提交答案') {
+            this.submitText = '重测一次'
+            this.showSubmit = false
+            window.scrollTo(0, 0)
+            this.shoudSelect = false
+            let count = 0
+            this.questionData.forEach(ques => {
+              let isRight = true;
+              if(ques.type == 'multiple'){
+                let rightAns = true
                 ques.answer.forEach(ans => {
-                  if(ans.right){
+                  if(ans.state == 'select' && ans.right){
+                    rightAns = false
+                  }
+                  if(ans.state == 'right' && !ans.right){
+                    rightAns = false
+                  }
+                })
+                if(rightAns){
+                  ques.answer.forEach(ans => {
+                    if(ans.right){
+                      ans.state = 'right isRight'
+                    }
+                  })
+                } else {
+                  isRight = false
+                  ques.answer.forEach(ans => {
+                    let className = ans.state
+                    if(ans.state == 'right') {
+                      className = 'wrong'
+                    }
+                    if(ans.right){
+                      className += ' isRight'
+                    }
+                    ans.state = className
+                  })
+                }
+              } else {
+                ques.answer.forEach(ans => {
+                  if(ans.state == 'right' && ans.right){
                     ans.state = 'right isRight'
                   }
-                })
-              } else {
-                isRight = false
-                ques.answer.forEach(ans => {
-                  let className = ans.state
-                  if(ans.state == 'right') {
-                    className = 'wrong'
+                  if(ans.state == 'select' && ans.right){
+                    ans.state = 'right isRight'
+                    isRight = false
                   }
-                  if(ans.right){
-                    className += ' isRight'
+                  if(ans.state == 'right' && !ans.right){
+                    ans.state = 'wrong'
+                    isRight = false
                   }
-                  ans.state = className
                 })
               }
-            } else {
-              ques.answer.forEach(ans => {
-                if(ans.state == 'right' && ans.right){
-                  ans.state = 'right isRight'
-                }
-                if(ans.state == 'select' && ans.right){
-                  ans.state = 'right isRight'
-                  isRight = false
-                }
-                if(ans.state == 'right' && !ans.right){
-                  ans.state = 'wrong'
-                  isRight = false
-                }
-              })
-            }
-            if(!isRight){
-              count ++
-            }
-          })
-          this.lastScore = ((this.questionData.length - count) / this.questionData.length * 100).toFixed(0)
-          sessionStorage.setItem("lastScore_0", this.lastScore);
-        } else {
-          this.submitText = '提交答案'
-          window.scrollTo(0, 0)
-          this.shoudSelect = true
-          this.lastScore = ''
-          this.questionData.forEach(ques => {
-            ques.answer.forEach(ans => {
-              ans.state = 'select'
+              if(!isRight){
+                count ++
+              }
             })
-          })
+            this.lastScore = ((this.questionData.length - count) / this.questionData.length * 100).toFixed(0)
+            sessionStorage.setItem("lastScore_0", this.lastScore);
+          } else {
+            this.submitText = '提交答案'
+            window.scrollTo(0, 0)
+            this.shoudSelect = true
+            this.lastScore = ''
+            this.questionData.forEach(ques => {
+              ques.answer.forEach(ans => {
+                ans.state = 'select'
+              })
+            })
+          }
         }
       }
     }
@@ -262,6 +266,9 @@
       padding: 0 25px;
       background: #fff;
       margin-bottom: 50px;
+      &.hiddenSubmit {
+        margin-bottom: 0;
+      }
       .question-info {
         padding: 20px 0;
         text-align: center;
