@@ -25,6 +25,12 @@ export default {
       this.$router.isBack = false
       next()
     })
+    window.oncopy = function(){
+      return false
+    }
+    window.oncontextmenu = function() {
+      return false
+    }
   },
 }
 </script>
