@@ -141,7 +141,11 @@
       },
       tapList(id) {
         if(this.articleGroup == 'normal'){
-          this.$router.push({path: `/article_detail/${id}`})
+          if(this.isReplace){
+            this.$router.replace({path: `/article_detail/${id}`})
+          } else {
+            this.$router.push({path: `/article_detail/${id}`})
+          }
         }
       }
     },
@@ -163,6 +167,9 @@
       },
       articleSort: {
         default: ''
+      },
+      isReplace: {
+        default: false
       }
     }
   }

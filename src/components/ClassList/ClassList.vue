@@ -46,13 +46,20 @@
     },
     methods: {
       tapList(vid) {
-        this.$router.push({path: '/class_simple', query: {showList: true, vid: vid}})
+        if(this.isReplace){
+          this.$router.replace({path: '/class_simple', query: {showList: true, vid: vid}})
+        } else {
+          this.$router.push({path: '/class_simple', query: {showList: true, vid: vid}})
+        }
       }
 
     },
     props: {
       title: {
         default: ''
+      },
+      isReplace: {
+        default: false
       }
     }
   }

@@ -19,8 +19,8 @@
         <p class="desc">学完视频并通过测评，可获得<em>200</em>积分！</p>
       </div>
     </div>
-    <ClassList title="新手上路宝典" v-if="showList == true"/>
-    <ClassCard title="相关视频" />
+    <ClassList title="新手上路宝典" v-if="showList == true"  isReplace="true"/>
+    <ClassCard title="相关视频" isReplace="true"/>
   </div>
 </template>
 

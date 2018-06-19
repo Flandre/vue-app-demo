@@ -50,7 +50,11 @@
     methods: {
       tapCard(type, video){
         if(type == 'simple'){
-          this.$router.push({path: '/class_simple', query: {vid: video}})
+          if(this.isReplace){
+            this.$router.replace({path: '/class_simple', query: {vid: video}})
+          } else {
+            this.$router.push({path: '/class_simple', query: {vid: video}})
+          }
         } else {
           this.$router.push('/class_group')
         }
@@ -63,6 +67,9 @@
     props: {
       title: {
         default: ''
+      },
+      isReplace: {
+        default: false
       }
     }
   }

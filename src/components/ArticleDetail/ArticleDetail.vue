@@ -22,7 +22,7 @@
           </template>
         </div>
       </div>
-      <ArticleList title="相关阅读"/>
+      <ArticleList title="相关阅读" isReplace="true"/>
     </template>
     <template v-else >
       没有该文章
