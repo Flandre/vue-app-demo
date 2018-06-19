@@ -62,14 +62,16 @@
       </div>
     </div>
     <div class="action-bottom">
-      <div class="button">
+      <div class="button" @click="bindTooltip">
         <span>确认支付</span>
       </div>
     </div>
+    <ToolTip ref="ToolTip"/>
   </div>
 </template>
 
 <script>
+  import ToolTip from '@/components/Tooltip/Tooltip'
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
   export default {
     name: "pay-forfeit",
@@ -90,6 +92,7 @@
       }
     },
     components: {
+      ToolTip,
       NavigatorBar,
     },
     beforeMount() {
@@ -98,6 +101,9 @@
     methods: {
       changeType(type) {
         this.selectType = type
+      },
+      bindTooltip() {
+        this.$refs.ToolTip.showToolTip()
       }
     }
   }

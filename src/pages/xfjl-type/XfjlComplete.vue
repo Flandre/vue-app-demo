@@ -2,7 +2,7 @@
   <div class="xfjl-complete">
     <div class="xfjl-study">
       <div class="study-list">
-        <div class="list-item" v-for="s in studyData">
+        <div class="list-item" v-for="s in studyData" @click="bindTooltip">
           <div class="title-image">
             <img :src="s.titleImage">
           </div>
@@ -14,12 +14,17 @@
         </div>
       </div>
     </div>
+    <ToolTip ref="ToolTip"/>
   </div>
 </template>
 
 <script>
+  import ToolTip from '@/components/Tooltip/Tooltip'
   export default {
     name: "xfjl-complete",
+    components: {
+      ToolTip,
+    },
     data() {
       return {
         studyData: [
@@ -30,6 +35,11 @@
             total: 1
           },
         ]
+      }
+    },
+    methods: {
+      bindTooltip() {
+        this.$refs.ToolTip.showToolTip()
       }
     }
   }
