@@ -11,7 +11,7 @@
       </div>
       <div class="account-info">
         <div class="avatar-box">
-          <img src="../../assets/pages/home/defaultAvatar.png"/>
+          <img src="../../assets/pages/home/avatar.png"/>
         </div>
         <div class="account-content">
           <p class="name">汪喵</p>
