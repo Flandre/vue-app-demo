@@ -113,7 +113,7 @@
       tapList(path) {
         if(path == '/study_entry'){
           if(sessionStorage.getItem('entryStudy')){
-            this.$router.push('/study_full')
+            this.$router.push({path: '/study_full', query: {backlength: 1}})
           } else {
             this.$router.push({path: '/study_entry', query: {buttom: 'show'}})
           }

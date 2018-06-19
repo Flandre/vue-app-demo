@@ -2,8 +2,8 @@
   <div class="study-full">
     <NavigatorBar title="满12分学习" navType="light" bgColor="#fff"  menuRightText="学习安排" menuRightPath="/study_entry"/>
     <div class="top-nav">
-      <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/study_full/list">课程列表</router-link>
-      <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" to="/study_full/report">成绩单</router-link>
+      <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" :to="{path: '/study_full/list', query: {backlength: this.$route.query.backlength? this.$route.query.backlength : 1}}">课程列表</router-link>
+      <router-link class="link-item" replace active-class="active" @click.native="tapClickNav" :to="{path: '/study_full/report', query: {backlength: this.$route.query.backlength? this.$route.query.backlength : 1}}">成绩单</router-link>
       <div :class="['slider-bar', isTranslate ? 'trans' : '']" :style="{left : sliderLeft}"></div>
     </div>
     <router-view/>
@@ -18,11 +18,17 @@
     data() {
       return {
         sliderLeft: 0,
-        isTranslate: false
+        isTranslate: false,
+        backlength: 1,
       }
     },
     components: {
       NavigatorBar,
+    },
+    beforeMount() {
+      if(this.$route.query.backlength){
+        this.backlength = this.$route.query.backlength
+      }
     },
     mounted() {
       /* 返回顶部 */
@@ -34,6 +40,7 @@
     },
     methods: {
       tapClickNav(e) {
+
         this.sliderLeft = `${e.target.offsetLeft + e.target.offsetWidth / 2 - 15}px`
       }
     },
