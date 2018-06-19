@@ -115,10 +115,12 @@
     z-index: -1;
   }
   .navigator-bar .prev{
-    width: 10px;
-    height: 16px;
+    width: 50px;
+    height: 44px;
+    padding: 14px 40px;
+    padding-left: 0;
     position: fixed;
-    top: 14px;
+    top: 0;
     left: 8px
   }
   .navigator-bar .title{
