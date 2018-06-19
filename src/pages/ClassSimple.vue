@@ -1,7 +1,7 @@
 <template>
   <div class="class-simple">
     <NavigatorBar title="" bgColor="#fff" navType="dark" scrollType="fade" navTypeChange="change"/>
-    <video :src="videoSrc" controls="controls" class="vedio-box">
+    <video :src="videoSrc" controls="controls" class="vedio-box" autoplay>
       your browser does not support the video tag
     </video>
     <div class="class-control">
