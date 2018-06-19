@@ -1,6 +1,6 @@
 <template>
   <div class="activity">
-    <div class="activity-panel" v-for="i in activityData">
+    <div class="activity-panel" v-for="i in activityData" @click="tapDetail(i.pageId, i.title)">
       <p class="title">{{i.title}}</p>
       <img :src="i.thumb" class="thumb">
     </div>
@@ -14,16 +14,19 @@
       return {
         activityData: [
           {
-            title: '文明礼让斑马线，一起来选最美司机',
-            thumb: require('./images/activitypic/activitypic1.png')
+            title: '一张图看懂交通违法处罚细则',
+            thumb: require('./images/activitypic/activitypic1.png'),
+            pageId: 7
           },
           {
-            title: '小手拉大手 我与家长共答题',
-            thumb: require('./images/activitypic/activitypic2.png')
+            title: '注意！这七种错误的儿童乘车方法很危险',
+            thumb: require('./images/activitypic/activitypic2.png'),
+            pageId: 8
           },
           {
-            title: '冬季养护爱车都有什么神操作？',
-            thumb: require('./images/activitypic/activitypic3.png')
+            title: '如何挑选合适的儿童安全座椅',
+            thumb: require('./images/activitypic/activitypic3.png'),
+            pageId: 9
           },
         ]
       }
@@ -32,6 +35,11 @@
       /* 返回顶部 */
       window.scrollTo(0, 0)
     },
+    methods: {
+      tapDetail(pid, title) {
+        this.$router.push({path: '/web_view', query: {pid: pid, title: title}})
+      }
+    }
   }
 </script>
 

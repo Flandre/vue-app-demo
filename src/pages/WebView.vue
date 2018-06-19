@@ -1,6 +1,6 @@
 <template>
   <div class="web-view">
-    <NavigatorBar title="" navType="light" bgColor="#fff"/>
+    <NavigatorBar :title="wTitle" navType="light" bgColor="#fff"/>
     <img :src="pageNow" class="page">
 
   </div>
@@ -20,14 +20,21 @@
           require('../assets/pages/WebView/page4.jpg'),
           require('../assets/pages/WebView/page5.png'),
           require('../assets/pages/WebView/page6.jpg'),
+          require('../assets/pages/WebView/page7.png'),
+          require('../assets/pages/WebView/page8.jpg'),
+          require('../assets/pages/WebView/page9.jpg'),
         ],
-        pageNow : ''
+        pageNow : '',
+        wTitle: ''
       }
     },
     components: {
       NavigatorBar,
     },
     beforeMount() {
+      if(this.$route.query.title){
+        this.wTitle = this.$route.query.title
+      }
       this.pageNow = this.pageData[this.$route.query.pid]
     }
 

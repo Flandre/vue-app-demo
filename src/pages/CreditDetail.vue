@@ -19,34 +19,34 @@
       </div>
       <div class="link-groups">
         <div class="row top-row">
-          <div class="link-item" @click="tapView(1)">
+          <div class="link-item" @click="tapView(1, '维修折扣')">
             <img src="../assets/pages/creditDetail/icon1.png" class="icon">
             <p class="name">维修折扣</p>
             <p class="desc">享受8.5折优惠</p>
           </div>
-          <div class="link-item" @click="tapView(2)">
+          <div class="link-item" @click="tapView(2, '免费洗车')">
             <img src="../assets/pages/creditDetail/icon2.png" class="icon">
             <p class="name">免费洗车</p>
             <p class="desc">每月1次免费洗车</p>
           </div>
-          <div class="link-item" @click="tapView(3)">
+          <div class="link-item" @click="tapView(3, '道路救援')">
             <img src="../assets/pages/creditDetail/icon3.png" class="icon">
             <p class="name">道路救援</p>
             <p class="desc">专享VIP救援通道</p>
           </div>
         </div>
         <div class="row bottom-row">
-          <div class="link-item" @click="tapView(4)">
+          <div class="link-item" @click="tapView(4, '车品商城钜惠')">
             <img src="../assets/pages/creditDetail/icon4.png" class="icon">
             <p class="name">车品商城钜惠</p>
             <p class="desc">精选车品9折优惠</p>
           </div>
-          <div class="link-item" @click="tapView(5)">
+          <div class="link-item" @click="tapView(5, '闪电车贷')">
             <img src="../assets/pages/creditDetail/icon5.png" class="icon">
             <p class="name">闪电车贷</p>
             <p class="desc">专享极速服务</p>
           </div>
-          <div class="link-item" @click="tapView(6)">
+          <div class="link-item" @click="tapView(6, '免费国际驾照')">
             <img src="../assets/pages/creditDetail/icon6.png" class="icon">
             <p class="name">免费国际驾照</p>
             <p class="desc">一键免费领取</p>
@@ -73,8 +73,8 @@
       tapUpscore() {
         router.push('/creditUp')
       },
-      tapView(id) {
-        this.$router.push({path: '/web_view', query: {pid: id}})
+      tapView(id, title) {
+        this.$router.push({path: '/web_view', query: {pid: id, title: title}})
       }
     },
     components: {
