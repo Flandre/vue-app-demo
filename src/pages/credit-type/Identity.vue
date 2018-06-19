@@ -14,12 +14,17 @@
         <img src="../../assets/pages/creditKnow/identity/complete.png" class="complete" v-else/>
       </div>
     </div>
+    <ToolTip ref="ToolTip"/>
   </div>
 </template>
 
 <script>
+  import ToolTip from '@/components/Tooltip/Tooltip'
   export default {
     name: "identity",
+    components: {
+      ToolTip,
+    },
     data() {
       return {
         panelData:[
@@ -64,8 +69,12 @@
             }
             break
           case 'phone':
+            this.bindTooltip()
             break
         }
+      },
+      bindTooltip() {
+        this.$refs.ToolTip.showToolTip()
       }
     }
   }

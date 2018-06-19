@@ -15,7 +15,7 @@
         </div>
         <div class="account-content">
           <p class="name">汪喵</p>
-          <span class="coin">5658积分</span>
+          <span class="coin" @click="bindTooltip">5658积分</span>
         </div>
         <div class="credit-info" @click="tapCredit">
           <p class="title">信用极好</p>
@@ -63,7 +63,7 @@
   </div>
 </template>
 
-<script>
+  <script>
   import ToolTip from '@/components/Tooltip/Tooltip'
   export default {
     name: "Home",

@@ -12,15 +12,20 @@
           <div :class="['slider-bar', isTranslate ? 'trans' : '']" :style="{left : sliderLeft}"></div>
         </div>
       </div>
-      <div class="search-bar"></div>
+      <div class="search-bar" @click="bindTooltip"></div>
     </div>
     <router-view/>
+    <ToolTip ref="ToolTip"/>
   </div>
 </template>
 
 <script>
+  import ToolTip from '@/components/Tooltip/Tooltip'
   export default {
     name: "Study",
+    components: {
+      ToolTip,
+    },
     data() {
       return {
         sliderLeft: 0,
@@ -38,6 +43,9 @@
     methods: {
       tapClickNav(e) {
         this.sliderLeft = `${e.target.offsetLeft + e.target.offsetWidth / 2 - 8}px`
+      },
+      bindTooltip() {
+        this.$refs.ToolTip.showToolTip()
       }
     },
     beforeRouteUpdate(to, from, next) {

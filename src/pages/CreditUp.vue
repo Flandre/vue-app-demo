@@ -24,14 +24,19 @@
         <img src="../assets/pages/creditUp/complete.png" class="complete" v-else/>
       </div>
     </div>
-
+    <ToolTip ref="ToolTip"/>
   </div>
 </template>
 
 <script>
+  import ToolTip from '@/components/Tooltip/Tooltip'
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
   export default {
     name: "credit-up",
+    components: {
+      ToolTip,
+      NavigatorBar
+    },
     data() {
       return {
         beforeScore: 732,
@@ -102,12 +107,15 @@
             break
           case 'classGroup':
             this.$router.push('/class_group')
+            break
+          default:
+            this.bindTooltip()
         }
+      },
+      bindTooltip() {
+        this.$refs.ToolTip.showToolTip()
       }
     },
-    components: {
-      NavigatorBar
-    }
   }
 </script>
 

@@ -45,9 +45,11 @@
     width: 100%;
     position: fixed;
     bottom: 100px;
+    left: 0;
     text-align: center;
     opacity: 0;
     transition: 300ms;
+    z-index: 2000;
     &.show{
       display: block;
     }

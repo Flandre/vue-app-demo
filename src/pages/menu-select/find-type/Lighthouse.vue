@@ -15,10 +15,10 @@
         </div>
         <div class="info-source">
           <div class="source-item">
-            <span class="transmit">{{i.transmit}}</span>
+            <span class="transmit" @click="bindTooltip">{{i.transmit}}</span>
           </div>
           <div class="source-item">
-            <span class="comment">{{i.comment}}</span>
+            <span class="comment" @click="bindTooltip">{{i.comment}}</span>
           </div>
           <div class="source-item" @click="tapLike(index, $event)">
             <span :class="['like', i.isLike ? 'active' : '']">{{i.like}}</span>
@@ -26,12 +26,17 @@
         </div>
       </div>
     </div>
+    <ToolTip ref="ToolTip"/>
   </div>
 </template>
 
 <script>
+  import ToolTip from '@/components/Tooltip/Tooltip'
   export default {
     name: "lighthouse",
+    components: {
+      ToolTip,
+    },
     data() {
       return {
         cardData: [
@@ -78,6 +83,9 @@
           this.cardData[index].like = this.cardData[index].like - 1
         }
         this.cardData[index].isLike = !this.cardData[index].isLike
+      },
+      bindTooltip() {
+        this.$refs.ToolTip.showToolTip()
       }
     }
   }

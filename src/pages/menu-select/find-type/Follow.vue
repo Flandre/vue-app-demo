@@ -4,8 +4,8 @@
       <swiper :options="swiperOption" ref="userSwiper">
         <!-- slides -->
         <swiper-slide v-for="i in userData" :key="i.id">
-          <img :src="i.avatar" class="avatar">
-          <span class="name">{{i.name}}</span>
+          <img :src="i.avatar" class="avatar" @click="bindTooltip">
+          <span class="name" @click="bindTooltip">{{i.name}}</span>
         </swiper-slide>
       </swiper>
     </div>
@@ -24,10 +24,10 @@
         </div>
         <div class="info-source">
           <div class="source-item">
-            <span class="transmit">{{i.transmit}}</span>
+            <span class="transmit" @click="bindTooltip">{{i.transmit}}</span>
           </div>
           <div class="source-item">
-            <span class="comment">{{i.comment}}</span>
+            <span class="comment" @click="bindTooltip">{{i.comment}}</span>
           </div>
           <div class="source-item" @click="tapLike(index, $event)">
             <span :class="['like', i.isLike ? 'active' : '']">{{i.like}}</span>
@@ -35,12 +35,14 @@
         </div>
       </div>
     </div>
+    <ToolTip ref="ToolTip"/>
   </div>
 </template>
 
 <script>
   import 'swiper/dist/css/swiper.css'
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
+  import ToolTip from '@/components/Tooltip/Tooltip'
   export default {
     name: "follow",
     data() {
@@ -112,6 +114,7 @@
       window.scrollTo(0, 0)
     },
     components: {
+      ToolTip,
       swiper,
       swiperSlide
     },
@@ -123,6 +126,9 @@
           this.cardData[index].like = this.cardData[index].like - 1
         }
         this.cardData[index].isLike = !this.cardData[index].isLike
+      },
+      bindTooltip() {
+        this.$refs.ToolTip.showToolTip()
       }
     }
   }
