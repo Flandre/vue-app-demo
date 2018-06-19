@@ -24,7 +24,7 @@
     </div>
     <div class="study-logs">
       <p class="title">详细学习记录</p>
-      <div class="log-info" v-for="i in classList">
+      <div class="log-info" v-for="i in classList" @click="tapVideo(i.linkVideo)">
         <div class="info-container">
           <img :src="i.titleImage" class="title-image">
           <div class="info-content">
@@ -58,6 +58,7 @@
             isComplete: false,
             print: 1,
             type: '必学',
+            linkVideo: 0,
           },
           {
             name: '疲劳驾驶',
@@ -66,6 +67,7 @@
             isComplete: false,
             print: 1,
             type: '必学',
+            linkVideo: 0,
           },
           {
             name: '超速',
@@ -74,6 +76,7 @@
             isComplete: true,
             print: 2,
             type: '必学',
+            linkVideo: 0,
           },
           {
             name: '闯红灯',
@@ -82,6 +85,7 @@
             isComplete: false,
             print: 2,
             type: '必学',
+            linkVideo: 0,
           },
           {
             name: '酒驾',
@@ -90,6 +94,7 @@
             isComplete: false,
             print: 2,
             type: '必学',
+            linkVideo: 0,
           },
           {
             name: '高速公路行车',
@@ -98,6 +103,7 @@
             isComplete: false,
             print: 1,
             type: '选修',
+            linkVideo: 0,
           },
           {
             name: '道路通行权',
@@ -106,6 +112,7 @@
             isComplete: false,
             print: 1,
             type: '选修',
+            linkVideo: 0,
           },
           {
             name: '应急处置',
@@ -114,6 +121,7 @@
             isComplete: true,
             print: 1,
             type: '选修',
+            linkVideo: 0,
           },
           {
             name: '安全文明驾驶',
@@ -122,6 +130,7 @@
             isComplete: false,
             print: 1,
             type: '选修',
+            linkVideo: 0,
           }
         ]
       }
@@ -131,7 +140,10 @@
     },
     methods: {
       tapAct() {
-        this.$router.push({path: '/study_test', query: {backlength: 2}})
+        this.$router.push({path: '/study_test', query: {backlength: this.$route.query.backlength == 2? 3 : 2}})
+      },
+      tapVideo(vid) {
+        this.$router.push({path: '/class_simple', query: {vid: vid}})
       }
     }
   }
