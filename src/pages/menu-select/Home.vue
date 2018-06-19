@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="func-list">
-      <div class="list-item">
+      <div class="list-item" ref="ToolTip" @click="bindTooltip">
         <img src="../../assets/pages/home/friendIcon.png">
         <span>我的好友</span>
         <img src="../../assets/pages/home/arrow-right.png" class="arrow">
@@ -59,12 +59,17 @@
         <img src="../../assets/pages/home/arrow-right.png" class="arrow">
       </div>
     </div>
+    <ToolTip/>
   </div>
 </template>
 
 <script>
+  import ToolTip from '@/components/Tooltip/Tooltip'
   export default {
     name: "Home",
+    components: {
+      ToolTip,
+    },
     beforeMount() {
       /* 返回顶部 */
       window.scrollTo(0, 0)
@@ -85,6 +90,10 @@
       },
       tapEval() {
         this.$router.push('/driving_list')
+      },
+      bindTooltip() {
+        console.log(this.$refs.ToolTip)
+        // this.$refs.ToolTip.showToolTip()
       }
     }
   }
