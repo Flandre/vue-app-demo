@@ -32,7 +32,7 @@
     mounted() {
       /* 固定箭头位置 */
       this.$nextTick(function () {
-        this.sliderLeft = `${document.querySelector('.link-item.active').offsetLeft + document.querySelector('.link-item.active').offsetWidth / 2 - 8}px`
+        this.sliderLeft = `${document.querySelector('.headline-nav .link-item.active').offsetLeft + document.querySelector('.link-item.active').offsetWidth / 2 - 8}px`
       })
     },
     beforeRouteUpdate(to, from, next) {
