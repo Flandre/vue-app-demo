@@ -1,15 +1,20 @@
 <template>
   <div class="web-view">
     <NavigatorBar :title="wTitle" navType="light" bgColor="#fff"/>
-    <img :src="pageNow" class="page">
-
+    <img :src="pageNow" class="page" @click="bindTooltip">
+    <ToolTip ref="ToolTip"/>
   </div>
 </template>
 
 <script>
+  import ToolTip from '@/components/Tooltip/Tooltip'
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
   export default {
     name: "web-view",
+    components: {
+      ToolTip,
+      NavigatorBar,
+    },
     data() {
       return {
         pageData: [
@@ -28,17 +33,18 @@
         wTitle: ''
       }
     },
-    components: {
-      NavigatorBar,
-    },
     beforeMount() {
       window.scrollTo(0, 0)
       if(this.$route.query.title){
         this.wTitle = this.$route.query.title
       }
       this.pageNow = this.pageData[this.$route.query.pid]
+    },
+    methods: {
+      bindTooltip() {
+        this.$refs.ToolTip.showToolTip()
+      }
     }
-
   }
 </script>
 

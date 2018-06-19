@@ -81,7 +81,7 @@
             desc: '添加并认证您的车辆信息',
             goText: '去完成',
             isComplete: true,
-            goWhere: false,
+            goWhere: 'car',
           },
         ]
       }
@@ -99,6 +99,7 @@
     methods: {
       tapGo(where){
         switch(where){
+          case 'car':
           case 'carManager':
             this.$router.push({path: '/manager', query: {lsNum: 'N627M9', carType: '广汽 欧蓝德', inspection: 2, insurance: 2}})
             break

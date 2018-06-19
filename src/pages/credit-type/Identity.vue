@@ -61,11 +61,13 @@
       tapPanel(type) {
         switch(type){
           case 'car':
-            this.$router.push({path: '/endorsement_detail', query: {lsNum: 'N627M9'}})
+            this.$router.push({path: '/manager', query: { lsNum: 'N627M9', carType: '广汽 欧蓝德', inspection: 2, insurance: 2}})
             break
           case 'license':
             if(!sessionStorage.getItem('license')){
               this.$router.push('/license_edit')
+            } else {
+              this.$router.push('/license_info')
             }
             break
           case 'phone':
