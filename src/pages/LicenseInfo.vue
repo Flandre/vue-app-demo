@@ -21,11 +21,11 @@
         <div class="license-msg">
           <div class="msg-item">
             <p class="title">初次领证</p>
-            <p class="desc">2012-01-13</p>
+            <p class="desc">2013-01-13</p>
           </div>
           <div class="msg-item">
             <p class="title">有效期限</p>
-            <p class="desc">2018-01-13</p>
+            <p class="desc">2019-01-13</p>
           </div>
           <div class="msg-item">
             <p class="title">准驾车型</p>
