@@ -18,6 +18,11 @@
     },
     methods: {
       showToolTip() {
+        this.ToolTip = false
+        this.tooltipActive = false
+        this.timerArr.forEach(t => {
+          clearTimeout(t)
+        })
         /* show tooltip */
         this.showTooltip = true
         this.timerArr[0] = setTimeout(() => {
@@ -26,6 +31,9 @@
         this.timerArr[1] = setTimeout(() => {
           this.tooltipActive = false
         }, 2000)
+        this.timerArr[2] = setTimeout(() => {
+          this.showTooltip = false
+        }, 2300)
       }
     }
   }

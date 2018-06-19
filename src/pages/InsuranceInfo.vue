@@ -23,18 +23,20 @@
     </div>
     <img src="../assets/pages/InsuranceInfo/banner.png" class="banner">
     <div class="link-list">
-      <div class="list-item">保险种类 <img src="../assets/pages/InsuranceInfo/Arrow-right.png" class="icon"></div>
-      <div class="list-item">理赔流程 <img src="../assets/pages/InsuranceInfo/Arrow-right.png" class="icon"></div>
-      <div class="list-item">理赔原则 <img src="../assets/pages/InsuranceInfo/Arrow-right.png" class="icon"></div>
+      <div class="list-item" @click="bindTooltip">保险种类 <img src="../assets/pages/InsuranceInfo/Arrow-right.png" class="icon"></div>
+      <div class="list-item" @click="bindTooltip">理赔流程 <img src="../assets/pages/InsuranceInfo/Arrow-right.png" class="icon"></div>
+      <div class="list-item" @click="bindTooltip">理赔原则 <img src="../assets/pages/InsuranceInfo/Arrow-right.png" class="icon"></div>
     </div>
     <div class="active-bar">
       <div class="add-button" @click="addInsurance">添加保单</div>
     </div>
+    <ToolTip ref="ToolTip"/>
   </div>
 </template>
 
 <script>
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
+  import ToolTip from '@/components/Tooltip/Tooltip'
   export default {
     name: "insurance-info",
     data() {
@@ -45,6 +47,7 @@
       }
     },
     components: {
+      ToolTip,
       NavigatorBar
     },
     mounted() {
@@ -61,6 +64,9 @@
       },
       addInsurance() {
         this.$router.push({path: '/addInsurance', query: {lsNum: this.$route.query.lsNum}})
+      },
+      bindTooltip() {
+        this.$refs.ToolTip.showToolTip()
       }
     }
   }
