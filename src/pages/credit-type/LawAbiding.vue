@@ -3,7 +3,7 @@
     <p class="desc">良好的交通守法记录将帮助你获得更高的驾驶信用，交通违法行为将给你的驾驶信用带来负面影响。</p>
     <p class="list-title">近期交通违法记录</p>
     <div class="list-group">
-      <div class="list-item" v-for="item in recordData">
+      <div class="list-item" v-for="item in recordData" @click="tapItem(item.type)">
         <p class="code">{{item.code}}</p>
         <p class="title">{{item.title}}</p>
         <p class="desc">{{item.desc}}</p>
@@ -26,12 +26,18 @@
           {
             code: '京N627M9',
             title: '变更车道时影响正常行驶的机动车的',
-            desc: '北京市丰台区南三环辅路右安门南桥东侧地下停车场入口 全方向',
+            desc: '北京市怀柔区庙城镇其它道路 庙城镇至庙城镇路段',
             score: 0,
             money: 200,
-            time: '2018-03-10 15:17',
+            time: '2017-02-20 13:07',
+            type: 0
           },
         ]
+      }
+    },
+    methods: {
+      tapItem(type) {
+        this.$router.push({path: '/endorsement_more', query: {aid: type}})
       }
     }
   }

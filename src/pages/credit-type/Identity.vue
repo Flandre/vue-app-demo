@@ -2,7 +2,7 @@
   <div class="type-container">
     <p class="desc">丰富、真实的个人身份及实名信息，是驾驶信用的评估因素之一。</p>
     <div class="panel-group">
-      <div class="panel-item" v-for="panel in panelData" @click="tapLicense">
+      <div class="panel-item" v-for="panel in panelData" @click="tapPanel(panel.type)">
         <img :src="panel.icon" class="panel-icon"/>
         <div class="panel-info">
           <p class="title">{{panel.title}}</p>
@@ -28,18 +28,21 @@
             title: '绑定车辆',
             desc: '添加您的车辆信息',
             isComplete: true,
+            type: 'car'
           },
           {
             icon: require('@/assets/pages/creditKnow/identity/card.png'),
             title: '绑定驾驶证',
             desc: '添加您的驾驶证信息',
             isComplete: false,
+            type: 'license'
           },
           {
             icon: require('@/assets/pages/creditKnow/identity/phone.png'),
             title: '绑定手机号',
             desc: '添加并验证您的手机号码',
             isComplete: true,
+            type: 'phone'
           },
         ]
       }
@@ -50,9 +53,18 @@
       }
     },
     methods: {
-      tapLicense() {
-        if(!sessionStorage.getItem('license')){
-          this.$router.push('/license_edit')
+      tapPanel(type) {
+        switch(type){
+          case 'car':
+            this.$router.push({path: '/endorsement_detail', query: {lsNum: 'N627M9'}})
+            break
+          case 'license':
+            if(!sessionStorage.getItem('license')){
+              this.$router.push('/license_edit')
+            }
+            break
+          case 'phone':
+            break
         }
       }
     }
