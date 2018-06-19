@@ -3,7 +3,7 @@
     <NavigatorBar title="行程分析" navType="light" bgColor="#fff"/>
     <div class="map-container">
       <img :src="mainMap" class="map">
-      <img :src="typeMap" class="type" v-if="type != ''">
+      <img :src="typeMap" class="type" v-if="typeMap != ''">
     </div>
     <div class="bottom-control">
       <p class="title">行程中共有{{numCount}}次危险驾驶行为</p>
