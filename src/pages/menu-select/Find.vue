@@ -83,6 +83,7 @@
           color: #fff;
           padding: 0 15px;
           font-size: 13px;
+          white-space: nowrap;
           &.active {
             color: #45A4F7;
             transition: .3s;
