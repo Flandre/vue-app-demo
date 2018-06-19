@@ -89,6 +89,13 @@
         if(to.query.vid != from.query.vid){
           console.log(1)
           let vid = this.$route.query.vid || 0
+          if(sessionStorage.getItem(`lastScore_${vid}`)){
+            this.lastScore = sessionStorage.getItem(`lastScore_${vid}`)
+            this.buttonText = '继续测评'
+          } else {
+            this.lastScore = -1
+            this.buttonText = '开始测评'
+          }
           this.vid = vid
           this.videoSrc = this.videoData[vid].videoSrc
           this.title = this.videoData[vid].title
