@@ -8,7 +8,10 @@
           <p class="name">{{list.name}}</p>
           <p class="desc" v-if="list.desc != ''">昵称：{{list.desc}}</p>
         </div>
-        <div class="action-button active" @click="tapAdd(list.status, index)">
+        <div class="status" v-if="list.status == 2">
+          等待对方验证
+        </div>
+        <div class="action-button active" @click="tapAdd(list.status, index)" v-else>
           <span>接受</span>
         </div>
       </div>
@@ -40,7 +43,7 @@
             avatar: require('../assets/pages/AddPhone/avatar1.png'),
             name: '陈大帅',
             desc: '仰天长啸',
-            status: 1
+            status: 2
           },
         ],
         tooltipText: '内测版本暂不开放此功能'
