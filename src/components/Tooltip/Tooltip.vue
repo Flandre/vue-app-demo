@@ -23,7 +23,6 @@
     },
     methods: {
       showToolTip() {
-        console.log(this.$props)
         this.ToolTip = false
         this.tooltipActive = false
         this.timerArr.forEach(t => {
