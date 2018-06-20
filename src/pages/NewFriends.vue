@@ -38,8 +38,8 @@
           },
           {
             avatar: require('../assets/pages/AddPhone/avatar1.png'),
-            name: '陈浩',
-            desc: '好司机0006',
+            name: '陈大帅',
+            desc: '仰天长啸',
             status: 1
           },
         ],
