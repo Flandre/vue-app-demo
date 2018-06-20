@@ -1,7 +1,7 @@
 <template>
   <div :class="['tooltip-container', showTooltip? 'show': '', tooltipActive? 'active': '']">
     <div class="tooltip-main">
-      内测版本暂不开放此功能
+      {{showText}}
     </div>
   </div>
 </template>
@@ -23,6 +23,7 @@
     },
     methods: {
       showToolTip() {
+        console.log(this.$props)
         this.ToolTip = false
         this.tooltipActive = false
         this.timerArr.forEach(t => {
@@ -40,6 +41,11 @@
           this.showTooltip = false
         }, 2300)
       }
+    },
+    props: {
+      showText: {
+        default: '内测版本暂不开放此功能'
+      },
     }
   }
 </script>

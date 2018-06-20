@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <ToolTip ref="ToolTip"/>
+    <ToolTip ref="ToolTip" :showText="tooltipText"/>
   </div>
 </template>
 
@@ -63,7 +63,8 @@
             desc: '日古将军',
             status: 1
           },
-        ]
+        ],
+        tooltipText: '内测版本暂不开放此功能'
       }
     },
     methods: {
@@ -79,7 +80,12 @@
       },
       tapAdd(status, index) {
         if(status){
-
+          this.tooltipText = '添加成功'
+          this.bindTooltip()
+          setTimeout(() => {
+            this.listData[index].status = 2
+            this.tooltipText = '内测版本暂不开放此功能'
+          }, 2600)
         } else {
           this.bindTooltip()
         }
@@ -107,6 +113,7 @@
         .avatar {
           width: 40px;
           height: 40px;
+          border-radius: 20px;
         }
         .info-content {
           flex-grow: 1;
