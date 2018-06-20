@@ -79,6 +79,7 @@ import WebView from '@/pages/WebView'
 import AddFriend from '@/pages/AddFriend'
 import AddPhone from '@/pages/AddPhone'
 import MyFriends from '@/pages/MyFriends'
+import NewFriends from '@/pages/NewFriends'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -197,6 +198,7 @@ export default new Router({
     { path: '/add_friend', name: '添加好友', component: AddFriend},
     { path: '/add_phone', name: '手机通讯录', component: AddPhone},
     { path: '/my_friends', name: '我的好友', component: MyFriends},
+    { path: '/new_friends', name: '新的好友', component: NewFriends},
     { path: '*', redirect: '/404' }
   ]
 })

@@ -1,20 +1,15 @@
 <template>
-  <div class="my-friends">
-    <NavigatorBar title="我的好友" navType="light" bgColor="#fff"/>
+  <div class="new-friends">
+    <NavigatorBar title="新的好友" navType="light" bgColor="#fff"/>
     <div class="list-group">
-      <div class="list-item" @click="tapNew">
-        <img src="../assets/pages/MyFriends/addIcon.png" class="avatar">
-        <div class="info-content">
-          <p class="name">新的好友</p>
-        </div>
-        <img src="../assets/pages/AddFriend/arrowRight.png" class="arrow-icon">
-      </div>
-    </div>
-    <div class="list-group">
-      <div class="list-item" v-for="(list, index) in listData">
+      <div class="list-item" v-for="(list, index) in listData" v-if="list.status">
         <img :src="list.avatar" class="avatar">
         <div class="info-content">
           <p class="name">{{list.name}}</p>
+          <p class="desc" v-if="list.desc != ''">昵称：{{list.desc}}</p>
+        </div>
+        <div class="action-button active" @click="tapAdd(list.status, index)">
+          <span>接受</span>
         </div>
       </div>
     </div>
@@ -27,7 +22,7 @@
   import ToolTip from '@/components/Tooltip/Tooltip'
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
   export default {
-    name: "my-friends",
+    name: "new-friends",
     components: {
       ToolTip,
       NavigatorBar,
@@ -36,40 +31,47 @@
       return {
         listData: [
           {
-            avatar: require('../assets/pages/MyFriends/avatar1.png'),
-            name: '好司机0005',
+            avatar: require('../assets/pages/AddPhone/avatarDefault.png'),
+            name: '黄江',
+            desc: '二十二十二',
+            status: 1
           },
           {
-            avatar: require('../assets/pages/MyFriends/avatar4.png'),
-            name: '沉默的尔萨',
-          },
-          {
-            avatar: require('../assets/pages/MyFriends/avatar2.png'),
-            name: '饮歌',
-          },
-          {
-            avatar: require('../assets/pages/MyFriends/avatar3.png'),
-            name: '日古将军',
+            avatar: require('../assets/pages/AddPhone/avatar1.png'),
+            name: '陈浩',
+            desc: '好司机0006',
+            status: 1
           },
         ],
         tooltipText: '内测版本暂不开放此功能'
       }
     },
     methods: {
-      tapNew(){
-        this.$router.push('/new_friends')
+      bindTooltip() {
+        this.$refs.ToolTip.showToolTip()
+      },
+      tapAdd(status, index) {
+        if(status){
+          this.tooltipText = '添加成功'
+          this.bindTooltip()
+          setTimeout(() => {
+            this.listData[index].status = 0
+            this.tooltipText = '内测版本暂不开放此功能'
+          }, 2600)
+        } else {
+          this.bindTooltip()
+        }
       }
     }
   }
 </script>
 
 <style lang="less" scoped>
-  .my-friends {
+  .new-friends {
     padding-top: 44px;
     .list-group {
       padding-left: 15px;
       background: #fff;
-      margin-bottom: 10px;
       .list-item {
         padding: 10px 15px;
         padding-left: 0;
@@ -100,9 +102,23 @@
             line-height: 16px;
           }
         }
-        .arrow-icon {
-          width: 7px;
-          height: 12px;
+        .status {
+          color: #ABABAB;
+          font-size: 13px;
+          line-height: 18px;
+        }
+        .action-button {
+          padding: 0 15px;
+          line-height: 26px;
+          font-size: 13px;
+          color: #45A4F7;
+          border: 1px solid #45A4F7;
+          border-radius: 4px;
+          background: #fff;
+          &.active {
+            background: #45A4F7;
+            color: #fff;
+          }
         }
       }
     }
