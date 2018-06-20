@@ -11,7 +11,7 @@
         <img src="../assets/pages/AddFriend/arrowRight.png" class="arrow-icon">
       </div>
     </div>
-    <p class="qrcode"><span>我的二维码名片：</span></p>
+    <p class="qrcode" @click="tapQrcode"><span>我的二维码名片：</span></p>
 
     <ToolTip ref="ToolTip"/>
   </div>
@@ -58,9 +58,12 @@
           this.bindTooltip()
         }
       },
+      tapQrcode() {
+        this.$router.push('/my_qrcode')
+      },
       bindTooltip() {
         this.$refs.ToolTip.showToolTip()
-      }
+      },
     }
   }
 </script>
