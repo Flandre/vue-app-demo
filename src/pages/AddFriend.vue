@@ -33,7 +33,7 @@
             icon: require('../assets/pages/AddFriend/icon1.png'),
             title: '手机联系人',
             desc: '添加或邀请手机通讯录中的朋友',
-            goWhere: false
+            goWhere: '/add_phone'
           },
           {
             icon: require('../assets/pages/AddFriend/icon2.png'),
