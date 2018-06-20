@@ -76,6 +76,7 @@ import StudyList from '@/pages/study-full/StudyList'
 import StudyReport from '@/pages/study-full/StudyReport'
 import StudyTest from '@/pages/StudyTest'
 import WebView from '@/pages/WebView'
+import AddFriend from '@/pages/AddFriend'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -191,6 +192,7 @@ export default new Router({
     },
     { path: '/study_test', name: '申请考试成功页面', component: StudyTest},
     { path: '/web_view', name: '浏览web页面', component: WebView},
+    { path: '/add_friend', name: '添加好友', component: AddFriend},
     { path: '*', redirect: '/404' }
   ]
 })

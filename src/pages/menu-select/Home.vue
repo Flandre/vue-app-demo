@@ -2,7 +2,7 @@
   <div class="home">
     <div class="top-panel">
       <div class="top-control">
-        <div class="add-friends" @click="bindTooltip">
+        <div class="add-friends" @click="tapAddFriend">
           <img src="../../assets/pages/home/addFriendsIcon.png">
         </div>
         <div class="message" @click="bindTooltip">
@@ -91,6 +91,9 @@
       tapEval() {
         this.$router.push('/driving_list')
       },
+      tapAddFriend() {
+        this.$router.push('/add_friend')
+      },
       bindTooltip() {
         this.$refs.ToolTip.showToolTip()
       }
@@ -107,7 +110,13 @@
         display: flex;
         padding: 10px;
         justify-content: space-between;
-        .add-friends,
+        .add-friends {
+          img {
+            width: 62px;
+            height: 22px;
+            padding-right: 40px;
+          }
+        }
         .message{
           img {
             width: 22px;
