@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="func-list">
-      <div class="list-item" @click="bindTooltip">
+      <div class="list-item" @click="tapFriend">
         <img src="../../assets/pages/home/friendIcon.png">
         <span>我的好友</span>
         <img src="../../assets/pages/home/arrow-right.png" class="arrow">
@@ -93,6 +93,9 @@
       },
       tapAddFriend() {
         this.$router.push('/add_friend')
+      },
+      tapFriend() {
+        this.$router.push('my_friends')
       },
       bindTooltip() {
         this.$refs.ToolTip.showToolTip()
