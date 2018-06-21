@@ -83,6 +83,7 @@ import NewFriends from '@/pages/NewFriends'
 import MyQrcode from '@/pages/MyQrcode'
 import SettingEntry from '@/pages/SettingEntry'
 import UserInfo from '@/pages/UserInfo'
+import ChangeInfo from '@/pages/ChangeInfo'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -205,6 +206,7 @@ export default new Router({
     { path: '/my_qrcode', name: '我的二维码', component: MyQrcode},
     { path: '/setting_entry', name: '我的二维码', component: SettingEntry},
     { path: '/user_info', name: '个人资料', component: UserInfo},
+    { path: '/change_info', name: '修改信息', component: ChangeInfo},
     { path: '*', redirect: '/404' }
   ]
 })

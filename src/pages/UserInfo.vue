@@ -72,6 +72,17 @@
       ToolTip,
       NavigatorBar,
     },
+    beforeMount() {
+      if(sessionStorage.getItem('nick')){
+        this.panels[1].main = sessionStorage.getItem('nick')
+      }
+      if(sessionStorage.getItem('sex')){
+        this.panels[2].main = sessionStorage.getItem('sex')
+      }
+      if(sessionStorage.getItem('birth')){
+        this.panels[3].main = sessionStorage.getItem('birth')
+      }
+    },
     methods: {
       tapPanel(type, desc, value, e){
         switch (type){
@@ -81,9 +92,9 @@
           case 'ban':
             this.bindTooltip()
             break
-          case 'change': {
-
-          }
+          case 'change':
+            this.$router.push({path: '/change_info', query: {type: desc, value: value}})
+            break
         }
       },
       signOut() {
