@@ -86,6 +86,7 @@ import UserInfo from '@/pages/UserInfo'
 import ChangeInfo from '@/pages/ChangeInfo'
 import ChangePassword from '@/pages/ChangePassword'
 import About from '@/pages/About'
+import Clause from '@/pages/Clause'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -211,6 +212,7 @@ export default new Router({
     { path: '/change_info', name: '修改信息', component: ChangeInfo},
     { path: '/change_password', name: '修改密码', component: ChangePassword},
     { path: '/about', name: '关于页面', component: About},
+    { path: '/clause', name: '条款页面', component: Clause},
     { path: '*', redirect: '/404' }
   ]
 })

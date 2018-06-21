@@ -35,15 +35,15 @@
             label: '服务条款',
             main: '',
             showArrow: true,
-            clickDesc: '/wechat_qrcode',
-            query: ''
+            clickDesc: '/clause',
+            query: 'terms'
           },
           {
             label: '隐私政策',
             main: '',
             showArrow: true,
-            clickDesc: '/wechat_qrcode',
-            query: ''
+            clickDesc: '/clause',
+            query: 'privacy'
           },
         ]
       }
@@ -53,6 +53,7 @@
     },
     methods: {
       tapPanel(url, query, e) {
+        this.$router.push({path: url, query: {type: query}})
 
       }
     }
