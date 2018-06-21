@@ -34,13 +34,13 @@
       return {
         listData: [
           {
-            avatar: require('../assets/pages/AddPhone/avatarDefault.png'),
+            avatar: require('../assets/pages/NewFriends/avatarDefault.png'),
             name: '黄江',
             desc: '二十二十二',
             status: 1
           },
           {
-            avatar: require('../assets/pages/AddPhone/avatar1.png'),
+            avatar: require('../assets/pages/NewFriends/avatar1.png'),
             name: '陈大帅',
             desc: '仰天长啸',
             status: 2
