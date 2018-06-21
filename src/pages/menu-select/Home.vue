@@ -53,7 +53,7 @@
         <span>推荐给好友</span>
         <img src="../../assets/pages/home/arrow-right.png" class="arrow">
       </div>
-      <div class="list-item" @click="bindTooltip">
+      <div class="list-item" @click="tapSetting">
         <img src="../../assets/pages/home/settingIcon.png">
         <span>设置</span>
         <img src="../../assets/pages/home/arrow-right.png" class="arrow">
@@ -95,7 +95,10 @@
         this.$router.push('/add_friend')
       },
       tapFriend() {
-        this.$router.push('my_friends')
+        this.$router.push('/my_friends')
+      },
+      tapSetting() {
+        this.$router.push('/setting_entry')
       },
       bindTooltip() {
         this.$refs.ToolTip.showToolTip()

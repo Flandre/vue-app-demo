@@ -16,7 +16,6 @@
         </div>
       </div>
     </div>
-
     <ToolTip ref="ToolTip" :showText="tooltipText"/>
   </div>
 </template>
