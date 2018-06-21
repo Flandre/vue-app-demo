@@ -5,7 +5,7 @@
       <div class="license-info">
         <img src="../assets/pages/MyQrcode/avatar.png" class="avatar">
         <div class="info-box">
-          <p class="name">汪喵</p>
+          <p class="name">{{nickName}}</p>
           <p class="code">2017-07-01 加入 好司机日记</p>
         </div>
       </div>
@@ -21,8 +21,20 @@
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
   export default {
     name: "my-qrcode",
+    data() {
+      return {
+        nickName: '汪喵'
+      }
+    },
     components: {
       NavigatorBar,
+    },
+    beforeMount() {
+      /* 返回顶部 */
+      window.scrollTo(0, 0)
+      if(sessionStorage.getItem('nick')){
+        this.nickName = sessionStorage.getItem('nick')
+      }
     },
   }
 </script>

@@ -14,7 +14,7 @@
           <img src="../../assets/pages/home/avatar.png"/>
         </div>
         <div class="account-content">
-          <p class="name">汪喵</p>
+          <p class="name">{{nickName}}</p>
           <span class="coin" @click="bindTooltip">5658积分</span>
         </div>
         <div class="credit-info" @click="tapCredit">
@@ -67,12 +67,20 @@
   import ToolTip from '@/components/Tooltip/Tooltip'
   export default {
     name: "Home",
+    data() {
+      return {
+        nickName: '汪喵'
+      }
+    },
     components: {
       ToolTip,
     },
     beforeMount() {
       /* 返回顶部 */
       window.scrollTo(0, 0)
+      if(sessionStorage.getItem('nick')){
+        this.nickName = sessionStorage.getItem('nick')
+      }
     },
     methods: {
       tapCredit() {
