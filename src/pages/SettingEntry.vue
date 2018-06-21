@@ -28,7 +28,7 @@
               main: '已绑定',
               showArrow: true,
               clickType: 'url',
-              clickDesc: ''
+              clickDesc: '/change_password'
             },
             {
               label: '个人资料',
@@ -71,12 +71,18 @@
             },
           ]
         ],
-        tooltipText: '内测版本暂不开放此功能'
+        tooltipText: '内测版本暂不开放此功能',
+        timerArr: []
       }
     },
     components: {
       ToolTip,
       NavigatorBar,
+    },
+    beforeDestroy() {
+      this.timerArr.forEach(val => {
+        clearTimeout(val)
+      })
     },
     methods: {
       tapPanel(type, desc, e){
@@ -87,7 +93,7 @@
           case 'clearStorage':
             this.tooltipText = '清除成功'
             this.bindTooltip()
-            setTimeout(() => {
+            this.timerArr[0] = setTimeout(() => {
               this.tooltipText = '内测版本暂不开放此功能'
               e.target.querySelector('.main').innerHTML = '0M'
             }, 2600)
