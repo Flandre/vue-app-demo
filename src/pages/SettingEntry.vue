@@ -1,6 +1,7 @@
 <template>
   <div class="setting-entry">
     <NavigatorBar title="设置" navType="light" bgColor="#fff"/>
+
     <div class="panel-group" v-for="g in panels">
       <div class="panel-item" v-for="p in g" @click="tapPanel(p.clickType, p.clickDesc, $event)">
         <span class="label">{{p.label}}</span>
@@ -67,7 +68,7 @@
               main: '',
               showArrow: true,
               clickType: 'url',
-              clickDesc: ''
+              clickDesc: '/about'
             },
           ]
         ],

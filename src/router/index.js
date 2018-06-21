@@ -85,6 +85,7 @@ import SettingEntry from '@/pages/SettingEntry'
 import UserInfo from '@/pages/UserInfo'
 import ChangeInfo from '@/pages/ChangeInfo'
 import ChangePassword from '@/pages/ChangePassword'
+import About from '@/pages/About'
 import _404 from '@/pages/404'
 
 Router.prototype.goBack = function () {
@@ -174,7 +175,7 @@ export default new Router({
     { path: '/driving_list', name: '我的行程', component: DrivingList},
     { path: '/driving_detail', name: '行程详情', component: DrivingDetail},
     { path: '/driving_question', name: '评分说明', component: DrivingQuestion},
-    { path: '/driving_map', name: '评分说明', component: DrivingMap},
+    { path: '/driving_map', name: '行程地图', component: DrivingMap},
     { path: '/license_jzcf', name: '驾照查分', component: LicenseJZCF, redirect: '/license_jzcf/now', children: [
         {path: '/license_jzcf/now', name: '当前记分周期', component: JzcfNow},
         {path: '/license_jzcf/history', name: '历史违法记录', component: JzcfHistory},
@@ -205,10 +206,11 @@ export default new Router({
     { path: '/my_friends', name: '我的好友', component: MyFriends},
     { path: '/new_friends', name: '新的好友', component: NewFriends},
     { path: '/my_qrcode', name: '我的二维码', component: MyQrcode},
-    { path: '/setting_entry', name: '我的二维码', component: SettingEntry},
+    { path: '/setting_entry', name: '设置入口', component: SettingEntry},
     { path: '/user_info', name: '个人资料', component: UserInfo},
     { path: '/change_info', name: '修改信息', component: ChangeInfo},
     { path: '/change_password', name: '修改密码', component: ChangePassword},
+    { path: '/about', name: '关于页面', component: About},
     { path: '*', redirect: '/404' }
   ]
 })
