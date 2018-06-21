@@ -32,17 +32,17 @@
             },
             {
               label: '个人资料',
-              main: '',
+              main: ' ',
               showArrow: true,
               clickType: 'url',
-              clickFunc: ''
+              clickDesc: '/user_info'
             },
             {
               label: '收货地址',
               main: '',
               showArrow: true,
-              clickType: 'url',
-              clickFunc: ''
+              clickType: 'ban',
+              clickDesc: ''
             },
           ],
           [
@@ -85,7 +85,12 @@
             this.$router.push(desc)
             break
           case 'clearStorage':
-            e.target.querySelector('.main').innerHTML = '0M'
+            this.tooltipText = '清除成功'
+            this.bindTooltip()
+            setTimeout(() => {
+              this.tooltipText = '内测版本暂不开放此功能'
+              e.target.querySelector('.main').innerHTML = '0M'
+            }, 2600)
             break
           case 'ban':
             this.bindTooltip()
@@ -134,6 +139,7 @@
           color: #ABABAB;
           font-size: 13px;
           line-height: 18px;
+          height: 18px;
           &.arrow {
             background: url("../assets/pages/SettingEntry/Arrow-right.png") right center no-repeat;
             background-size: 7px 12px;
