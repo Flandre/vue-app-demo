@@ -13,6 +13,7 @@
 
 <script>
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
+  import Datepicker from 'vue-datepicker-simple'
   export default {
     name: "change-info",
     data() {
@@ -23,7 +24,8 @@
       }
     },
     components: {
-      NavigatorBar
+      NavigatorBar,
+      Datepicker
     },
     beforeMount() {
       switch (this.$route.query.type){
