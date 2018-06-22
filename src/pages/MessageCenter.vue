@@ -99,7 +99,7 @@
           background: #A4B2C3;
           color: #fff;
           border-radius: 4px;
-          padding: 0 15px;
+          padding: 0 5px;
           margin-bottom: 10px;
         }
         .activity-panel {

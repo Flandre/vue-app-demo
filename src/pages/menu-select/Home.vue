@@ -41,22 +41,18 @@
       <div class="list-item" @click="tapFriend">
         <img src="../../assets/pages/home/friendIcon.png">
         <span>我的好友</span>
-        <img src="../../assets/pages/home/arrow-right.png" class="arrow">
       </div>
       <div class="list-item" @click="bindTooltip">
         <img src="../../assets/pages/home/questionIcon.png">
         <span>常见问题</span>
-        <img src="../../assets/pages/home/arrow-right.png" class="arrow">
       </div>
       <div class="list-item" @click="bindTooltip">
         <img src="../../assets/pages/home/repeatIcon.png">
         <span>推荐给好友</span>
-        <img src="../../assets/pages/home/arrow-right.png" class="arrow">
       </div>
       <div class="list-item" @click="tapSetting">
         <img src="../../assets/pages/home/settingIcon.png">
         <span>设置</span>
-        <img src="../../assets/pages/home/arrow-right.png" class="arrow">
       </div>
     </div>
     <ToolTip ref="ToolTip"/>
@@ -246,14 +242,11 @@
           width: 20px;
           height: 20px;
           margin-right: 15px;
-          &.arrow {
-            width: 7px;
-            height: 12px;
-            margin-right: 0;
-          }
         }
         span {
-          flex-grow: 1
+          flex-grow: 1;
+          background: url("../../assets/pages/home/arrow-right.png") right center no-repeat;
+          background-size: 7px 12px;
         }
         &:last-child {
           border-bottom: 0;

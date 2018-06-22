@@ -38,25 +38,6 @@ export default {
 <style>
 * {
   -webkit-touch-callout:none;
-  -webkit-user-select:none;
-  -khtml-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
-}
-input {
-  -webkit-user-select:all;
-  -khtml-user-select:all;
-  -moz-user-select:all;
-  -ms-user-select:all;
-  user-select:all;
-}
-textarea {
-  -webkit-user-select:all;
-  -khtml-user-select:all;
-  -moz-user-select:all;
-  -ms-user-select:all;
-  user-select:all;
 }
 html,
 body,
