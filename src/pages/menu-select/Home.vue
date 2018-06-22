@@ -5,7 +5,7 @@
         <div class="add-friends" @click="tapAddFriend">
           <img src="../../assets/pages/home/addFriendsIcon.png">
         </div>
-        <div class="message" @click="bindTooltip">
+        <div class="message" @click="tapMessage">
           <img src="../../assets/pages/home/messageIcon.png">
         </div>
       </div>
@@ -107,6 +107,9 @@
       },
       tapSetting() {
         this.$router.push('/setting_entry')
+      },
+      tapMessage() {
+        this.$router.push('/message_center')
       },
       bindTooltip() {
         this.$refs.ToolTip.showToolTip()
