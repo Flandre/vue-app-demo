@@ -281,7 +281,9 @@
         span {
           flex-grow: 1;
           display: block;
-          background: url("../assets/pages/LicenseInfo/arrow-right.png") right center no-repeat;
+          background-image: url("../assets/pages/LicenseInfo/arrow-right.png");
+          background-position: right center;
+          background-repeat: no-repeat;
           background-size: 7px 12px;
           padding-right: 22px;
         }

@@ -149,13 +149,15 @@
             margin-bottom: -11px;
           }
           .qrcode {
+            display: block;
             width: 16px;
             height: 16px;
             display: block;
           }
           &.arrow {
-            display: block;
-            background: url("../assets/pages/UserInfo/Arrow-right.png") right center no-repeat;
+            background-image: url("../assets/pages/UserInfo/Arrow-right.png");
+            background-position: right center;
+            background-repeat: no-repeat;
             background-size: 7px 12px;
             padding-right: 22px;
           }

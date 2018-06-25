@@ -246,7 +246,9 @@
         span {
           display: block;
           flex-grow: 1;
-          background: url("../../assets/pages/home/Arrow-right.png") right center no-repeat;
+          background-image: url("../../assets/pages/home/Arrow-right.png");
+          background-position: right center;
+          background-repeat: no-repeat;
           background-size: 7px 12px;
         }
         &:last-child {

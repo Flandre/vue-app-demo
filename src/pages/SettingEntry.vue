@@ -143,13 +143,15 @@
           line-height: 18px;
         }
         .main {
+          display: block;
           color: #ABABAB;
           font-size: 13px;
           line-height: 18px;
           height: 18px;
           &.arrow {
-            display: block;
-            background: url("../assets/pages/SettingEntry/Arrow-right.png") right center no-repeat;
+            background-image: url("../assets/pages/SettingEntry/Arrow-right.png");
+            background-position: right center;
+            background-repeat: no-repeat;
             background-size: 7px 12px;
             padding-right: 22px;
           }
