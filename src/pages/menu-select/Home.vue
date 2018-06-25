@@ -244,6 +244,7 @@
           margin-right: 15px;
         }
         span {
+          display: block;
           flex-grow: 1;
           background: url("../../assets/pages/home/Arrow-right.png") right center no-repeat;
           background-size: 7px 12px;

@@ -42,7 +42,6 @@
       <div class="list-item" v-for="func in funcData" @click="tapList(func.path)">
         <img :src="func.icon">
         <span>{{func.name}}</span>
-        <img src="../assets/pages/LicenseInfo/arrow-right.png" class="arrow">
       </div>
     </div>
   </div>
@@ -280,7 +279,11 @@
           }
         }
         span {
-          flex-grow: 1
+          flex-grow: 1;
+          display: block;
+          background: url("../assets/pages/LicenseInfo/arrow-right.png") right center no-repeat;
+          background-size: 7px 12px;
+          padding-right: 22px;
         }
         &:last-child {
           border-bottom: 0;

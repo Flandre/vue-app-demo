@@ -154,6 +154,7 @@
             display: block;
           }
           &.arrow {
+            display: block;
             background: url("../assets/pages/UserInfo/Arrow-right.png") right center no-repeat;
             background-size: 7px 12px;
             padding-right: 22px;

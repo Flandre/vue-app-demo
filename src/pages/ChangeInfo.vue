@@ -13,7 +13,7 @@
 
 <script>
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
-  import Datepicker from 'vue-datepicker-simple'
+  // import Datepicker from 'vue-datepicker-simple'
   export default {
     name: "change-info",
     data() {
@@ -25,7 +25,7 @@
     },
     components: {
       NavigatorBar,
-      Datepicker
+      // Datepicker
     },
     beforeMount() {
       switch (this.$route.query.type){
@@ -47,9 +47,9 @@
       }
     },
     methods: {
-      tss() {
-        console.log(111)
-      },
+      // tss() {
+      //   console.log(111)
+      // },
       saveSetting() {
         if(this.$route.query.type){
           sessionStorage.setItem(this.$route.query.type, this.valueText)

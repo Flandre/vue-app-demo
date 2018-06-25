@@ -100,6 +100,7 @@
           line-height: 18px;
           height: 18px;
           &.arrow {
+            display: block;
             background: url("../assets/pages/About/Arrow-right.png") right center no-repeat;
             background-size: 7px 12px;
             padding-right: 22px;
