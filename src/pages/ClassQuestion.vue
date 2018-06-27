@@ -11,6 +11,9 @@
         <div class="answer-list">
           <div :class="['answer-item', ans.state]" v-for="(ans, ansIndex) in ques.answer" @click="tapSelect(quesIndex, ansIndex)">{{ans.text}}</div>
         </div>
+        <div class="analysis" v-if="ques.analysis && !shouldSelect">
+          <p v-for="p in ques.analysis">{{p}}</p>
+        </div>
       </div>
     </div>
     <div :class="['submit-bar', enableSubmit? '': 'disabled']" @click="tapButton" v-if="showSubmit">{{submitText}}</div>
@@ -39,7 +42,8 @@
                 right: true,
                 state: 'select'
               },
-            ]
+            ],
+            analysis: ['白色实线表示同向两车道之间的标线，它就好比一堵“墙”，引导您在正确的车道上行驶，禁止随意跨越，保证交通安全。']
           },
           {
             type: 'judge',
@@ -128,7 +132,7 @@
         enableSubmit: false,
         submitText: '提交答案',
         lastScore: '',
-        shoudSelect: true,
+        shouldSelect: true,
         showSubmit: true,
       }
     },
@@ -159,7 +163,7 @@
     },
     methods: {
       tapSelect(ques, ans){
-        if(this.shoudSelect){
+        if(this.shouldSelect){
           switch(this.questionData[ques].type){
             case 'exclusive':
             case 'judge':
@@ -188,7 +192,7 @@
             this.submitText = '重测一次'
             this.showSubmit = false
             window.scrollTo(0, 0)
-            this.shoudSelect = false
+            this.shouldSelect = false
             let count = 0
             this.questionData.forEach(ques => {
               let isRight = true;
@@ -245,7 +249,7 @@
           } else {
             this.submitText = '提交答案'
             window.scrollTo(0, 0)
-            this.shoudSelect = true
+            this.shouldSelect = true
             this.lastScore = ''
             this.questionData.forEach(ques => {
               ques.answer.forEach(ans => {
@@ -289,6 +293,7 @@
       }
       .question-item {
         overflow: hidden;
+        margin-bottom: 25px;
         .question {
           color: #333333;
           font-size: 15px;
@@ -306,7 +311,7 @@
           }
         }
         .answer-list {
-          margin-bottom: 40px;
+          margin-bottom: 15px;
           .answer-item {
             font-size: 15px;
             line-height: 24px;
@@ -339,6 +344,20 @@
                 background: url("../assets/pages/ClassQuestion/isRight.png") center no-repeat;
                 background-size: 16px 12px;
               }
+            }
+          }
+        }
+        .analysis {
+          padding: 15px;
+          background: #EFF3F7;
+          margin-bottom: 15px;
+          p {
+            color: #666666;
+            font-size: 13px;
+            line-height: 17px;
+            margin-bottom: 5px;
+            &:last-child {
+              margin-bottom: 0;
             }
           }
         }

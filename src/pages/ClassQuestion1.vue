@@ -11,6 +11,9 @@
         <div class="answer-list">
           <div :class="['answer-item', ans.state]" v-for="(ans, ansIndex) in ques.answer" @click="tapSelect(quesIndex, ansIndex)">{{ans.text}}</div>
         </div>
+        <div class="analysis" v-if="ques.analysis && !shouldSelect">
+          <p v-for="p in ques.analysis">{{p}}</p>
+        </div>
       </div>
     </div>
     <div :class="['submit-bar', enableSubmit? '': 'disabled']" @click="tapButton" v-if="showSubmit">{{submitText}}</div>
@@ -39,6 +42,11 @@
                 right: true,
                 state: 'select'
               },
+            ],
+            analysis: [
+              '《道路交通安全法》第四十二条规定：机动车上道路行驶，不得超过限速标志标明的最高时速。在没有限速标志的路段，应当保持安全车速。',
+              '夜间行驶或者在容易发生危险的路段行驶，以及遇有沙尘、冰雹、雨、雪、雾、结冰等气象条件时，应当降低行驶速度。',
+              '特殊天气会对车辆性能、驾驶人视野造成影响，您应当以安全为重，根据天气情况降低行驶速度，以免发生意外。'
             ]
           },
           {
@@ -101,7 +109,7 @@
         enableSubmit: false,
         submitText: '提交答案',
         lastScore: '',
-        shoudSelect: true,
+        shouldSelect: true,
         showSubmit: true,
       }
     },
@@ -132,7 +140,7 @@
     },
     methods: {
       tapSelect(ques, ans){
-        if(this.shoudSelect){
+        if(this.shouldSelect){
           switch(this.questionData[ques].type){
             case 'exclusive':
             case 'judge':
@@ -161,7 +169,7 @@
             this.submitText = '重测一次'
             this.showSubmit = false
             window.scrollTo(0, 0)
-            this.shoudSelect = false
+            this.shouldSelect = false
             let count = 0
             this.questionData.forEach(ques => {
               let isRight = true;
@@ -218,7 +226,7 @@
           } else {
             this.submitText = '提交答案'
             window.scrollTo(0, 0)
-            this.shoudSelect = true
+            this.shouldSelect = true
             this.lastScore = ''
             this.questionData.forEach(ques => {
               ques.answer.forEach(ans => {
@@ -262,6 +270,7 @@
       }
       .question-item {
         overflow: hidden;
+        margin-bottom: 25px;
         .question {
           color: #333333;
           font-size: 15px;
@@ -279,7 +288,7 @@
           }
         }
         .answer-list {
-          margin-bottom: 40px;
+          margin-bottom: 15px;
           .answer-item {
             font-size: 15px;
             line-height: 24px;
@@ -312,6 +321,20 @@
                 background: url("../assets/pages/ClassQuestion/isRight.png") center no-repeat;
                 background-size: 16px 12px;
               }
+            }
+          }
+        }
+        .analysis {
+          padding: 15px;
+          background: #EFF3F7;
+          margin-bottom: 15px;
+          p {
+            color: #666666;
+            font-size: 13px;
+            line-height: 17px;
+            margin-bottom: 5px;
+            &:last-child {
+              margin-bottom: 0;
             }
           }
         }
