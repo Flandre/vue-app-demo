@@ -44,11 +44,26 @@
         <span>{{func.name}}</span>
       </div>
     </div>
+    <GlobalDialog
+      ref="GlobalDialog"
+      v-on:enter="enterCbk"
+      :showText="dialogContent"
+      :enterBtnName="dialogEnter"
+      :cancelBtnName="dialogCancel"
+      :cancelType="dialogCancelType"
+    />
+    <div :class="['loading-box', showLoading? 'active': '']">
+      <div class="loading">
+        <img src="../assets/pages/LicenseInfo/spinner.png" class="icon">
+        <span>正在同步车辆信息，请稍候...</span>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   import NavigatorBar from '@/components/NavigatorBar/NavigatorBar'
+  import GlobalDialog from '@/components/GlobalDialog/GlobalDialog'
   export default {
     name: "license-info",
     data() {
@@ -86,14 +101,32 @@
           // },
         ],
         auth: false,
+        dialogStep: 1,
+        dialogEnter: '',
+        dialogCancel: '',
+        dialogContent: '',
+        dialogCancelType: 'all',
+        showLoading: false
       }
     },
     components: {
       NavigatorBar,
+      GlobalDialog,
     },
     beforeMount() {
       if(sessionStorage.getItem('isAuth')){
         this.auth = true
+      }
+    },
+    mounted() {
+      if(sessionStorage.getItem('firstAuth')){
+        sessionStorage.removeItem('firstAuth')
+        this.dialogContent = '是否自动同步您的车辆信息'
+        this.dialogEnter = '确定'
+        this.dialogCancel = '取消'
+        this.dialogCancelType = 'onlyDialog'
+
+        this.$refs.GlobalDialog.showDialog()
       }
     },
     methods: {
@@ -118,6 +151,26 @@
           }
         } else {
           this.$router.push(path)
+        }
+      },
+      enterCbk() {
+        if(this.dialogStep == 1){
+          console.log('enter 1st callback')
+
+          this.showLoading = true;
+          setTimeout(() => {
+            this.showLoading = false;
+            this.dialogStep = 2
+            this.dialogContent = '车辆添加成功'
+            this.dialogEnter = '去看看'
+            this.dialogCancel = '稍后再说'
+            this.dialogCancelType = 'all'
+
+            this.$refs.GlobalDialog.showDialog()
+          }, 1000)
+
+        } else if (this.dialogStep == 2){
+          this.$router.push({path: '/manager', query: {lsNum: 'N627M9', carType: '广汽 欧蓝德', inspection: 2, insurance: 2}})
         }
       }
     }
@@ -291,6 +344,49 @@
           border-bottom: 0;
         }
       }
+    }
+    .loading-box {
+      width: 100%;
+      height: auto;
+      position: fixed;
+      top: 180px;
+      text-align: center;
+      display: none;
+      z-index: 2020;
+      &.active {
+        display: block;
+      }
+      .loading {
+        width: 200px;
+        padding: 40px 15px;
+        margin: 0 auto;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .icon {
+          width: 56px;
+          height: 59px;
+          margin-bottom: 20px;
+          display: block;
+          animation: rot 3s linear infinite;
+        }
+        span {
+          font-size: 13px;
+          line-height: 18px;
+          color: #fff;
+          text-align: left;
+        }
+      }
+    }
+  }
+  @keyframes rot {
+    to {
+      transform: rotate(0deg);
+    }
+    from {
+      transform: rotate(360deg);
     }
   }
 </style>

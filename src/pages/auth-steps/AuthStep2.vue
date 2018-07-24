@@ -47,6 +47,7 @@
       this.timerArr[5] = setTimeout(() => {
         /* 跳转逻辑 */
         sessionStorage.setItem('isAuth', true)
+        sessionStorage.setItem('firstAuth', true)
         history.go(-2)
       }, 6000)
     },
